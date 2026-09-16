@@ -74,9 +74,25 @@ const ResultStore = (function () {
     if (!ready) return [];
     const snap = await db.collection("results").orderBy("submittedAt", "desc").get();
     const now = Date.now();
-    return snap.docs
-      .map(d => ({ id: d.id, ...d.data() }))
-      .filter(r => !r.expireAt || r.expireAt.toMillis() > now);
+
+    const fresh = [];
+    const expiredDocs = [];
+
+    snap.docs.forEach(d => {
+      const data = { id: d.id, ...d.data() };
+      if (data.expireAt && data.expireAt.toMillis() <= now) {
+        expiredDocs.push(d.ref);
+      } else {
+        fresh.push(data);
+      }
+    });
+
+    // Clean up anything past its 10-day mark while we're here.
+    if (expiredDocs.length > 0) {
+      await Promise.all(expiredDocs.map(ref => ref.delete().catch(() => {})));
+    }
+
+    return fresh;
   }
 
   return {

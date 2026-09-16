@@ -35,9 +35,10 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /results/{resultId} {
-      allow create: if true;               // students can submit results
-      allow read: if request.auth != null; // only the logged-in teacher can read
-      allow update, delete: if false;
+      allow create: if true;                // students can submit results
+      allow read: if request.auth != null;  // only the logged-in teacher can read
+      allow update: if false;
+      allow delete: if request.auth != null; // teacher's dashboard cleans up expired results
     }
   }
 }
@@ -45,19 +46,15 @@ service cloud.firestore {
 
 Click **Publish**.
 
-## 5. Turn on the 10-day auto-delete (TTL policy)
-1. Still in Firestore, go to the **TTL** tab (under "Indexes" area,
-   sometimes labeled "Time-to-live").
-2. Click **Create policy**.
-3. Collection ID: `results`
-4. Timestamp field: `expireAt`
-5. Save.
-
-Firestore will then automatically delete any result document once its
-`expireAt` time has passed (the app sets this to 10 days after
-submission). Deletion typically happens within 24 hours of expiry —
-so results may occasionally still be visible for a short time after
-the 10-day mark, but they will always be gone well before day 11.
+## 5. The 10-day auto-delete
+Firestore's built-in auto-delete (TTL) requires a paid Blaze billing
+account, which isn't necessary here. Instead, the app cleans this up
+itself: every time the "Teacher / Operator Login" dashboard loads, it
+checks each result's age and permanently deletes anything past 10
+days before showing the table. So results are guaranteed to disappear
+by day 10 as long as the dashboard gets opened at least occasionally
+(which it will, since that's how you check results) — no billing
+account needed.
 
 ## 6. Turn on Email/Password sign-in and create the teacher login
 1. In the left sidebar, click **Build > Authentication**.

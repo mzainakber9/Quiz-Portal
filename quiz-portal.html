@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concepts College of Sciences - Quiz Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ================= STUDENT LOGIN ================= -->
+  <div class="box" id="loginBox">
+    <img src="assets/logo.jpg" alt="Concepts College of Sciences" class="logo">
+    <h1 class="academy">CONCEPTS COLLEGE OF SCIENCES</h1>
+    <h2 class="portal">Quiz Portal</h2>
+
+    <select id="classSelect" required>
+      <option value="" disabled selected>Select Class</option>
+      <option value="9th">9th</option>
+      <option value="10th">10th</option>
+      <option value="11th">11th</option>
+      <option value="12th">12th</option>
+    </select>
+
+    <input id="roll" placeholder="Roll Number" required>
+    <input id="fname" placeholder="Student Name" required>
+
+    <button onclick="login()" class="loginBtn">Login</button>
+
+    <p id="loginMsg" class="error"></p>
+
+    <p class="teacherLink"><a href="#" onclick="showTeacherLogin(); return false;">Teacher / Operator Login</a></p>
+  </div>
+
+
+  <!-- ================= TEACHER LOGIN ================= -->
+  <div class="box hidden" id="teacherLoginBox">
+    <h2 class="portal">Teacher / Operator Login</h2>
+
+    <input id="teacherEmail" type="email" placeholder="Email" required>
+    <input id="teacherPassword" type="password" placeholder="Password" required>
+
+    <button onclick="teacherLoginSubmit()" class="loginBtn">Login</button>
+    <p id="teacherLoginMsg" class="error"></p>
+
+    <p class="teacherLink"><a href="#" onclick="backToStudentLogin(); return false;">Back to student login</a></p>
+  </div>
+
+
+  <!-- ================= TEACHER DASHBOARD ================= -->
+  <div class="box hidden wide" id="teacherDashboard">
+    <h2 class="portal">Stored Results</h2>
+    <p class="note">Results are kept for 10 days from submission, then deleted automatically.</p>
+
+    <button onclick="loadTeacherResults()">Refresh</button>
+    <button onclick="teacherLogoutClick()">Log out</button>
+
+    <div class="tableWrap">
+      <table id="resultsTable">
+        <thead>
+          <tr>
+            <th>Student</th>
+            <th>Roll</th>
+            <th>Class</th>
+            <th>Subject</th>
+            <th>Chapter / Paper</th>
+            <th>Score</th>
+            <th>Wrong</th>
+            <th>Skipped</th>
+            <th>%</th>
+            <th>Submitted</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="9">Log in to load results.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- ================= SUBJECT / CATEGORY SELECTION ================= -->
+  <div class="box hidden" id="subjectBox">
+    <h2 id="welcome"></h2>
+    <h3>Select Subject</h3>
+
+    <select id="subjectSelect" onchange="loadCategories()">
+      <option value="">-- Select Subject --</option>
+    </select>
+
+    <div id="categoryContainer" class="hidden">
+      <h3>Select Chapter / Paper</h3>
+      <select id="categorySelect">
+        <option value="">-- Select --</option>
+      </select>
+    </div>
+
+    <button onclick="startSelectedSubject()">Start Quiz</button>
+  </div>
+
+
+  <!-- ================= QUIZ BOX ================= -->
+  <div class="box hidden" id="quizBox">
+    <h3 id="progress"></h3>
+    <h3 id="timer"></h3>
+    <h2 id="question"></h2>
+
+    <div id="optionsContainer"></div>
+
+    <div class="academyFooter">
+      <strong>CONCEPTS COLLEGE OF SCIENCES</strong><br>
+      MAIN HARLEY STREET RAWALPINDI.<br>
+      051-5176031, 0333-5221459
+    </div>
+
+    <div id="reasonBox" class="reason-box"></div>
+
+    <div class="quizButtons">
+      <button id="nextBtn">Next</button>
+      <button id="submitBtn" class="hidden submitBtn" onclick="submitAttempt()">Submit &amp; See Result</button>
+    </div>
+  </div>
+
+
+  <!-- ================= RESULT BOX ================= -->
+  <div class="box hidden" id="resultBox">
+    <h2>Result</h2>
+    <h3 id="scoreText"></h3>
+    <h3 id="percentText"></h3>
+    <p id="resultBreakdown"></p>
+
+    <button onclick="chooseAnotherQuiz()">Take Another Quiz</button>
+  </div>
+
+
+  <!-- ================= FIREBASE (for result storage) ================= -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/storage.js"></script>
+
+  <!-- ================= QUIZ BANK REGISTRY (load before data files) ================= -->
+  <script src="js/quiz-bank.js"></script>
+  <script src="js/students.js"></script>
+
+  <!-- ================= DATA FILES ================= -->
+  <!-- Math: chapter-wise -->
+  <script src="data/math/10th-math-ch1-real-numbers.js"></script>
+
+  <!-- Physics: past papers -->
+  <script src="data/physics/9th-physics-pastpaper-2024.js"></script>
+
+  <!-- Chemistry: past papers -->
+  <script src="data/chemistry/10th-chemistry-pastpaper-2024.js"></script>
+
+  <!-- English -->
+  <script src="data/english/10th-english-set2.js"></script>
+
+  <!-- Biology / Computer / Islamiyat / Pak Study: add files here as content is ready -->
+
+  <!-- ================= MAIN LOGIC ================= -->
+  <script src="js/quiz-setting.js"></script>
+
+</body>
+</html>

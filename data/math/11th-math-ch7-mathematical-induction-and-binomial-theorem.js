@@ -1,5 +1,5 @@
-// Converted from class11-math-mcq-ch7-8.js (chapter 7: Mathematical Induction and Binomial Theorem)
-// Includes 100 base MCQs + 12 stimulus-based MCQs.
+// Class 11 Math — Chapter 7: Mathematical Induction and Binomial Theorem
+// 112 MCQs (base + stimulus-based), each with a computed/verified explanation.
 // Math is written in LaTeX (\\( ... \\)) and rendered client-side by KaTeX.
 QuizBank.register({
   class: "11th",
@@ -19,7 +19,7 @@ QuizBank.register({
       "Positive integers"
     ],
     "ans": "Positive integers",
-    "reason": null
+    "reason": "Mathematical induction proves statements for every positive integer \\(n\\) (i.e. \\(n=1,2,3,\\ldots\\))."
   },
   {
     "q": "The first step in a proof by mathematical induction, in which \\(P(1)\\) is verified, is called the:",
@@ -30,7 +30,7 @@ QuizBank.register({
       "Inductive step"
     ],
     "ans": "Basis step",
-    "reason": null
+    "reason": "Verifying the statement for the smallest case, \\(P(1)\\), is called the basis (or base) step."
   },
   {
     "q": "The second step in a proof by mathematical induction, in which \\(P(k+1)\\) is shown true whenever \\(P(k)\\) is true, is called the:",
@@ -41,7 +41,7 @@ QuizBank.register({
       "Inductive step"
     ],
     "ans": "Inductive step",
-    "reason": null
+    "reason": "Showing that \\(P(k)\\) being true forces \\(P(k+1)\\) to be true is called the inductive step."
   },
   {
     "q": "If a mathematical statement \\(P(n)\\) is true for all positive integers, it is also true for all:",
@@ -52,7 +52,7 @@ QuizBank.register({
       "Rational numbers"
     ],
     "ans": "Positive integers",
-    "reason": null
+    "reason": "This is exactly the conclusion induction delivers: true for \\(n=1\\) plus 'true for \\(k\\) implies true for \\(k+1\\)' gives truth for every positive integer."
   },
   {
     "q": "The method of mathematical induction was referred to as the \\(\\\\text{``method of infinite descent''}\\) by:",
@@ -63,7 +63,7 @@ QuizBank.register({
       "Pierre de Fermat"
     ],
     "ans": "Pierre de Fermat",
-    "reason": null
+    "reason": "Pierre de Fermat used the descending version of this idea, which he called the 'method of infinite descent'."
   },
   {
     "q": "Who is credited with naming the technique \\(\\\\text{``mathematical induction''}\\) in 1883?",
@@ -74,7 +74,7 @@ QuizBank.register({
       "Augustus De Morgan"
     ],
     "ans": "Augustus De Morgan",
-    "reason": null
+    "reason": "Augustus De Morgan is credited with coining the term 'mathematical induction' in 1838 (commonly cited as 1883 in some secondary sources)."
   },
   {
     "q": "In the domino analogy for induction, \\(P(1)\\) being true corresponds to:",
@@ -85,7 +85,7 @@ QuizBank.register({
       "The \\(k\\)-th domino falling forward"
     ],
     "ans": "The first domino falling forward",
-    "reason": null
+    "reason": "The first domino falling forward is the physical analogy for the base case, \\(P(1)\\), being true."
   },
   {
     "q": "\\(\\\\text{`Bi'}\\) in the word \\(\\\\text{`Binomial'}\\) means:",
@@ -96,7 +96,7 @@ QuizBank.register({
       "One"
     ],
     "ans": "Two",
-    "reason": null
+    "reason": "The prefix 'Bi' means two, reflecting that a binomial has exactly two terms."
   },
   {
     "q": "Which of the following is a binomial expression?",
@@ -107,7 +107,7 @@ QuizBank.register({
       "\\(xyz\\)"
     ],
     "ans": "\\(x^2+\\dfrac1x\\)",
-    "reason": null
+    "reason": "A binomial expression has exactly two terms; \\(x^2+\\dfrac1x\\) fits that form."
   },
   {
     "q": "The general form of a binomial expression raised to a positive integral power is:",
@@ -118,7 +118,7 @@ QuizBank.register({
       "\\(a^n+b^n\\)"
     ],
     "ans": "\\((a+b)^n\\)",
-    "reason": null
+    "reason": "The standard general form for a binomial raised to a power is \\((a+b)^n\\)."
   },
   {
     "q": "Expansion of \\((a+b)^n\\) using the numbers arranged in a triangular array of coefficients is known as expansion using:",
@@ -129,7 +129,7 @@ QuizBank.register({
       "Pascal's triangle"
     ],
     "ans": "Pascal's triangle",
-    "reason": null
+    "reason": "Pascal's triangle arranges binomial coefficients in a triangular array, giving a quick way to expand \\((a+b)^n\\)."
   },
   {
     "q": "Expansion by Pascal's triangle is most convenient when \\(n\\) is:",
@@ -140,7 +140,7 @@ QuizBank.register({
       "A small positive integer"
     ],
     "ans": "A small positive integer",
-    "reason": null
+    "reason": "Building out Pascal's triangle row by row is only practical when \\(n\\) is a small positive integer; for large or non-integer \\(n\\) the general binomial theorem formula is used instead."
   },
   {
     "q": "In the expansion of \\((a+b)^n\\), the exponents of \\(a\\) and \\(b\\) in every term always add up to:",
@@ -151,7 +151,7 @@ QuizBank.register({
       "\\(n-1\\)"
     ],
     "ans": "\\(n\\)",
-    "reason": null
+    "reason": "Since each term is \\(a^{n-r}b^r\\), the exponents \\((n-r)+r\\) always add up to \\(n\\)."
   },
   {
     "q": "The number of terms in the expansion of \\((a+b)^n\\) is:",
@@ -162,7 +162,7 @@ QuizBank.register({
       "\\(n+1\\)"
     ],
     "ans": "\\(n+1\\)",
-    "reason": null
+    "reason": "The expansion runs over \\(r=0,1,\\ldots,n\\), which is \\(n+1\\) values, hence \\(n+1\\) terms."
   },
   {
     "q": "In the expansion of \\((a+b)^n\\), the coefficients of terms equidistant from the beginning and the end are:",
@@ -173,7 +173,7 @@ QuizBank.register({
       "Reciprocals of each other"
     ],
     "ans": "Equal",
-    "reason": null
+    "reason": "This is a direct consequence of \\(^nC_r={}^nC_{n-r}\\): coefficients the same distance from each end match."
   },
   {
     "q": "To prove by mathematical induction that \\(1+2+3+\\\\cdots+n=\\\\dfrac{n(n+1)}{2}\\) for all positive integers \\(n\\), the basis step \\(P(1)\\) reduces to the statement:",
@@ -184,7 +184,7 @@ QuizBank.register({
       "\\(1=2\\)"
     ],
     "ans": "\\(1=1\\)",
-    "reason": null
+    "reason": "At \\(n=1\\): LHS \\(=1\\), RHS \\(=1(1+1)/2=1\\), giving \\(1=1\\)."
   },
   {
     "q": "To prove by mathematical induction that \\(1^2+2^2+\\\\cdots+n^2=\\\\dfrac{n(n+1)(2n+1)}{6}\\) for all positive integers \\(n\\), the basis step \\(P(1)\\) reduces to the statement:",
@@ -195,7 +195,7 @@ QuizBank.register({
       "\\(1=1\\)"
     ],
     "ans": "\\(1=1\\)",
-    "reason": null
+    "reason": "At \\(n=1\\): LHS \\(=1^2=1\\), RHS \\(=1(2)(3)/6=1\\), giving \\(1=1\\)."
   },
   {
     "q": "To prove by mathematical induction that \\(1^3+2^3+\\\\cdots+n^3=\\\\dfrac{n^2(n+1)^2}{4}\\) for all positive integers \\(n\\), the basis step \\(P(1)\\) reduces to the statement:",
@@ -206,7 +206,7 @@ QuizBank.register({
       "\\(4=1\\)"
     ],
     "ans": "\\(1=1\\)",
-    "reason": null
+    "reason": "At \\(n=1\\): LHS \\(=1^3=1\\), RHS \\(=1^2(2)^2/4=1\\), giving \\(1=1\\)."
   },
   {
     "q": "To prove by mathematical induction that \\(\\\\dfrac1{1\\\\cdot2}+\\\\dfrac1{2\\\\cdot3}+\\\\cdots+\\\\dfrac1{n(n+1)}=\\\\dfrac{n}{n+1}\\) for all positive integers \\(n\\), the basis step \\(P(1)\\) reduces to the statement:",
@@ -217,7 +217,7 @@ QuizBank.register({
       "\\(\\tfrac12=\\tfrac12\\)"
     ],
     "ans": "\\(\\tfrac12=\\tfrac12\\)",
-    "reason": null
+    "reason": "At \\(n=1\\): LHS \\(=\\dfrac1{1\\cdot2}=\\dfrac12\\), RHS \\(=\\dfrac1{1+1}=\\dfrac12\\), giving \\(\\tfrac12=\\tfrac12\\)."
   },
   {
     "q": "To prove by mathematical induction that \\(1\\\\cdot2+2\\\\cdot3+\\\\cdots+n(n+1)=\\\\dfrac{n(n+1)(n+2)}{3}\\) for all positive integers \\(n\\), the basis step \\(P(1)\\) reduces to the statement:",
@@ -228,7 +228,7 @@ QuizBank.register({
       "\\(3=2\\)"
     ],
     "ans": "\\(2=2\\)",
-    "reason": null
+    "reason": "At \\(n=1\\): LHS \\(=1\\cdot2=2\\), RHS \\(=\\dfrac{1\\cdot2\\cdot3}{3}=2\\), giving \\(2=2\\)."
   },
   {
     "q": "To prove by mathematical induction that \\(n^2-3n+4\\) is an even number for all positive integers \\(n\\), the basis step \\(P(1)\\) reduces to the statement:",
@@ -239,7 +239,7 @@ QuizBank.register({
       "\\(P(1):1-3+4=3\\), which is odd"
     ],
     "ans": "\\(P(1):1-3+4=2\\), which is even",
-    "reason": null
+    "reason": "At \\(n=1\\): \\(1^2-3(1)+4=1-3+4=2\\), which is even."
   },
   {
     "q": "To prove by mathematical induction that \\(3^n>n^2\\) for all positive integers \\(n\\), the basis step \\(P(1)\\) reduces to the statement:",
@@ -250,7 +250,7 @@ QuizBank.register({
       "\\(P(1):3>3\\)"
     ],
     "ans": "\\(P(1):3^1>1^2\\Rightarrow3>1\\)",
-    "reason": null
+    "reason": "At \\(n=1\\): \\(3^1=3\\) and \\(1^2=1\\), and indeed \\(3>1\\)."
   },
   {
     "q": "To prove by mathematical induction that \\(4+4\\\\cdot6+4\\\\cdot6^2+\\\\cdots+4\\\\cdot6^n=\\\\dfrac{4(6^{n+1}-1)}{5}\\), starting from \\(n=0\\), the basis step \\(P(0)\\) reduces to the statement:",
@@ -261,7 +261,7 @@ QuizBank.register({
       "\\(P(0):4=4\\)"
     ],
     "ans": "\\(P(0):4=4\\)",
-    "reason": null
+    "reason": "At \\(n=0\\), only the first term \\(4\\cdot6^0=4\\) appears on the left; the right side gives \\(\\dfrac{4(6^1-1)}{5}=\\dfrac{4\\cdot5}{5}=4\\), so both sides equal \\(4\\)."
   },
   {
     "q": "To prove by mathematical induction that \\(n^3+2n\\) is divisible by 3 for all positive integers \\(n\\), the basis step \\(P(1)\\) reduces to the statement:",
@@ -272,7 +272,7 @@ QuizBank.register({
       "\\(P(1):3\\), not divisible by 3"
     ],
     "ans": "\\(P(1):1+2=3\\), divisible by 3",
-    "reason": null
+    "reason": "At \\(n=1\\): \\(1^3+2(1)=1+2=3\\), which is divisible by \\(3\\)."
   },
   {
     "q": "To prove by mathematical induction that \\(7^n-2^n\\) is divisible by 5, starting from \\(n=0\\), the basis step \\(P(0)\\) reduces to the statement:",
@@ -283,7 +283,7 @@ QuizBank.register({
       "\\(P(0):0\\), not divisible by 5"
     ],
     "ans": "\\(P(0):1-1=0\\), divisible by 5",
-    "reason": null
+    "reason": "At \\(n=0\\): \\(7^0-2^0=1-1=0\\), which is divisible by \\(5\\) (trivially, as \\(0=5\\times0\\))."
   },
   {
     "q": "The value of the binomial coefficient \\(\\\\binom{16}{6}\\) is:",
@@ -294,7 +294,7 @@ QuizBank.register({
       "8008"
     ],
     "ans": "8008",
-    "reason": null
+    "reason": "\\(\\binom{16}{6}=\\dfrac{16!}{6!\\,10!}=8008\\)."
   },
   {
     "q": "The value of the binomial coefficient \\(\\\\binom{11}{7}\\) is:",
@@ -305,7 +305,7 @@ QuizBank.register({
       "337"
     ],
     "ans": "330",
-    "reason": null
+    "reason": "\\(\\binom{11}{7}=\\binom{11}{4}=\\dfrac{11\\times10\\times9\\times8}{4!}=330\\)."
   },
   {
     "q": "The value of the binomial coefficient \\(\\\\binom{15}{12}\\) is:",
@@ -316,7 +316,7 @@ QuizBank.register({
       "91"
     ],
     "ans": "455",
-    "reason": null
+    "reason": "\\(\\binom{15}{12}=\\binom{15}{3}=\\dfrac{15\\times14\\times13}{3!}=455\\)."
   },
   {
     "q": "The value of the binomial coefficient \\(\\\\binom{12}{11}\\) is:",
@@ -327,7 +327,7 @@ QuizBank.register({
       "19"
     ],
     "ans": "12",
-    "reason": null
+    "reason": "\\(\\binom{12}{11}=\\binom{12}{1}=12\\)."
   },
   {
     "q": "The value of the binomial coefficient \\(\\\\binom{8}{2}\\) is:",
@@ -338,7 +338,7 @@ QuizBank.register({
       "56"
     ],
     "ans": "28",
-    "reason": null
+    "reason": "\\(\\binom{8}{2}=\\dfrac{8\\times7}{2}=28\\)."
   },
   {
     "q": "The value of the binomial coefficient \\(\\\\binom{15}{7}\\) is:",
@@ -349,7 +349,7 @@ QuizBank.register({
       "6442"
     ],
     "ans": "6435",
-    "reason": null
+    "reason": "\\(\\binom{15}{7}=\\dfrac{15!}{7!\\,8!}=6435\\)."
   },
   {
     "q": "The value of the binomial coefficient \\(\\\\binom{14}{8}\\) is:",
@@ -360,7 +360,7 @@ QuizBank.register({
       "3003"
     ],
     "ans": "3003",
-    "reason": null
+    "reason": "\\(\\binom{14}{8}=\\binom{14}{6}=\\dfrac{14!}{6!\\,8!}=3003\\)."
   },
   {
     "q": "The value of the binomial coefficient \\(\\\\binom{8}{6}\\) is:",
@@ -371,7 +371,7 @@ QuizBank.register({
       "56"
     ],
     "ans": "28",
-    "reason": null
+    "reason": "\\(\\binom{8}{6}=\\binom{8}{2}=\\dfrac{8\\times7}{2}=28\\)."
   },
   {
     "q": "The value of the binomial coefficient \\(\\\\binom{15}{2}\\) is:",
@@ -382,7 +382,7 @@ QuizBank.register({
       "15"
     ],
     "ans": "105",
-    "reason": null
+    "reason": "\\(\\binom{15}{2}=\\dfrac{15\\times14}{2}=105\\)."
   },
   {
     "q": "The value of the binomial coefficient \\(\\\\binom{14}{5}\\) is:",
@@ -393,7 +393,7 @@ QuizBank.register({
       "2002"
     ],
     "ans": "2002",
-    "reason": null
+    "reason": "\\(\\binom{14}{5}=\\dfrac{14!}{5!\\,9!}=2002\\)."
   },
   {
     "q": "The value of the binomial coefficient \\(\\\\binom{16}{15}\\) is:",
@@ -404,7 +404,7 @@ QuizBank.register({
       "1"
     ],
     "ans": "16",
-    "reason": null
+    "reason": "\\(\\binom{16}{15}=\\binom{16}{1}=16\\)."
   },
   {
     "q": "The value of the binomial coefficient \\(\\\\binom{7}{3}\\) is:",
@@ -415,7 +415,7 @@ QuizBank.register({
       "21"
     ],
     "ans": "35",
-    "reason": null
+    "reason": "\\(\\binom{7}{3}=\\dfrac{7\\times6\\times5}{3!}=35\\)."
   },
   {
     "q": "The value of the binomial coefficient \\(\\\\binom{6}{3}\\) is:",
@@ -426,7 +426,7 @@ QuizBank.register({
       "10"
     ],
     "ans": "20",
-    "reason": null
+    "reason": "\\(\\binom{6}{3}=\\dfrac{6\\times5\\times4}{3!}=20\\)."
   },
   {
     "q": "The value of the binomial coefficient \\(\\\\binom{16}{5}\\) is:",
@@ -437,7 +437,7 @@ QuizBank.register({
       "8008"
     ],
     "ans": "4368",
-    "reason": null
+    "reason": "\\(\\binom{16}{5}=\\dfrac{16!}{5!\\,11!}=4368\\)."
   },
   {
     "q": "The value of the binomial coefficient \\(\\\\binom{8}{5}\\) is:",
@@ -448,7 +448,7 @@ QuizBank.register({
       "56"
     ],
     "ans": "56",
-    "reason": null
+    "reason": "\\(\\binom{8}{5}=\\binom{8}{3}=\\dfrac{8\\times7\\times6}{3!}=56\\)."
   },
   {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\\\left(x^2+\\\\dfrac1x\\\\right)^{12}\\) occurs when \\(r=8\\); its value is:",
@@ -459,7 +459,7 @@ QuizBank.register({
       "-495"
     ],
     "ans": "495",
-    "reason": null
+    "reason": "General term \\(T_{r+1}=\\binom{12}{r}x^{2(12-r)}x^{-r}\\); at \\(r=8\\) the coefficient is \\(\\binom{12}{8}=495\\)."
   },
   {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\\\left(x^2+\\\\dfrac2x\\\\right)^{6}\\) occurs when \\(r=4\\); its value is:",
@@ -470,7 +470,7 @@ QuizBank.register({
       "-240"
     ],
     "ans": "240",
-    "reason": null
+    "reason": "\\(T_{r+1}=\\binom{6}{r}2^r x^{2(6-r)-r}\\); at \\(r=4\\): \\(\\binom64\\times2^4=15\\times16=240\\)."
   },
   {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\\\left(x+\\\\dfrac3x\\\\right)^{10}\\) occurs when \\(r=5\\); its value is:",
@@ -481,7 +481,7 @@ QuizBank.register({
       "61488"
     ],
     "ans": "61236",
-    "reason": null
+    "reason": "\\(T_{r+1}=\\binom{10}{r}3^r x^{(10-r)-r}\\); at \\(r=5\\): \\(\\binom{10}5\\times3^5=252\\times243=61236\\)."
   },
   {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\\\left(x^2+\\\\dfrac2x\\\\right)^{9}\\) occurs when \\(r=6\\); its value is:",
@@ -492,7 +492,7 @@ QuizBank.register({
       "-5376"
     ],
     "ans": "5376",
-    "reason": null
+    "reason": "\\(T_{r+1}=\\binom9r2^rx^{2(9-r)-r}\\); at \\(r=6\\): \\(\\binom96\\times2^6=84\\times64=5376\\)."
   },
   {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\\\left(2x+\\\\dfrac2x\\\\right)^{6}\\) occurs when \\(r=3\\); its value is:",
@@ -503,7 +503,7 @@ QuizBank.register({
       "1280"
     ],
     "ans": "1280",
-    "reason": null
+    "reason": "\\(T_{r+1}=\\binom6r(2x)^{6-r}(2/x)^r=\\binom6r2^6x^{6-2r}\\); at \\(r=3\\): \\(\\binom63\\times64=20\\times64=1280\\)."
   },
   {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\\\left(x+\\\\dfrac3x\\\\right)^{6}\\) occurs when \\(r=3\\); its value is:",
@@ -514,7 +514,7 @@ QuizBank.register({
       "560"
     ],
     "ans": "540",
-    "reason": null
+    "reason": "\\(T_{r+1}=\\binom6r3^rx^{6-2r}\\); at \\(r=3\\): \\(\\binom63\\times27=20\\times27=540\\)."
   },
   {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\\\left(x^2+\\\\dfrac1x\\\\right)^{12}\\) occurs when \\(r=8\\); its value is:",
@@ -525,7 +525,7 @@ QuizBank.register({
       "495"
     ],
     "ans": "495",
-    "reason": null
+    "reason": "Same setup as the \\((x^2+1/x)^{12}\\) case above: at \\(r=8\\), \\(\\binom{12}8=495\\)."
   },
   {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\\\left(2x+\\\\dfrac1x\\\\right)^{12}\\) occurs when \\(r=6\\); its value is:",
@@ -536,7 +536,7 @@ QuizBank.register({
       "59136"
     ],
     "ans": "59136",
-    "reason": null
+    "reason": "\\(T_{r+1}=\\binom{12}r(2x)^{12-r}(1/x)^r=\\binom{12}r2^{12-r}x^{12-2r}\\); at \\(r=6\\): \\(\\binom{12}6\\times2^6=924\\times64=59136\\)."
   },
   {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\\\left(x+\\\\dfrac2x\\\\right)^{12}\\) occurs when \\(r=6\\); its value is:",
@@ -547,7 +547,7 @@ QuizBank.register({
       "-59136"
     ],
     "ans": "59136",
-    "reason": null
+    "reason": "\\(T_{r+1}=\\binom{12}r2^rx^{12-2r}\\); at \\(r=6\\): \\(\\binom{12}6\\times2^6=924\\times64=59136\\)."
   },
   {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\\\left(x+\\\\dfrac1x\\\\right)^{12}\\) occurs when \\(r=6\\); its value is:",
@@ -558,7 +558,7 @@ QuizBank.register({
       "924"
     ],
     "ans": "924",
-    "reason": null
+    "reason": "\\(T_{r+1}=\\binom{12}rx^{12-2r}\\); at \\(r=6\\): \\(\\binom{12}6=924\\)."
   },
   {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\\\left(x^2+\\\\dfrac2x\\\\right)^{9}\\) occurs when \\(r=6\\); its value is:",
@@ -569,7 +569,7 @@ QuizBank.register({
       "5460"
     ],
     "ans": "5376",
-    "reason": null
+    "reason": "Same setup as the \\((x^2+2/x)^9\\) case above: at \\(r=6\\), \\(\\binom96\\times2^6=5376\\)."
   },
   {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\\\left(x^2+\\\\dfrac3x\\\\right)^{12}\\) occurs when \\(r=8\\); its value is:",
@@ -580,7 +580,7 @@ QuizBank.register({
       "3248190"
     ],
     "ans": "3247695",
-    "reason": null
+    "reason": "\\(T_{r+1}=\\binom{12}r3^rx^{2(12-r)-r}\\); at \\(r=8\\): \\(\\binom{12}8\\times3^8=495\\times6561=3247695\\)."
   },
   {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\\\left(x+\\\\dfrac1x\\\\right)^{8}\\) occurs when \\(r=4\\); its value is:",
@@ -591,7 +591,7 @@ QuizBank.register({
       "-70"
     ],
     "ans": "70",
-    "reason": null
+    "reason": "\\(T_{r+1}=\\binom8rx^{8-2r}\\); at \\(r=4\\): \\(\\binom84=70\\)."
   },
   {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\\\left(x+\\\\dfrac1x\\\\right)^{6}\\) occurs when \\(r=3\\); its value is:",
@@ -602,7 +602,7 @@ QuizBank.register({
       "20"
     ],
     "ans": "20",
-    "reason": null
+    "reason": "\\(T_{r+1}=\\binom6rx^{6-2r}\\); at \\(r=3\\): \\(\\binom63=20\\)."
   },
   {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\\\left(2x+\\\\dfrac1x\\\\right)^{10}\\) occurs when \\(r=5\\); its value is:",
@@ -613,7 +613,7 @@ QuizBank.register({
       "8316"
     ],
     "ans": "8064",
-    "reason": null
+    "reason": "\\(T_{r+1}=\\binom{10}r2^{10-r}x^{10-2r}\\); at \\(r=5\\): \\(\\binom{10}5\\times2^5=252\\times32=8064\\)."
   },
   {
     "q": "Since \\(n=4\\) is even, the number of terms in the expansion of \\((a+b)^4\\) is odd, and the middle term is the:",
@@ -624,7 +624,7 @@ QuizBank.register({
       "4\\(^{\\text{th}}\\) term"
     ],
     "ans": "\\(\\left(\\tfrac42+1\\right)^{\\text{th}}=3^{\\text{rd}}\\) term",
-    "reason": null
+    "reason": "With \\(n=4\\) even, there's one middle term at position \\(\\tfrac n2+1=3\\)."
   },
   {
     "q": "Since \\(n=22\\) is even, the number of terms in the expansion of \\((a+b)^{22}\\) is odd, and the middle term is the:",
@@ -635,7 +635,7 @@ QuizBank.register({
       "\\(\\left(\\tfrac{22}2+1\\right)^{\\text{th}}=12^{\\text{th}}\\) term"
     ],
     "ans": "\\(\\left(\\tfrac{22}2+1\\right)^{\\text{th}}=12^{\\text{th}}\\) term",
-    "reason": null
+    "reason": "With \\(n=22\\) even, the middle term is at position \\(\\tfrac{22}2+1=12\\)."
   },
   {
     "q": "Since \\(n=18\\) is even, the number of terms in the expansion of \\((a+b)^{18}\\) is odd, and the middle term is the:",
@@ -646,7 +646,7 @@ QuizBank.register({
       "18\\(^{\\text{th}}\\) term"
     ],
     "ans": "\\(\\left(\\tfrac{18}2+1\\right)^{\\text{th}}=10^{\\text{th}}\\) term",
-    "reason": null
+    "reason": "With \\(n=18\\) even, the middle term is at position \\(\\tfrac{18}2+1=10\\)."
   },
   {
     "q": "Since \\(n=16\\) is even, the number of terms in the expansion of \\((a+b)^{16}\\) is odd, and the middle term is the:",
@@ -657,7 +657,7 @@ QuizBank.register({
       "16\\(^{\\text{th}}\\) term"
     ],
     "ans": "\\(\\left(\\tfrac{16}2+1\\right)^{\\text{th}}=9^{\\text{th}}\\) term",
-    "reason": null
+    "reason": "With \\(n=16\\) even, the middle term is at position \\(\\tfrac{16}2+1=9\\)."
   },
   {
     "q": "Since \\(n=20\\) is even, the number of terms in the expansion of \\((a+b)^{20}\\) is odd, and the middle term is the:",
@@ -668,7 +668,7 @@ QuizBank.register({
       "20\\(^{\\text{th}}\\) term"
     ],
     "ans": "\\(\\left(\\tfrac{20}2+1\\right)^{\\text{th}}=11^{\\text{th}}\\) term",
-    "reason": null
+    "reason": "With \\(n=20\\) even, the middle term is at position \\(\\tfrac{20}2+1=11\\)."
   },
   {
     "q": "Since \\(n=23\\) is odd, the expansion of \\((a+b)^{23}\\) has an even number of terms, so there are two middle terms, namely the:",
@@ -679,7 +679,7 @@ QuizBank.register({
       "12\\(^{\\text{th}}\\) term only"
     ],
     "ans": "12\\(^{\\text{th}}\\) and 13\\(^{\\text{th}}\\) terms",
-    "reason": null
+    "reason": "With \\(n=23\\) odd, the two middle terms are at positions \\(\\tfrac{23+1}2=12\\) and \\(\\tfrac{23+3}2=13\\)."
   },
   {
     "q": "Since \\(n=9\\) is odd, the expansion of \\((a+b)^{9}\\) has an even number of terms, so there are two middle terms, namely the:",
@@ -690,7 +690,7 @@ QuizBank.register({
       "5\\(^{\\text{th}}\\) and 6\\(^{\\text{th}}\\) terms"
     ],
     "ans": "5\\(^{\\text{th}}\\) and 6\\(^{\\text{th}}\\) terms",
-    "reason": null
+    "reason": "With \\(n=9\\) odd, the two middle terms are at positions \\(\\tfrac{9+1}2=5\\) and \\(\\tfrac{9+3}2=6\\)."
   },
   {
     "q": "Since \\(n=21\\) is odd, the expansion of \\((a+b)^{21}\\) has an even number of terms, so there are two middle terms, namely the:",
@@ -701,7 +701,7 @@ QuizBank.register({
       "21\\(^{\\text{st}}\\) and \\((n{+}1)^{\\text{th}}\\) terms"
     ],
     "ans": "11\\(^{\\text{th}}\\) and 12\\(^{\\text{th}}\\) terms",
-    "reason": null
+    "reason": "With \\(n=21\\) odd, the two middle terms are at positions \\(\\tfrac{21+1}2=11\\) and \\(\\tfrac{21+3}2=12\\)."
   },
   {
     "q": "Since \\(n=17\\) is odd, the expansion of \\((a+b)^{17}\\) has an even number of terms, so there are two middle terms, namely the:",
@@ -712,7 +712,7 @@ QuizBank.register({
       "17\\(^{\\text{th}}\\) and \\((n{+}1)^{\\text{th}}\\) terms"
     ],
     "ans": "9\\(^{\\text{th}}\\) and 10\\(^{\\text{th}}\\) terms",
-    "reason": null
+    "reason": "With \\(n=17\\) odd, the two middle terms are at positions \\(\\tfrac{17+1}2=9\\) and \\(\\tfrac{17+3}2=10\\)."
   },
   {
     "q": "Since \\(n=13\\) is odd, the expansion of \\((a+b)^{13}\\) has an even number of terms, so there are two middle terms, namely the:",
@@ -723,7 +723,7 @@ QuizBank.register({
       "6\\(^{\\text{th}}\\) and 9\\(^{\\text{th}}\\) terms"
     ],
     "ans": "7\\(^{\\text{th}}\\) and 8\\(^{\\text{th}}\\) terms",
-    "reason": null
+    "reason": "With \\(n=13\\) odd, the two middle terms are at positions \\(\\tfrac{13+1}2=7\\) and \\(\\tfrac{13+3}2=8\\)."
   },
   {
     "q": "The sum of all the binomial coefficients in the expansion of \\((a+b)^n\\) is:",
@@ -734,7 +734,7 @@ QuizBank.register({
       "\\(2^n\\)"
     ],
     "ans": "\\(2^n\\)",
-    "reason": null
+    "reason": "Setting \\(a=b=1\\) in \\((a+b)^n\\) gives \\(2^n=\\sum{}^nC_r\\), the sum of all binomial coefficients."
   },
   {
     "q": "The sum of the coefficients of the odd-positioned terms in the expansion of \\((a+b)^n\\) equals:",
@@ -745,7 +745,7 @@ QuizBank.register({
       "\\(2^{n+1}\\)"
     ],
     "ans": "\\(2^{n-1}\\)",
-    "reason": null
+    "reason": "Combining \\((1+1)^n=2^n\\) and \\((1-1)^n=0\\) and taking half isolates the odd-positioned coefficients, giving \\(2^{n-1}\\)."
   },
   {
     "q": "The \\(n^{\\\\text{th}}\\) row of Pascal's triangle (starting the count from \\(n=0\\)) gives the binomial coefficients for the expansion of:",
@@ -756,7 +756,7 @@ QuizBank.register({
       "\\((a+b)^{n+1}\\)"
     ],
     "ans": "\\((a+b)^n\\)",
-    "reason": null
+    "reason": "By construction, the \\(n\\)-th row (counting from row \\(0\\)) of Pascal's triangle lists exactly the coefficients of \\((a+b)^n\\)."
   },
   {
     "q": "Each interior entry of Pascal's triangle is obtained by:",
@@ -767,7 +767,7 @@ QuizBank.register({
       "Multiplying the two entries above it"
     ],
     "ans": "Adding the two entries immediately above it",
-    "reason": null
+    "reason": "Each interior number is the sum of the two numbers diagonally above it — this is precisely Pascal's Identity."
   },
   {
     "q": "In Pascal's triangle, the first and last entry of every row is always:",
@@ -778,7 +778,7 @@ QuizBank.register({
       "\\(n-1\\)"
     ],
     "ans": "1",
-    "reason": null
+    "reason": "Every row starts and ends with \\(^nC_0={}^nC_n=1\\)."
   },
   {
     "q": "\\(\\\\displaystyle\\\\binom{n}{0}+\\\\binom{n}{1}+\\\\binom{n}{2}+\\\\cdots+\\\\binom{n}{n}=\\)",
@@ -789,7 +789,7 @@ QuizBank.register({
       "\\(2^n\\)"
     ],
     "ans": "\\(2^n\\)",
-    "reason": null
+    "reason": "Setting \\(a=b=1\\) in the Binomial Theorem gives this sum as \\(2^n\\)."
   },
   {
     "q": "\\(\\\\displaystyle\\\\binom{n}{r}+\\\\binom{n}{r-1}=\\)",
@@ -800,7 +800,7 @@ QuizBank.register({
       "\\(\\binom{n+1}{r}\\)"
     ],
     "ans": "\\(\\binom{n+1}{r}\\)",
-    "reason": null
+    "reason": "This is Pascal's Identity: \\(\\binom nr+\\binom n{r-1}=\\binom{n+1}r\\)."
   },
   {
     "q": "Using Pascal's triangle, the possible number of heads when three coins are tossed simultaneously corresponds to the row:",
@@ -811,7 +811,7 @@ QuizBank.register({
       "1, 5, 10, 10, 5, 1"
     ],
     "ans": "1, 3, 3, 1",
-    "reason": null
+    "reason": "Tossing 3 coins, the number of heads (0,1,2,3) has counts given by row 3 of Pascal's triangle: \\(1,3,3,1\\)."
   },
   {
     "q": "The sixth row of Pascal's triangle (for \\(n=6\\)) is:",
@@ -822,7 +822,7 @@ QuizBank.register({
       "1, 6, 12, 12, 6, 1"
     ],
     "ans": "1, 6, 15, 20, 15, 6, 1",
-    "reason": null
+    "reason": "Row 6 of Pascal's triangle (the coefficients of \\((a+b)^6\\)) is \\(1,6,15,20,15,6,1\\)."
   },
   {
     "q": "\\(\\\\displaystyle\\\\binom{n}{r}=\\\\binom{n}{n-r}\\) is a consequence of the fact that:",
@@ -833,7 +833,7 @@ QuizBank.register({
       "\\(r\\) must equal \\(n/2\\)"
     ],
     "ans": "The coefficients equidistant from the beginning and end of the expansion of \\((a+b)^n\\) are equal",
-    "reason": null
+    "reason": "Since coefficients equidistant from the two ends of the expansion of \\((a+b)^n\\) are equal, \\(\\binom nr=\\binom n{n-r}\\)."
   },
   {
     "q": "The binomial series \\((1+x)^n=1+nx+\\\\dfrac{n(n-1)}{2!}x^2+\\\\cdots\\) is valid (convergent) for non-integer \\(n\\) when:",
@@ -844,7 +844,7 @@ QuizBank.register({
       "\\(-1<x<1\\)"
     ],
     "ans": "\\(-1<x<1\\)",
-    "reason": null
+    "reason": "The binomial series for non-integer \\(n\\) is an infinite series, and it only converges when \\(|x|<1\\), i.e. \\(-1<x<1\\)."
   },
   {
     "q": "The general term of the binomial series \\(1+nx+\\\\dfrac{n(n-1)}{2!}x^2+\\\\cdots\\) is:",
@@ -855,7 +855,7 @@ QuizBank.register({
       "\\(T_{r+1}=\\binom{n}{r}x^r\\)"
     ],
     "ans": "\\(T_{r+1}=\\dfrac{n(n-1)(n-2)\\cdots(n-r+1)}{r!}x^r\\)",
-    "reason": null
+    "reason": "The general \\((r+1)\\)-th term of the binomial series is \\(T_{r+1}=\\dfrac{n(n-1)\\cdots(n-r+1)}{r!}x^r\\), extending the usual combination formula to non-integer \\(n\\)."
   },
   {
     "q": "When \\(n\\) is a positive integer, the binomial expansion of \\((1+x)^n\\) is:",
@@ -866,7 +866,7 @@ QuizBank.register({
       "Non-terminating"
     ],
     "ans": "Terminating, with \\((n+1)\\) terms",
-    "reason": null
+    "reason": "For a positive integer \\(n\\), the series naturally stops after the \\(x^n\\) term, giving a finite expansion with \\(n+1\\) terms."
   },
   {
     "q": "When \\(n\\) is a negative integer or a fraction, the expansion of \\((1+x)^n\\) is:",
@@ -877,7 +877,7 @@ QuizBank.register({
       "Terminating after \\(n+1\\) terms"
     ],
     "ans": "Non-terminating (an infinite series)",
-    "reason": null
+    "reason": "For negative or fractional \\(n\\), the coefficients never become zero, so the expansion continues forever as an infinite series."
   },
   {
     "q": "The binomial series for \\((2+3x)^{-1/2}\\) is convergent when:",
@@ -888,7 +888,7 @@ QuizBank.register({
       "\\(|x|\\le1\\)"
     ],
     "ans": "\\(\\left|\\dfrac{3x}2\\right|<1\\), i.e. \\(|x|<\\dfrac23\\)",
-    "reason": null
+    "reason": "Writing \\((2+3x)^{-1/2}=2^{-1/2}(1+\\tfrac{3x}2)^{-1/2}\\), the inner binomial series converges when \\(\\left|\\tfrac{3x}2\\right|<1\\), i.e. \\(|x|<\\tfrac23\\)."
   },
   {
     "q": "The series \\(1-3\\\\left(\\\\tfrac37\\\\right)+4\\\\left(\\\\tfrac37\\\\right)^2-8\\\\left(\\\\tfrac37\\\\right)^3+\\\\cdots\\) is an example of a:",
@@ -899,7 +899,7 @@ QuizBank.register({
       "Arithmetic series"
     ],
     "ans": "Binomial series expansion of the form \\((1+x)^n\\) for some fractional/negative \\(n\\)",
-    "reason": null
+    "reason": "The alternating coefficients \\(1,-3,4,-8,\\ldots\\) with increasing powers of \\(3/7\\) match the pattern of a binomial series \\((1+x)^n\\) for some negative or fractional \\(n\\)."
   },
   {
     "q": "For \\(\\\\left(3+\\\\dfrac2x\\\\right)^{-1/3}\\) to be expressed as a convergent binomial series, we require:",
@@ -910,7 +910,7 @@ QuizBank.register({
       "\\(|x|<3\\)"
     ],
     "ans": "\\(\\left|\\dfrac2{3x}\\right|<1\\)",
-    "reason": null
+    "reason": "Writing \\(\\left(3+\\tfrac2x\\right)^{-1/3}=3^{-1/3}\\left(1+\\tfrac2{3x}\\right)^{-1/3}\\), convergence of the inner series requires \\(\\left|\\tfrac2{3x}\\right|<1\\)."
   },
   {
     "q": "If \\(x\\) is so small that its square and higher powers may be neglected, then \\((1+x)^n\\\\approx\\)",
@@ -921,7 +921,7 @@ QuizBank.register({
       "\\(1+nx+\\dfrac{n(n-1)}{2}x^2\\)"
     ],
     "ans": "\\(1+nx\\)",
-    "reason": null
+    "reason": "Keeping only the linear term of the binomial series (dropping \\(x^2\\) and higher): \\((1+x)^n\\approx1+nx\\)."
   },
   {
     "q": "If \\(x\\) is so small that its cube and higher powers may be neglected, then \\((1+x)^n\\\\approx\\)",
@@ -932,7 +932,7 @@ QuizBank.register({
       "\\(1+nx+\\dfrac{n(n-1)(n-2)}{3!}x^3\\)"
     ],
     "ans": "\\(1+nx+\\dfrac{n(n-1)}{2!}x^2\\)",
-    "reason": null
+    "reason": "Keeping terms up to \\(x^2\\) (dropping \\(x^3\\) and higher): \\((1+x)^n\\approx1+nx+\\dfrac{n(n-1)}{2!}x^2\\)."
   },
   {
     "q": "The binomial series expansion is used to approximate the value of expressions like \\(\\\\sqrt[6]{65}\\) by writing 65 as:",
@@ -943,7 +943,7 @@ QuizBank.register({
       "A sum of two primes"
     ],
     "ans": "\\(64\\left(1+\\dfrac1{64}\\right)\\), a perfect power plus a small correction",
-    "reason": null
+    "reason": "Since \\(64=2^6\\) is a perfect 6th power close to 65, writing \\(65=64\\left(1+\\tfrac1{64}\\right)\\) lets the binomial series approximate \\(\\sqrt[6]{65}=2\\left(1+\\tfrac1{64}\\right)^{1/6}\\) easily."
   },
   {
     "q": "The unit (last) digit of \\(17^{203}\\) is:",
@@ -954,7 +954,7 @@ QuizBank.register({
       "5"
     ],
     "ans": "3",
-    "reason": null
+    "reason": "Powers of numbers ending in 7 cycle through last digits \\(7,9,3,1\\) (period 4); since \\(203=4\\times50+3\\), it lands on the 3rd position, so the last digit is \\(3\\)."
   },
   {
     "q": "The unit (last) digit of \\(29^{26}\\) is:",
@@ -965,7 +965,7 @@ QuizBank.register({
       "1"
     ],
     "ans": "1",
-    "reason": null
+    "reason": "Powers of numbers ending in 9 cycle through last digits \\(9,1\\) (period 2); since \\(26\\) is even, the last digit is \\(1\\)."
   },
   {
     "q": "The unit (last) digit of \\(36^{307}\\) is:",
@@ -976,7 +976,7 @@ QuizBank.register({
       "7"
     ],
     "ans": "6",
-    "reason": null
+    "reason": "Any power of a number ending in 6 always ends in \\(6\\)."
   },
   {
     "q": "The unit (last) digit of \\(23^{150}\\) is:",
@@ -987,7 +987,7 @@ QuizBank.register({
       "9"
     ],
     "ans": "9",
-    "reason": null
+    "reason": "Powers of numbers ending in 3 cycle through last digits \\(3,9,7,1\\) (period 4); since \\(150=4\\times37+2\\), it lands on the 2nd position, so the last digit is \\(9\\)."
   },
   {
     "q": "The unit (last) digit of \\(48^{99}\\) is:",
@@ -998,7 +998,7 @@ QuizBank.register({
       "9"
     ],
     "ans": "2",
-    "reason": null
+    "reason": "Powers of numbers ending in 8 cycle through last digits \\(8,4,2,6\\) (period 4); since \\(99=4\\times24+3\\), it lands on the 3rd position, so the last digit is \\(2\\)."
   },
   {
     "q": "The unit (last) digit of \\(54^{203}\\) is:",
@@ -1009,7 +1009,7 @@ QuizBank.register({
       "4"
     ],
     "ans": "4",
-    "reason": null
+    "reason": "Powers of numbers ending in 4 cycle through last digits \\(4,6\\) (period 2); since \\(203\\) is odd, the last digit is \\(4\\)."
   },
   {
     "q": "The unit (last) digit of \\(27^{304}\\) is:",
@@ -1020,7 +1020,7 @@ QuizBank.register({
       "2"
     ],
     "ans": "1",
-    "reason": null
+    "reason": "Powers of numbers ending in 7 cycle through last digits \\(7,9,3,1\\) (period 4); since \\(304=4\\times76\\) exactly, it lands on the 4th (last) position, so the last digit is \\(1\\)."
   },
   {
     "q": "The unit (last) digit of \\(108^{33}\\) is:",
@@ -1031,7 +1031,7 @@ QuizBank.register({
       "5"
     ],
     "ans": "8",
-    "reason": null
+    "reason": "Powers of numbers ending in 8 cycle through last digits \\(8,4,2,6\\) (period 4); since \\(33=4\\times8+1\\), it lands on the 1st position, so the last digit is \\(8\\)."
   },
   {
     "q": "Using the binomial theorem, the remainder when \\(7^{101}\\) is divided by 25 is:",
@@ -1042,7 +1042,7 @@ QuizBank.register({
       "10"
     ],
     "ans": "7",
-    "reason": null
+    "reason": "Since \\(7^2=49\\equiv-1\\pmod{25}\\), we get \\(7^{101}=(7^2)^{50}\\cdot7\\equiv(-1)^{50}\\cdot7=7\\pmod{25}\\)."
   },
   {
     "q": "Using the binomial theorem, the remainder when \\(9^{205}\\) is divided by 31 is:",
@@ -1053,7 +1053,7 @@ QuizBank.register({
       "7"
     ],
     "ans": "5",
-    "reason": null
+    "reason": "Since \\(9^{15}\\equiv1\\pmod{31}\\) (its multiplicative order divides 30), and \\(205=15\\times13+10\\), we get \\(9^{205}\\equiv9^{10}\\equiv5\\pmod{31}\\)."
   },
   {
     "q": "Using the binomial theorem, the remainder when \\(8^{205}\\) is divided by 48 is:",
@@ -1064,7 +1064,7 @@ QuizBank.register({
       "32"
     ],
     "ans": "32",
-    "reason": null
+    "reason": "Powers of 8 mod 48 settle into a repeating pattern \\(16,32,16,32,\\ldots\\) from the square onward; since the exponent 205 is odd, \\(8^{205}\\equiv32\\pmod{48}\\)."
   },
   {
     "q": "Using the binomial theorem, the remainder when \\(5^{103}\\) is divided by 13 is:",
@@ -1075,7 +1075,7 @@ QuizBank.register({
       "10"
     ],
     "ans": "8",
-    "reason": null
+    "reason": "Since \\(5^2=25\\equiv-1\\pmod{13}\\), \\(5^{103}=(5^2)^{51}\\cdot5\\equiv(-1)^{51}\\cdot5=-5\\equiv8\\pmod{13}\\)."
   },
   {
     "q": "Using the binomial theorem, the remainder when \\(6^{145}\\) is divided by 17 is:",
@@ -1086,7 +1086,7 @@ QuizBank.register({
       "8"
     ],
     "ans": "6",
-    "reason": null
+    "reason": "Since \\(17\\) is prime, \\(6^{16}\\equiv1\\pmod{17}\\) (Fermat); as \\(145=16\\times9+1\\), \\(6^{145}\\equiv6^1=6\\pmod{17}\\)."
   },
   {
     "q": "Using the binomial theorem, the remainder when \\(17^{1717}\\) is divided by 19 is:",
@@ -1097,7 +1097,7 @@ QuizBank.register({
       "5"
     ],
     "ans": "5",
-    "reason": null
+    "reason": "Since \\(17\\equiv-2\\pmod{19}\\), \\(17^{1717}\\equiv(-2)^{1717}=-2^{1717}\\pmod{19}\\); using \\(2^{18}\\equiv1\\pmod{19}\\) and \\(1717=18\\times95+7\\), this reduces to \\(-2^7=-128\\equiv-14\\equiv5\\pmod{19}\\)."
   },
   {
     "q": "Using the binomial theorem, the remainder when \\(11^{60}\\) is divided by 17 is:",
@@ -1108,7 +1108,7 @@ QuizBank.register({
       "15"
     ],
     "ans": "13",
-    "reason": null
+    "reason": "Since \\(11^2=121\\equiv2\\pmod{17}\\), \\(11^{60}=(11^2)^{30}\\equiv2^{30}\\pmod{17}\\); using \\(2^4\\equiv-1\\pmod{17}\\) and \\(30=4\\times7+2\\), this reduces to \\((-1)^7\\times4=-4\\equiv13\\pmod{17}\\)."
   },
   {
     "q": "<div class=\"stimulus\"><table><tr><th>Expansion</th><th>Value</th></tr><tr><td>\\(n\\)</td><td>10</td></tr><tr><td>Term requested</td><td>independent of \\(x\\) in \\(\\left(x+\\dfrac2x\\right)^{10}\\)</td></tr></table></div>The general term \\(T_{r+1}\\) of \\(\\left(x+\\dfrac2x\\right)^{10}\\) is:",
@@ -1119,7 +1119,7 @@ QuizBank.register({
       "\\(\\binom{10}{r}x^{10}2^r\\)"
     ],
     "ans": "\\(\\binom{10}{r}x^{10-2r}2^r\\)",
-    "reason": null
+    "reason": "The general term is \\(T_{r+1}=\\binom{10}r x^{10-r}\\left(\\dfrac2x\\right)^r=\\binom{10}r2^rx^{10-2r}\\)."
   },
   {
     "q": "<div class=\"stimulus\"><table><tr><th>Expansion</th><th>Value</th></tr><tr><td>\\(n\\)</td><td>10</td></tr><tr><td>Term requested</td><td>independent of \\(x\\) in \\(\\left(x+\\dfrac2x\\right)^{10}\\)</td></tr></table></div>The term is independent of \\(x\\) when \\(r=\\)",
@@ -1130,7 +1130,7 @@ QuizBank.register({
       "10"
     ],
     "ans": "5",
-    "reason": null
+    "reason": "The term is independent of \\(x\\) when the exponent \\(10-2r=0\\Rightarrow r=5\\)."
   },
   {
     "q": "<div class=\"stimulus\"><table><tr><th>Expansion</th><th>Value</th></tr><tr><td>\\(n\\)</td><td>10</td></tr><tr><td>Term requested</td><td>independent of \\(x\\) in \\(\\left(x+\\dfrac2x\\right)^{10}\\)</td></tr></table></div>The independent term equals:",
@@ -1141,7 +1141,7 @@ QuizBank.register({
       "\\(\\binom{10}{5}2^4=4032\\)"
     ],
     "ans": "\\(\\binom{10}{5}2^5=8064\\)",
-    "reason": null
+    "reason": "At \\(r=5\\): \\(\\binom{10}5\\times2^5=252\\times32=8064\\)."
   },
   {
     "q": "<div class=\"stimulus\"><table><tr><th>Expansion</th><th>Value</th></tr><tr><td>\\(n\\)</td><td>10</td></tr><tr><td>Term requested</td><td>independent of \\(x\\) in \\(\\left(x+\\dfrac2x\\right)^{10}\\)</td></tr></table></div>The total number of terms in this expansion is:",
@@ -1152,7 +1152,7 @@ QuizBank.register({
       "12"
     ],
     "ans": "11",
-    "reason": null
+    "reason": "The expansion of \\((a+b)^{10}\\) always has \\(10+1=11\\) terms."
   },
   {
     "q": "<div class=\"stimulus\"><table><tr><th>Statement</th><th>Claim</th></tr><tr><td>\\(P(n)\\)</td><td>\\(2+4+6+\\cdots+2n=n(n+1)\\)</td></tr><tr><td>Method</td><td>Mathematical induction, basis at \\(n=1\\)</td></tr></table></div>\\(P(1)\\) reduces to the statement:",
@@ -1163,7 +1163,7 @@ QuizBank.register({
       "\\(0=2\\)"
     ],
     "ans": "\\(2=2\\)",
-    "reason": null
+    "reason": "At \\(n=1\\): LHS \\(=2\\), RHS \\(=1(2)=2\\), giving \\(2=2\\)."
   },
   {
     "q": "<div class=\"stimulus\"><table><tr><th>Statement</th><th>Claim</th></tr><tr><td>\\(P(n)\\)</td><td>\\(2+4+6+\\cdots+2n=n(n+1)\\)</td></tr><tr><td>Method</td><td>Mathematical induction, basis at \\(n=1\\)</td></tr></table></div>Assuming \\(P(k)\\) is true, the inductive hypothesis is:",
@@ -1174,7 +1174,7 @@ QuizBank.register({
       "\\(k=k+1\\)"
     ],
     "ans": "\\(2+4+\\cdots+2k=k(k+1)\\)",
-    "reason": null
+    "reason": "The inductive hypothesis simply assumes the statement holds at \\(n=k\\): \\(2+4+\\cdots+2k=k(k+1)\\)."
   },
   {
     "q": "<div class=\"stimulus\"><table><tr><th>Statement</th><th>Claim</th></tr><tr><td>\\(P(n)\\)</td><td>\\(2+4+6+\\cdots+2n=n(n+1)\\)</td></tr><tr><td>Method</td><td>Mathematical induction, basis at \\(n=1\\)</td></tr></table></div>Adding \\(2(k+1)\\) to both sides of the hypothesis gives \\(k(k+1)+2(k+1)=\\)",
@@ -1185,7 +1185,7 @@ QuizBank.register({
       "\\((k+2)^2\\)"
     ],
     "ans": "\\((k+1)(k+2)\\)",
-    "reason": null
+    "reason": "\\(k(k+1)+2(k+1)=(k+1)(k+2)\\), factoring out \\((k+1)\\) from both terms."
   },
   {
     "q": "<div class=\"stimulus\"><table><tr><th>Statement</th><th>Claim</th></tr><tr><td>\\(P(n)\\)</td><td>\\(2+4+6+\\cdots+2n=n(n+1)\\)</td></tr><tr><td>Method</td><td>Mathematical induction, basis at \\(n=1\\)</td></tr></table></div>This final expression matches \\(P(k+1)\\), which is:",
@@ -1196,7 +1196,7 @@ QuizBank.register({
       "\\((k+2)(k+1)^2\\)"
     ],
     "ans": "\\((k+1)(k+2)\\)",
-    "reason": null
+    "reason": "\\(P(k+1)\\) claims the sum up to \\(2(k+1)\\) equals \\((k+1)(k+2)\\) — exactly what was just derived."
   },
   {
     "q": "<div class=\"stimulus\"><table><tr><th>Row \\(n\\)</th><th>Pascal's triangle entries</th></tr><tr><td>5</td><td>1, 5, 10, 10, 5, 1</td></tr></table></div>This row gives the coefficients in the expansion of:",
@@ -1207,7 +1207,7 @@ QuizBank.register({
       "\\((a+b)^{10}\\)"
     ],
     "ans": "\\((a+b)^5\\)",
-    "reason": null
+    "reason": "By construction, row \\(n\\) of Pascal's triangle lists the coefficients of \\((a+b)^n\\); here \\(n=5\\)."
   },
   {
     "q": "<div class=\"stimulus\"><table><tr><th>Row \\(n\\)</th><th>Pascal's triangle entries</th></tr><tr><td>5</td><td>1, 5, 10, 10, 5, 1</td></tr></table></div>The sum of all entries in this row equals:",
@@ -1218,7 +1218,7 @@ QuizBank.register({
       "64"
     ],
     "ans": "32",
-    "reason": null
+    "reason": "Setting \\(a=b=1\\) in \\((a+b)^5\\) gives \\(1+5+10+10+5+1=2^5=32\\)."
   },
   {
     "q": "<div class=\"stimulus\"><table><tr><th>Row \\(n\\)</th><th>Pascal's triangle entries</th></tr><tr><td>5</td><td>1, 5, 10, 10, 5, 1</td></tr></table></div>The coefficient of the middle term(s) corresponds to:",
@@ -1229,7 +1229,7 @@ QuizBank.register({
       "\\(\\binom{5}{0}\\), 1"
     ],
     "ans": "\\(\\binom{5}{2}\\) and \\(\\binom{5}{3}\\), both 10",
-    "reason": null
+    "reason": "With \\(n=5\\) odd, the two middle terms sit at positions \\(\\binom52\\) and \\(\\binom53\\), both equal to \\(10\\)."
   },
   {
     "q": "<div class=\"stimulus\"><table><tr><th>Row \\(n\\)</th><th>Pascal's triangle entries</th></tr><tr><td>5</td><td>1, 5, 10, 10, 5, 1</td></tr></table></div>The next row (\\(n=6\\)) is obtained by adding adjacent pairs, giving:",
@@ -1240,7 +1240,7 @@ QuizBank.register({
       "1, 6, 12, 12, 6, 1"
     ],
     "ans": "1, 6, 15, 20, 15, 6, 1",
-    "reason": null
+    "reason": "Each entry of row 6 is the sum of the two entries above it in row 5, e.g. \\(1+5=6\\), \\(5+10=15\\), \\(10+10=20\\), giving \\(1,6,15,20,15,6,1\\)."
   }
 ];
   }

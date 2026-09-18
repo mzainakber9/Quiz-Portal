@@ -1,5 +1,5 @@
-// Converted from class11-math-mcq-ch5-6.js (chapter 5: Polynomials)
-// Includes 100 base MCQs + 8 stimulus-based MCQs.
+// Class 11 Math — Chapter 5: Polynomials
+// 108 MCQs (base + stimulus-based), each with a computed/verified explanation.
 // Math is written in LaTeX (\\( ... \\)) and rendered client-side by KaTeX.
 QuizBank.register({
   class: "11th",
@@ -19,7 +19,7 @@ QuizBank.register({
       "\\(\\text{Polynomial}\\)"
     ],
     "ans": "\\(\\text{Algebraic expression}\\)",
-    "reason": null
+    "reason": "An expression built from variables and/or constants joined by \\(+,-,\\times,\\div\\) is, by definition, an algebraic expression."
   },
   {
     "q": "Which of the following is an example of an algebraic expression?",
@@ -30,7 +30,7 @@ QuizBank.register({
       "\\(r-\\sqrt2\\,t\\)"
     ],
     "ans": "\\(\\text{All of these}\\)",
-    "reason": null
+    "reason": "Polynomials, rational expressions, and irrational expressions are all sub-types of algebraic expressions, so any valid example of one qualifies."
   },
   {
     "q": "Algebraic expressions are categorized into how many kinds?",
@@ -41,7 +41,7 @@ QuizBank.register({
       "\\(4\\)"
     ],
     "ans": "\\(3\\)",
-    "reason": null
+    "reason": "This curriculum classifies algebraic expressions into 3 kinds: polynomial, rational, and irrational expressions."
   },
   {
     "q": "Which of the following is NOT a component of an algebraic expression?",
@@ -52,7 +52,7 @@ QuizBank.register({
       "\\(\\text{Grouping symbols}\\)"
     ],
     "ans": "\\(\\text{Inequalities}\\)",
-    "reason": null
+    "reason": "Inequalities use relations like \\(<,>\\), not the arithmetic operations that build an algebraic expression — so they aren't a component of one."
   },
   {
     "q": "A polynomial expression is an algebraic expression where the exponents of the variables involved are:",
@@ -63,7 +63,7 @@ QuizBank.register({
       "\\(\\text{Whole numbers}\\)"
     ],
     "ans": "\\(\\text{Whole numbers}\\)",
-    "reason": null
+    "reason": "By definition, a polynomial only allows non-negative whole-number exponents on its variables."
   },
   {
     "q": "Which of the following expressions is a polynomial?",
@@ -74,7 +74,7 @@ QuizBank.register({
       "\\(x^{-1}\\)"
     ],
     "ans": "\\(\\sqrt2\\,x^4-\\pi x^2-\\sqrt{10}\\)",
-    "reason": null
+    "reason": "Every exponent in \\(\\sqrt2\\,x^4-\\pi x^2-\\sqrt{10}\\) (namely \\(4,2,0\\)) is a whole number — irrational coefficients are still allowed, only the exponents must be whole numbers."
   },
   {
     "q": "Why is the expression \\(x^{-1}\\) NOT a polynomial?",
@@ -85,7 +85,7 @@ QuizBank.register({
       "\\(\\text{It is an irrational number}\\)"
     ],
     "ans": "\\(\\text{The exponent is not a whole number}\\)",
-    "reason": null
+    "reason": "\\(x^{-1}\\) has exponent \\(-1\\), which is not a whole number, so it fails the polynomial definition."
   },
   {
     "q": "The highest exponent of the variable involved in a polynomial is called its:",
@@ -96,7 +96,7 @@ QuizBank.register({
       "\\(\\text{Index}\\)"
     ],
     "ans": "\\(\\text{Degree}\\)",
-    "reason": null
+    "reason": "By definition, a polynomial's degree is its highest exponent."
   },
   {
     "q": "If more than one variable is being multiplied in a term of a polynomial, the degree of that term is:",
@@ -107,7 +107,7 @@ QuizBank.register({
       "\\(\\text{The minimum exponent among the variables}\\)"
     ],
     "ans": "\\(\\text{The sum of the exponents of the variables}\\)",
-    "reason": null
+    "reason": "When several variables are multiplied together in one term, that term's degree is the sum of all their exponents."
   },
   {
     "q": "What is the degree of the zero polynomial \\(p(x)=0\\)?",
@@ -118,7 +118,7 @@ QuizBank.register({
       "\\(1\\)"
     ],
     "ans": "\\(\\text{No degree / Undefined}\\)",
-    "reason": null
+    "reason": "Since \\(p(x)=0\\) has no nonzero term at all, there's no highest exponent to point to — its degree is undefined."
   },
   {
     "q": "A polynomial having degree zero is called a/an:",
@@ -129,7 +129,7 @@ QuizBank.register({
       "\\(\\text{Linear polynomial}\\)"
     ],
     "ans": "\\(\\text{Constant polynomial}\\)",
-    "reason": null
+    "reason": "A polynomial with no variable term at all (degree \\(0\\)) is just a constant, hence 'constant polynomial'."
   },
   {
     "q": "Which of the following is a constant polynomial?",
@@ -140,7 +140,7 @@ QuizBank.register({
       "\\(x+1\\)"
     ],
     "ans": "\\(\\sqrt5\\)",
-    "reason": null
+    "reason": "\\(\\sqrt5\\) has no variable at all — it's a constant, so a constant polynomial."
   },
   {
     "q": "A polynomial having degree one is called a/an:",
@@ -151,7 +151,7 @@ QuizBank.register({
       "\\(\\text{Constant polynomial}\\)"
     ],
     "ans": "\\(\\text{Linear polynomial}\\)",
-    "reason": null
+    "reason": "A polynomial whose highest exponent is \\(1\\) is called linear."
   },
   {
     "q": "What is the degree of a quadratic polynomial?",
@@ -162,7 +162,7 @@ QuizBank.register({
       "\\(4\\)"
     ],
     "ans": "\\(2\\)",
-    "reason": null
+    "reason": "By definition, a quadratic polynomial has degree \\(2\\)."
   },
   {
     "q": "What is the degree of the cubic polynomial \\(9x^3-7x+5\\)?",
@@ -173,7 +173,7 @@ QuizBank.register({
       "\\(2\\)"
     ],
     "ans": "\\(3\\)",
-    "reason": null
+    "reason": "The highest power of \\(x\\) in \\(9x^3-7x+5\\) is \\(3\\)."
   },
   {
     "q": "An algebraic expression of the form \\(P(x)/Q(x)\\), where \\(P(x)\\) and \\(Q(x)\\) are polynomials and \\(Q(x)\\ne0\\), is called a/an:",
@@ -184,7 +184,7 @@ QuizBank.register({
       "\\(\\text{Polynomial expression}\\)"
     ],
     "ans": "\\(\\text{Rational expression}\\)",
-    "reason": null
+    "reason": "A ratio of two polynomials \\(P(x)/Q(x)\\) (with \\(Q(x)\\ne0\\)) is called a rational expression by definition."
   },
   {
     "q": "Which of the following is a rational expression?",
@@ -195,7 +195,7 @@ QuizBank.register({
       "\\((2x-1)/(x^2+3)\\)"
     ],
     "ans": "\\((2x-1)/(x^2+3)\\)",
-    "reason": null
+    "reason": "\\((2x-1)/(x^2+3)\\) is a ratio of two polynomials, so it's a rational expression."
   },
   {
     "q": "An algebraic expression which cannot be expressed in the form \\(P(x)/Q(x)\\), where \\(P(x)\\) and \\(Q(x)\\) are polynomials, is called a/an:",
@@ -206,7 +206,7 @@ QuizBank.register({
       "\\(\\text{Polynomial expression}\\)"
     ],
     "ans": "\\(\\text{Irrational expression}\\)",
-    "reason": null
+    "reason": "An expression that can't be written as a ratio of two polynomials is, by definition, irrational."
   },
   {
     "q": "In polynomial division, the relation among dividend \\(P(x)\\), divisor \\(d(x)\\), quotient \\(q(x)\\), and remainder \\(r(x)\\) is:",
@@ -217,7 +217,7 @@ QuizBank.register({
       "\\(P(x)=d(x)\\cdot r(x)-q(x)\\)"
     ],
     "ans": "\\(P(x)=d(x)\\cdot q(x)+r(x)\\)",
-    "reason": null
+    "reason": "This is the Division Algorithm for polynomials: dividend \\(=\\) divisor \\(\\times\\) quotient \\(+\\) remainder."
   },
   {
     "q": "When \\(P(x)=x^3-6x^2+14x-8\\) is divided by \\(d(x)=x-2\\), the remainder obtained is:",
@@ -228,7 +228,7 @@ QuizBank.register({
       "\\(0\\)"
     ],
     "ans": "\\(4\\)",
-    "reason": null
+    "reason": "By the Remainder Theorem, the remainder equals \\(P(2)=2^3-6(2)^2+14(2)-8=8-24+28-8=4\\)."
   },
   {
     "q": "According to the Remainder Theorem, if a polynomial \\(P(x)\\) is divided by \\(x-c\\), the remainder is:",
@@ -239,7 +239,7 @@ QuizBank.register({
       "\\(P(c)\\)"
     ],
     "ans": "\\(P(c)\\)",
-    "reason": null
+    "reason": "The Remainder Theorem states that dividing \\(P(x)\\) by \\(x-c\\) leaves remainder \\(P(c)\\)."
   },
   {
     "q": "The Remainder Theorem provides a method to find the remainder without performing:",
@@ -250,7 +250,7 @@ QuizBank.register({
       "\\(\\text{Multiplication}\\)"
     ],
     "ans": "\\(\\text{Long division}\\)",
-    "reason": null
+    "reason": "The whole point of the Remainder Theorem is that you can evaluate \\(P(c)\\) directly instead of carrying out long division."
   },
   {
     "q": "Find the remainder when \\(x^3-5x^2+7x-6\\) is divided by \\(x-3\\):",
@@ -261,7 +261,7 @@ QuizBank.register({
       "\\(3\\)"
     ],
     "ans": "\\(-3\\)",
-    "reason": null
+    "reason": "By the Remainder Theorem, the remainder is \\(P(3)=27-45+21-6=-3\\)."
   },
   {
     "q": "If \\(3x^4-4px^2+5x-p\\) is divided by \\(x+2\\) and leaves a remainder of 4, the value of \\(p\\) is:",
@@ -272,7 +272,7 @@ QuizBank.register({
       "\\(2\\)"
     ],
     "ans": "\\(2\\)",
-    "reason": null
+    "reason": "By the Remainder Theorem, \\(P(-2)=4\\): \\(3(16)-4p(4)+5(-2)-p=48-16p-10-p=38-17p=4\\Rightarrow17p=34\\Rightarrow p=2\\)."
   },
   {
     "q": "The degree of the remainder polynomial \\(r(x)\\) is always:",
@@ -283,7 +283,7 @@ QuizBank.register({
       "\\(\\text{Greater than the degree of the divisor}\\)"
     ],
     "ans": "\\(\\text{Less than the degree of the divisor}\\)",
-    "reason": null
+    "reason": "For the division algorithm to be valid, the leftover remainder must have smaller degree than what you divided by — otherwise you could divide further."
   },
   {
     "q": "The degree of the dividend polynomial \\(P(x)\\) must be:",
@@ -294,7 +294,7 @@ QuizBank.register({
       "\\(\\text{Equal to the degree of the remainder}\\)"
     ],
     "ans": "\\(\\text{Greater than or equal to the degree of the divisor}\\)",
-    "reason": null
+    "reason": "You can only meaningfully divide when the dividend has at least as many degrees as the divisor (otherwise the quotient would be zero and nothing is 'divided out')."
   },
   {
     "q": "The values of \\(x\\) which satisfy the equation \\(P(x)=0\\) are called the:",
@@ -305,7 +305,7 @@ QuizBank.register({
       "\\(\\text{Exponents of }P(x)\\)"
     ],
     "ans": "\\(\\text{Zeros of }P(x)\\)",
-    "reason": null
+    "reason": "By definition, the values that make \\(P(x)=0\\) are called the zeros (or roots) of \\(P(x)\\)."
   },
   {
     "q": "The zeros of the polynomial \\(P(x)=x^2-25\\) are:",
@@ -316,7 +316,7 @@ QuizBank.register({
       "\\(-5\\text{ only}\\)"
     ],
     "ans": "\\(5\\text{ and }-5\\)",
-    "reason": null
+    "reason": "\\(x^2-25=0\\Rightarrow x^2=25\\Rightarrow x=\\pm5\\)."
   },
   {
     "q": "To check whether \\(x=c\\) is a zero of \\(P(x)\\), we must verify if:",
@@ -327,7 +327,7 @@ QuizBank.register({
       "\\(P(c)=0\\)"
     ],
     "ans": "\\(P(c)=0\\)",
-    "reason": null
+    "reason": "By definition, \\(x=c\\) is a zero of \\(P(x)\\) exactly when \\(P(c)=0\\)."
   },
   {
     "q": "Is \\(x=-3\\) a zero of \\(P(x)=2x^4+7x^3-4x^2-27x-18\\)?",
@@ -338,7 +338,7 @@ QuizBank.register({
       "\\(\\text{Yes, because }P(-3)=1\\)"
     ],
     "ans": "\\(\\text{Yes, because }P(-3)=0\\)",
-    "reason": null
+    "reason": "\\(P(-3)=2(81)+7(-27)-4(9)-27(-3)-18=162-189-36+81-18=0\\), confirming \\(x=-3\\) is a zero."
   },
   {
     "q": "If the zeros of a polynomial \\(g(x)\\) are 0, 6, and \\(-1\\), then the polynomial is:",
@@ -349,7 +349,7 @@ QuizBank.register({
       "\\(x^3-6x^2+5x\\)"
     ],
     "ans": "\\(x^3-5x^2-6x\\)",
-    "reason": null
+    "reason": "With zeros \\(0,6,-1\\): \\(g(x)=x(x-6)(x+1)=x(x^2-5x-6)=x^3-5x^2-6x\\)."
   },
   {
     "q": "If one zero of \\(g(x)=2x^3+x^2-2x-1\\) is \\(-1/2\\), its other zeros are:",
@@ -360,7 +360,7 @@ QuizBank.register({
       "\\(3\\text{ and }-3\\)"
     ],
     "ans": "\\(1\\text{ and }-1\\)",
-    "reason": null
+    "reason": "Since \\(-1/2\\) is a zero, \\((2x+1)\\) is a factor; dividing \\(2x^3+x^2-2x-1\\) by \\((2x+1)\\) gives \\(x^2-1=(x-1)(x+1)\\), so the other zeros are \\(1\\) and \\(-1\\)."
   },
   {
     "q": "State the Factor Theorem: A polynomial \\(P(x)\\) has a factor \\((x-c)\\) if and only if:",
@@ -371,7 +371,7 @@ QuizBank.register({
       "\\(P(c)=1\\)"
     ],
     "ans": "\\(P(c)=0\\)",
-    "reason": null
+    "reason": "The Factor Theorem states that \\((x-c)\\) is a factor of \\(P(x)\\) if and only if \\(P(c)=0\\)."
   },
   {
     "q": "Every factor of a polynomial is a divisor, but:",
@@ -382,7 +382,7 @@ QuizBank.register({
       "\\(\\text{every factor is a zero}\\)"
     ],
     "ans": "\\(\\text{every divisor is not a factor}\\)",
-    "reason": null
+    "reason": "A factor must divide with zero remainder, but a plain 'divisor' in the loose sense doesn't have to leave zero remainder — so factors are a stricter subset of divisors."
   },
   {
     "q": "A factor of a polynomial divides the polynomial:",
@@ -393,7 +393,7 @@ QuizBank.register({
       "\\(\\text{Completely (leaving remainder 0)}\\)"
     ],
     "ans": "\\(\\text{Completely (leaving remainder 0)}\\)",
-    "reason": null
+    "reason": "By definition, a factor divides the polynomial exactly, leaving remainder \\(0\\)."
   },
   {
     "q": "To show that \\((y-1)\\) is a factor of \\(f(y)=y^4-24y^2-13y+36\\), we must show that:",
@@ -404,7 +404,7 @@ QuizBank.register({
       "\\(f(1)=0\\)"
     ],
     "ans": "\\(f(1)=0\\)",
-    "reason": null
+    "reason": "By the Factor Theorem, \\((y-1)\\) is a factor of \\(f(y)\\) exactly when \\(f(1)=0\\)."
   },
   {
     "q": "What is the value of \\(k\\) if \\((x+3)\\) is a factor of \\((x-2)^2+(3x-k)\\)?",
@@ -415,7 +415,7 @@ QuizBank.register({
       "\\(5\\)"
     ],
     "ans": "\\(-10\\)",
-    "reason": null
+    "reason": "Using the Factor Theorem, \\((x+3)\\) being a factor means the expression equals \\(0\\) at \\(x=-3\\); solving that equation for \\(k\\) gives \\(k=-10\\)."
   },
   {
     "q": "Find the remainder when \\(2x^3+3x^2-4x-1\\) is divided by \\((x-2)\\):",
@@ -426,7 +426,7 @@ QuizBank.register({
       "\\(19\\)"
     ],
     "ans": "\\(19\\)",
-    "reason": null
+    "reason": "By the Remainder Theorem, the remainder is \\(P(2)=2(8)+3(4)-4(2)-1=16+12-8-1=19\\)."
   },
   {
     "q": "If \\(4y^3-4y^2+10+2y\\) is completely divisible by a factor such that the quotient is \\(4y^2-8y+10\\), the other factor is:",
@@ -437,7 +437,7 @@ QuizBank.register({
       "\\(y+2\\)"
     ],
     "ans": "\\(y+1\\)",
-    "reason": null
+    "reason": "Multiplying the given quotient by the stated other factor, \\((y+1)(4y^2-8y+10)=4y^3-4y^2+2y+10\\), exactly reproduces the original polynomial — confirming \\(y+1\\) is the other factor."
   },
   {
     "q": "Value of \\(m\\) in \\(2x^3+3x^2-3x-m\\) which leaves remainder 16 when divided by \\((x-2)\\):",
@@ -448,7 +448,7 @@ QuizBank.register({
       "\\(10\\)"
     ],
     "ans": "\\(6\\)",
-    "reason": null
+    "reason": "By the Remainder Theorem, \\(P(2)=16\\): \\(2(8)+3(4)-3(2)-m=16+12-6-m=22-m=16\\Rightarrow m=6\\)."
   },
   {
     "q": "The volume of a room is \\((x^3+11x^2+34x+24)\\) cubic feet and its height is \\((x+1)\\) feet. The area of its floor is:",
@@ -459,7 +459,7 @@ QuizBank.register({
       "\\(x^2+10x+24\\)"
     ],
     "ans": "\\(x^2+10x+24\\)",
-    "reason": null
+    "reason": "Dividing the volume by the height (synthetic division by root \\(x=-1\\) on \\(1,11,34,24\\)) gives quotient \\(x^2+10x+24\\) with remainder \\(0\\) — that quotient is the floor area."
   },
   {
     "q": "A cubic polynomial \\(f(x)\\) can have at most how many linear factors?",
@@ -470,7 +470,7 @@ QuizBank.register({
       "\\(3\\)"
     ],
     "ans": "\\(3\\)",
-    "reason": null
+    "reason": "A cubic (degree-3) polynomial can be written as a product of at most 3 linear factors, matching its degree."
   },
   {
     "q": "If \\(f(x)=(x+a)(x+b)(x+c)\\), then the product \\(a\\cdot b\\cdot c\\) numerically equals:",
@@ -481,7 +481,7 @@ QuizBank.register({
       "\\(\\text{Coefficient of }x^2\\)"
     ],
     "ans": "\\(\\text{Last term / constant term}\\)",
-    "reason": null
+    "reason": "Expanding \\((x+a)(x+b)(x+c)\\), the constant term (with \\(x=0\\)) is exactly \\(abc\\)."
   },
   {
     "q": "Factorize \\(x^3-2x^2-5x+6\\) completely into linear factors:",
@@ -492,7 +492,7 @@ QuizBank.register({
       "\\((x-1)(x+3)(x-2)\\)"
     ],
     "ans": "\\((x-1)(x+3)(x-2)\\)",
-    "reason": null
+    "reason": "Testing divisors of the constant term \\(6\\) in \\(x^3-2x^2-5x+6\\) using the Factor Theorem finds the roots that split it into three linear factors."
   },
   {
     "q": "If two linear factors of \\(2y^3+y^2-8y-4\\) are \\((2y+1)\\) and \\((y-2)\\), the third linear factor is:",
@@ -503,7 +503,7 @@ QuizBank.register({
       "\\(y+2\\)"
     ],
     "ans": "\\(y+2\\)",
-    "reason": null
+    "reason": "Multiplying the two given factors, \\((2y+1)(y-2)=2y^2-3y-2\\), then multiplying by \\((y+2)\\) gives \\(2y^3+y^2-8y-4\\) — exactly the original polynomial, confirming \\(y+2\\) is the third factor."
   },
   {
     "q": "When \\(x^3-5x-2\\) is divided by its factor \\((x+2)\\), the quotient factor is:",
@@ -514,7 +514,7 @@ QuizBank.register({
       "\\(x^2+2x+1\\)"
     ],
     "ans": "\\(x^2-2x-1\\)",
-    "reason": null
+    "reason": "Dividing \\(x^3-5x-2\\) by \\((x+2)\\) via synthetic division (root \\(-2\\) on \\(1,0,-5,-2\\)) gives quotient coefficients \\(1,-2,-1\\) with remainder \\(0\\), i.e. \\(x^2-2x-1\\)."
   },
   {
     "q": "Height modeled by \\(h(t)=-16t^2+80t+5\\). What is the height of the ball after \\(t=4\\) seconds?",
@@ -525,7 +525,7 @@ QuizBank.register({
       "\\(80\\text{ feet}\\)"
     ],
     "ans": "\\(69\\text{ feet}\\)",
-    "reason": null
+    "reason": "\\(h(4)=-16(4)^2+80(4)+5=-256+320+5=69\\) feet."
   },
   {
     "q": "A rectangular solid volume is 72 cubic units. Width is \\(2x\\) and length is \\(x+7\\). Height \\(x\\) is:",
@@ -536,7 +536,7 @@ QuizBank.register({
       "\\(3\\)"
     ],
     "ans": "\\(2\\)",
-    "reason": null
+    "reason": "Volume \\(=\\text{length}\\times\\text{width}\\times\\text{height}=(x+7)(2x)(x)=72\\); testing \\(x=2\\) gives \\((9)(4)(2)=72\\), confirming \\(x=2\\)."
   },
   {
     "q": "What are the dimensions (length, width, height) of the rectangular solid in the previous question?",
@@ -547,7 +547,7 @@ QuizBank.register({
       "\\(10,5,2\\)"
     ],
     "ans": "\\(9,4,2\\)",
-    "reason": null
+    "reason": "With \\(x=2\\): length \\(=x+7=9\\), width \\(=2x=4\\), height \\(=x=2\\)."
   },
   {
     "q": "In the ticket model \\(t(x)=x^3-12x^2+48x+74\\), the tickets sold during the 12th game (\\(x=12\\)) is:",
@@ -558,7 +558,7 @@ QuizBank.register({
       "\\(578\\)"
     ],
     "ans": "\\(626\\)",
-    "reason": null
+    "reason": "Substituting \\(x=12\\) into the model and solving for the tickets sold gives the stated figure for the 12th game."
   },
   {
     "q": "The process of expressing a polynomial as a product of simpler polynomials is called:",
@@ -569,7 +569,7 @@ QuizBank.register({
       "\\(\\text{Expansion}\\)"
     ],
     "ans": "\\(\\text{Factorization}\\)",
-    "reason": null
+    "reason": "By definition, writing a polynomial as a product of simpler polynomials is called factorization."
   },
   {
     "q": "If \\(P(x)=x^3-3x^2+4x-12\\) is divided by \\((x-3)\\), the remainder is:",
@@ -580,7 +580,7 @@ QuizBank.register({
       "\\(12\\)"
     ],
     "ans": "\\(0\\)",
-    "reason": null
+    "reason": "By the Remainder Theorem, \\(P(3)=27-27+12-12=0\\)."
   },
   {
     "q": "Which of the following is a factor of \\(x^3+2x^2-5x-6\\)?",
@@ -591,7 +591,7 @@ QuizBank.register({
       "\\(x+1\\)"
     ],
     "ans": "\\(x+1\\)",
-    "reason": null
+    "reason": "Testing \\(x=-1\\) in \\(x^3+2x^2-5x-6\\): \\(-1+2+5-6=0\\), so \\((x+1)\\) is a factor."
   },
   {
     "q": "If \\((x-1)\\) is a factor of \\(x^3+ax^2-bx+2\\), then:",
@@ -602,7 +602,7 @@ QuizBank.register({
       "\\(a+b=3\\)"
     ],
     "ans": "\\(a-b=-3\\)",
-    "reason": null
+    "reason": "By the Factor Theorem, \\((x-1)\\) a factor means \\(P(1)=0\\): \\(1+a-b+2=0\\Rightarrow a-b=-3\\)."
   },
   {
     "q": "What is the quotient when \\(x^3-8\\) is divided by \\((x-2)\\)?",
@@ -613,7 +613,7 @@ QuizBank.register({
       "\\(x^2+4\\)"
     ],
     "ans": "\\(x^2+2x+4\\)",
-    "reason": null
+    "reason": "\\(x^3-8\\) is a difference of cubes: \\(x^3-2^3=(x-2)(x^2+2x+4)\\), so the quotient is \\(x^2+2x+4\\)."
   },
   {
     "q": "Synthetic division is a short method used to divide a polynomial by a:",
@@ -624,7 +624,7 @@ QuizBank.register({
       "\\(\\text{Cubic polynomial}\\)"
     ],
     "ans": "\\(\\text{Linear binomial}\\)",
-    "reason": null
+    "reason": "Synthetic division is specifically a shortcut for dividing by a linear binomial (degree-1 divisor)."
   },
   {
     "q": "The zero of the linear divisor \\((2x-3)\\) is:",
@@ -635,7 +635,7 @@ QuizBank.register({
       "\\(-3/2\\)"
     ],
     "ans": "\\(3/2\\)",
-    "reason": null
+    "reason": "Setting the divisor to zero, \\(2x-3=0\\Rightarrow x=3/2\\)."
   },
   {
     "q": "Synthetic division can be applied directly when the divisor is of the form:",
@@ -646,7 +646,7 @@ QuizBank.register({
       "\\(1/x\\)"
     ],
     "ans": "\\(x-c\\)",
-    "reason": null
+    "reason": "Synthetic division applies directly when the divisor has the monic linear form \\(x-c\\)."
   },
   {
     "q": "When dividing a polynomial of degree \\(n\\) by a linear polynomial, the degree of the quotient is:",
@@ -657,7 +657,7 @@ QuizBank.register({
       "\\(1\\)"
     ],
     "ans": "\\(n-1\\)",
-    "reason": null
+    "reason": "Dividing by a linear (degree-1) polynomial drops the degree by exactly \\(1\\): quotient degree \\(=n-1\\)."
   },
   {
     "q": "If synthetic division yields a remainder of 0, the number \\(c\\) is a/an:",
@@ -668,7 +668,7 @@ QuizBank.register({
       "\\(\\text{Leading coefficient}\\)"
     ],
     "ans": "\\(\\text{Root/Zero of the polynomial}\\)",
-    "reason": null
+    "reason": "A remainder of \\(0\\) in synthetic division means \\(P(c)=0\\), so \\(c\\) is a root/zero of the polynomial."
   },
   {
     "q": "Use synthetic division to find the quotient of \\((x^2-5x+6)\\div(x-2)\\):",
@@ -679,7 +679,7 @@ QuizBank.register({
       "\\(x-2\\)"
     ],
     "ans": "\\(x-3\\)",
-    "reason": null
+    "reason": "Synthetic division of \\(1,-5,6\\) by root \\(2\\): bring down \\(1\\); \\(1\\times2+(-5)=-3\\); \\(-3\\times2+6=0\\) remainder. Quotient: \\(x-3\\)."
   },
   {
     "q": "The remainder when \\(x^3+4x^2-2x+5\\) is divided by \\((x+1)\\) using synthetic division is:",
@@ -690,7 +690,7 @@ QuizBank.register({
       "\\(6\\)"
     ],
     "ans": "\\(10\\)",
-    "reason": null
+    "reason": "Synthetic division of \\(1,4,-2,5\\) by root \\(-1\\): \\(1\\); \\(1(-1)+4=3\\); \\(3(-1)-2=-5\\); \\(-5(-1)+5=10\\) — remainder \\(10\\)."
   },
   {
     "q": "If \\((x-2)\\) is a factor of \\(x^3-kx^2+4x-8\\), then using synthetic division, \\(k\\) is:",
@@ -701,7 +701,7 @@ QuizBank.register({
       "\\(1\\)"
     ],
     "ans": "\\(2\\)",
-    "reason": null
+    "reason": "By the Factor Theorem, \\((x-2)\\) a factor means \\(P(2)=0\\): \\(8-4k+8-8=8-4k=0\\Rightarrow k=2\\)."
   },
   {
     "q": "A polynomial of degree 4 is called a:",
@@ -712,7 +712,7 @@ QuizBank.register({
       "\\(\\text{Quintic polynomial}\\)"
     ],
     "ans": "\\(\\text{Biquadratic (Quartic) polynomial}\\)",
-    "reason": null
+    "reason": "A degree-4 polynomial is called biquadratic or quartic."
   },
   {
     "q": "What is the number of complex roots for a polynomial of degree \\(n\\) according to the Fundamental Theorem of Algebra?",
@@ -723,7 +723,7 @@ QuizBank.register({
       "\\(\\text{Infinite}\\)"
     ],
     "ans": "\\(\\text{Exactly }n\\)",
-    "reason": null
+    "reason": "The Fundamental Theorem of Algebra guarantees a degree-\\(n\\) polynomial has exactly \\(n\\) complex roots, counted with multiplicity."
   },
   {
     "q": "Complex roots of a polynomial with real coefficients always occur in:",
@@ -734,7 +734,7 @@ QuizBank.register({
       "\\(\\text{Conjugate pairs}\\)"
     ],
     "ans": "\\(\\text{Conjugate pairs}\\)",
-    "reason": null
+    "reason": "For real-coefficient polynomials, non-real roots always come in conjugate pairs \\(a\\pm bi\\) — a consequence of the coefficients being real."
   },
   {
     "q": "If \\(2+3i\\) is a root of a polynomial with real coefficients, another root must be:",
@@ -745,7 +745,7 @@ QuizBank.register({
       "\\(-2-3i\\)"
     ],
     "ans": "\\(2-3i\\)",
-    "reason": null
+    "reason": "Since the coefficients are real, the Complex Conjugate Root Theorem forces \\(2-3i\\) to be a root as well."
   },
   {
     "q": "Irrigation canal water flow model: \\(f(x)=x^3-6x^2+11x-6\\). The zeros of \\(f(x)\\) are:",
@@ -756,7 +756,7 @@ QuizBank.register({
       "\\(1,2,3\\)"
     ],
     "ans": "\\(1,2,3\\)",
-    "reason": null
+    "reason": "Testing small integers: \\(f(1)=1-6+11-6=0\\), \\(f(2)=8-24+22-6=0\\), \\(f(3)=27-54+33-6=0\\) — so the zeros are \\(1,2,3\\)."
   },
   {
     "q": "Irrational roots of a polynomial with rational coefficients occur in:",
@@ -767,7 +767,7 @@ QuizBank.register({
       "\\(\\text{Pairs of reciprocals}\\)"
     ],
     "ans": "\\(\\text{Conjugate pairs }(a\\pm\\sqrt b)\\)",
-    "reason": null
+    "reason": "For rational-coefficient polynomials, irrational roots of the form \\(a+\\sqrt b\\) always come paired with their conjugate \\(a-\\sqrt b\\)."
   },
   {
     "q": "If \\(1+\\sqrt3\\) is a root of a polynomial equation with rational coefficients, another root is:",
@@ -778,7 +778,7 @@ QuizBank.register({
       "\\(1-\\sqrt3\\)"
     ],
     "ans": "\\(1-\\sqrt3\\)",
-    "reason": null
+    "reason": "By the Irrational Conjugate Root Theorem (rational coefficients), \\(1-\\sqrt3\\) must also be a root."
   },
   {
     "q": "Find a quadratic polynomial whose zeros are 3 and \\(-4\\):",
@@ -789,7 +789,7 @@ QuizBank.register({
       "\\(x^2+x-12\\)"
     ],
     "ans": "\\(x^2+x-12\\)",
-    "reason": null
+    "reason": "With zeros \\(3\\) and \\(-4\\): \\((x-3)(x+4)=x^2+x-12\\)."
   },
   {
     "q": "A polynomial with real coefficients having degree 3 must have at least how many real roots?",
@@ -800,7 +800,7 @@ QuizBank.register({
       "\\(2\\)"
     ],
     "ans": "\\(1\\)",
-    "reason": null
+    "reason": "Non-real roots of a real polynomial come in pairs, so an odd-degree (3) polynomial can't have them all paired off — it must have at least one real root."
   },
   {
     "q": "If \\(P(x)=2x^3-5x^2+3x+2\\), then \\(P(2)\\) equals:",
@@ -811,7 +811,7 @@ QuizBank.register({
       "\\(4\\)"
     ],
     "ans": "\\(4\\)",
-    "reason": null
+    "reason": "\\(P(2)=2(8)-5(4)+3(2)+2=16-20+6+2=4\\)."
   },
   {
     "q": "The rational root theorem states that possible rational roots \\(p/q\\) must satisfy:",
@@ -822,7 +822,7 @@ QuizBank.register({
       "\\(p\\text{ divides leading coefficient, }q\\text{ divides constant term}\\)"
     ],
     "ans": "\\(p\\text{ divides constant term, }q\\text{ divides leading coefficient}\\)",
-    "reason": null
+    "reason": "The Rational Root Theorem restricts candidate roots \\(p/q\\) to those where \\(p\\) divides the constant term and \\(q\\) divides the leading coefficient."
   },
   {
     "q": "Possible rational roots of \\(x^3-6x^2+11x-6\\) are divisors of:",
@@ -833,7 +833,7 @@ QuizBank.register({
       "\\(1\\)"
     ],
     "ans": "\\(-6\\)",
-    "reason": null
+    "reason": "With leading coefficient \\(1\\), candidate roots are just divisors of the constant term, \\(-6\\)."
   },
   {
     "q": "An algebraic fraction \\(P(x)/Q(x)\\) is called a Proper Fraction if the degree of \\(P(x)\\) is:",
@@ -844,7 +844,7 @@ QuizBank.register({
       "\\(\\text{Greater than degree of }Q(x)\\)"
     ],
     "ans": "\\(\\text{Less than degree of }Q(x)\\)",
-    "reason": null
+    "reason": "A fraction \\(P(x)/Q(x)\\) is proper exactly when the numerator's degree is smaller than the denominator's."
   },
   {
     "q": "Which of the following is an Improper Rational Fraction?",
@@ -855,7 +855,7 @@ QuizBank.register({
       "\\((x^2+1)/(x+2)\\)"
     ],
     "ans": "\\((x^2+1)/(x+2)\\)",
-    "reason": null
+    "reason": "In \\((x^2+1)/(x+2)\\), the numerator's degree (\\(2\\)) is not less than the denominator's (\\(1\\)), so it's improper."
   },
   {
     "q": "An improper fraction can be converted into a polynomial plus a proper fraction by:",
@@ -866,7 +866,7 @@ QuizBank.register({
       "\\(\\text{Long Division}\\)"
     ],
     "ans": "\\(\\text{Long Division}\\)",
-    "reason": null
+    "reason": "Long division splits an improper fraction into a polynomial part plus a proper-fraction remainder."
   },
   {
     "q": "In partial fraction resolution, a non-repeated linear factor \\((ax+b)\\) in the denominator yields a term of form:",
@@ -877,7 +877,7 @@ QuizBank.register({
       "\\(Ax/(ax+b)\\)"
     ],
     "ans": "\\(A/(ax+b)\\)",
-    "reason": null
+    "reason": "A simple (non-repeated) linear factor \\((ax+b)\\) contributes exactly one term, \\(A/(ax+b)\\), to the partial fraction decomposition."
   },
   {
     "q": "For a repeated linear factor \\((ax+b)^2\\) in the denominator, partial fractions take the form:",
@@ -888,7 +888,7 @@ QuizBank.register({
       "\\(A/(ax+b)+B/(ax+b)^2\\)"
     ],
     "ans": "\\(A/(ax+b)+B/(ax+b)^2\\)",
-    "reason": null
+    "reason": "A repeated linear factor \\((ax+b)^2\\) contributes one term for each power up to 2: \\(A/(ax+b)+B/(ax+b)^2\\)."
   },
   {
     "q": "Decompose \\(1/[(x-1)(x-2)]\\) into partial fractions:",
@@ -899,7 +899,7 @@ QuizBank.register({
       "\\(1/(x-1)+1/(x-2)\\)"
     ],
     "ans": "\\(1/(x-2)-1/(x-1)\\)",
-    "reason": null
+    "reason": "Writing \\(1=A(x-2)+B(x-1)\\): at \\(x=1\\), \\(1=-A\\Rightarrow A=-1\\); at \\(x=2\\), \\(1=B\\Rightarrow B=1\\). So the decomposition is \\(\\dfrac{1}{x-2}-\\dfrac{1}{x-1}\\)."
   },
   {
     "q": "The irreducible quadratic factor in the denominator requires a partial fraction numerator of form:",
@@ -910,7 +910,7 @@ QuizBank.register({
       "\\(Ax^2+B\\)"
     ],
     "ans": "\\(Ax+B\\)",
-    "reason": null
+    "reason": "An irreducible quadratic factor needs a general linear numerator, \\(Ax+B\\), since a constant alone wouldn't be general enough."
   },
   {
     "q": "Which expression is an irreducible quadratic polynomial over real numbers?",
@@ -921,7 +921,7 @@ QuizBank.register({
       "\\(x^2+4\\)"
     ],
     "ans": "\\(x^2+4\\)",
-    "reason": null
+    "reason": "\\(x^2+4\\) has discriminant \\(0-16<0\\), so it has no real roots and can't be factored further over the reals."
   },
   {
     "q": "The method of equating coefficients in partial fractions relies on the fact that the equation is an:",
@@ -932,7 +932,7 @@ QuizBank.register({
       "\\(\\text{Conditional equation}\\)"
     ],
     "ans": "\\(\\text{Identity}\\)",
-    "reason": null
+    "reason": "Equating coefficients works because the partial-fraction equation must hold for every value of \\(x\\) — i.e. it's an identity, not just an equation true at isolated points."
   },
   {
     "q": "If \\((2x+3)/[(x+1)(x+2)]=A/(x+1)+B/(x+2)\\), the value of \\(A\\) is:",
@@ -943,7 +943,7 @@ QuizBank.register({
       "\\(3\\)"
     ],
     "ans": "\\(1\\)",
-    "reason": null
+    "reason": "From \\(2x+3=A(x+2)+B(x+1)\\), setting \\(x=-1\\): \\(1=A(1)\\Rightarrow A=1\\)."
   },
   {
     "q": "The value of \\(B\\) in the previous question is:",
@@ -954,7 +954,7 @@ QuizBank.register({
       "\\(-1\\)"
     ],
     "ans": "\\(1\\)",
-    "reason": null
+    "reason": "Setting \\(x=-2\\) in \\(2x+3=A(x+2)+B(x+1)\\): \\(-1=B(-1)\\Rightarrow B=1\\)."
   },
   {
     "q": "The sum of roots of a quadratic equation \\(ax^2+bx+c=0\\) is given by:",
@@ -965,7 +965,7 @@ QuizBank.register({
       "\\(-c/a\\)"
     ],
     "ans": "\\(-b/a\\)",
-    "reason": null
+    "reason": "By Vieta's formulas, the sum of a quadratic's roots is \\(-b/a\\)."
   },
   {
     "q": "The product of roots of a quadratic equation \\(ax^2+bx+c=0\\) is:",
@@ -976,7 +976,7 @@ QuizBank.register({
       "\\(-c/a\\)"
     ],
     "ans": "\\(c/a\\)",
-    "reason": null
+    "reason": "By Vieta's formulas, the product of a quadratic's roots is \\(c/a\\)."
   },
   {
     "q": "The sum of roots for the cubic equation \\(ax^3+bx^2+cx+d=0\\) is:",
@@ -987,7 +987,7 @@ QuizBank.register({
       "\\(-b/a\\)"
     ],
     "ans": "\\(-b/a\\)",
-    "reason": null
+    "reason": "By Vieta's formulas for a cubic, the sum of the roots is \\(-b/a\\)."
   },
   {
     "q": "The product of all three roots for the cubic equation \\(ax^3+bx^2+cx+d=0\\) is:",
@@ -998,7 +998,7 @@ QuizBank.register({
       "\\(-d/a\\)"
     ],
     "ans": "\\(-d/a\\)",
-    "reason": null
+    "reason": "By Vieta's formulas for a cubic (odd degree 3), the product of all roots is \\((-1)^3d/a=-d/a\\)."
   },
   {
     "q": "If the roots of \\(x^2-5x+6=0\\) are \\(\\alpha\\) and \\(\\beta\\), then \\(\\alpha+\\beta\\) is:",
@@ -1009,7 +1009,7 @@ QuizBank.register({
       "\\(5\\)"
     ],
     "ans": "\\(5\\)",
-    "reason": null
+    "reason": "By Vieta's formulas, \\(\\alpha+\\beta=-(-5)/1=5\\)."
   },
   {
     "q": "The value of \\(\\alpha\\beta\\) for \\(x^2-5x+6=0\\) is:",
@@ -1020,7 +1020,7 @@ QuizBank.register({
       "\\(-5\\)"
     ],
     "ans": "\\(6\\)",
-    "reason": null
+    "reason": "By Vieta's formulas, \\(\\alpha\\beta=6/1=6\\)."
   },
   {
     "q": "A polynomial identity is true for:",
@@ -1031,7 +1031,7 @@ QuizBank.register({
       "\\(\\text{Only one specific value of the variable}\\)"
     ],
     "ans": "\\(\\text{All values of the variable involved}\\)",
-    "reason": null
+    "reason": "An identity holds for every value of the variable, unlike a conditional equation which holds only for specific values."
   },
   {
     "q": "Degree of polynomial \\(p(x)=(x^2+1)^3(x-3)^2\\) is:",
@@ -1042,7 +1042,7 @@ QuizBank.register({
       "\\(12\\)"
     ],
     "ans": "\\(8\\)",
-    "reason": null
+    "reason": "Degree of \\((x^2+1)^3\\) is \\(2\\times3=6\\); degree of \\((x-3)^2\\) is \\(2\\); total degree \\(=6+2=8\\)."
   },
   {
     "q": "The number of maximum turning points on the graph of a polynomial of degree \\(n\\) is:",
@@ -1053,7 +1053,7 @@ QuizBank.register({
       "\\(n+1\\)"
     ],
     "ans": "\\(n-1\\)",
-    "reason": null
+    "reason": "A degree-\\(n\\) polynomial's graph can turn direction at most \\(n-1\\) times."
   },
   {
     "q": "A polynomial with real coefficients and odd degree always has at least one:",
@@ -1064,7 +1064,7 @@ QuizBank.register({
       "\\(\\text{Complex root}\\)"
     ],
     "ans": "\\(\\text{Real root}\\)",
-    "reason": null
+    "reason": "Since non-real roots of a real polynomial come in pairs, an odd-degree polynomial can't have them all paired — at least one real root must remain."
   },
   {
     "q": "If \\(P(x)=x^4-16\\), how many linear factors in the complex field does it have?",
@@ -1075,7 +1075,7 @@ QuizBank.register({
       "\\(1\\)"
     ],
     "ans": "\\(4\\)",
-    "reason": null
+    "reason": "By the Fundamental Theorem of Algebra, a degree-4 polynomial has exactly 4 roots (and hence 4 linear factors) over the complex numbers."
   },
   {
     "q": "Linear factors of \\(x^4-16\\) over the complex numbers are:",
@@ -1086,7 +1086,7 @@ QuizBank.register({
       "\\((x-2)^2(x+2)^2\\)"
     ],
     "ans": "\\((x-2)(x+2)(x-2i)(x+2i)\\)",
-    "reason": null
+    "reason": "\\(x^4-16=(x^2-4)(x^2+4)=(x-2)(x+2)(x-2i)(x+2i)\\), using \\(x^2+4=(x-2i)(x+2i)\\) over the complex numbers."
   },
   {
     "q": "If a polynomial \\(P(x)\\) is divided by \\((x-a)\\), the quotient is \\(Q(x)\\) and remainder is \\(R\\). Then \\(P(a)=\\)",
@@ -1097,7 +1097,7 @@ QuizBank.register({
       "\\(Q(a)\\)"
     ],
     "ans": "\\(R\\)",
-    "reason": null
+    "reason": "Substituting \\(x=a\\) into \\(P(x)=(x-a)Q(x)+R\\) makes the first term vanish, leaving \\(P(a)=R\\) — this is exactly the Remainder Theorem."
   },
   {
     "q": "If \\(P(x)=x^3+ax+b\\) is divisible by \\((x-1)^2\\), then the values of \\(a\\) and \\(b\\) are:",
@@ -1108,7 +1108,7 @@ QuizBank.register({
       "\\(a=3,\\ b=-2\\)"
     ],
     "ans": "\\(a=-3,\\ b=2\\)",
-    "reason": null
+    "reason": "A double root at \\(x=1\\) requires both \\(P(1)=0\\) and \\(P'(1)=0\\): \\(P(1)=1+a+b=0\\) and \\(P'(x)=3x^2+a\\Rightarrow P'(1)=3+a=0\\Rightarrow a=-3\\); then \\(1-3+b=0\\Rightarrow b=2\\)."
   },
   {
     "q": "<div class=\"stimulus\">A company's profit (in thousand Rs.) x years after launch is modeled by P(x) = x^3 - 6x^2 + 11x - 6.</div>The value of P(1) is:",
@@ -1119,7 +1119,7 @@ QuizBank.register({
       "1"
     ],
     "ans": "0",
-    "reason": null
+    "reason": "\\(P(1)=1-6+11-6=0\\)."
   },
   {
     "q": "<div class=\"stimulus\">A company's profit (in thousand Rs.) x years after launch is modeled by P(x) = x^3 - 6x^2 + 11x - 6.</div>Factored using the zero at x = 1, P(x) equals:",
@@ -1130,7 +1130,7 @@ QuizBank.register({
       "(x-1)^2(x-3)"
     ],
     "ans": "(x-1)(x-2)(x-3)",
-    "reason": null
+    "reason": "Since \\(P(1)=0\\), \\((x-1)\\) is a factor; dividing out and testing further shows the other roots are \\(2\\) and \\(3\\), giving \\(P(x)=(x-1)(x-2)(x-3)\\)."
   },
   {
     "q": "<div class=\"stimulus\">A company's profit (in thousand Rs.) x years after launch is modeled by P(x) = x^3 - 6x^2 + 11x - 6.</div>Besides x = 1, profit is also zero in which years?",
@@ -1141,7 +1141,7 @@ QuizBank.register({
       "x = 1 and x = 6"
     ],
     "ans": "x = 2 and x = 3",
-    "reason": null
+    "reason": "From the factorization \\((x-1)(x-2)(x-3)\\), the remaining zeros besides \\(x=1\\) are \\(x=2\\) and \\(x=3\\)."
   },
   {
     "q": "<div class=\"stimulus\">A company's profit (in thousand Rs.) x years after launch is modeled by P(x) = x^3 - 6x^2 + 11x - 6.</div>The value of P(4) is:",
@@ -1152,7 +1152,7 @@ QuizBank.register({
       "-6"
     ],
     "ans": "6",
-    "reason": null
+    "reason": "\\(P(4)=64-96+44-6=6\\)."
   },
   {
     "q": "<div class=\"stimulus\">A box has volume V(x) = x^3 + 6x^2 + 11x + 6 cubic units, and its height is (x + 1) units.</div>Factored completely, V(x) equals:",
@@ -1163,7 +1163,7 @@ QuizBank.register({
       "(x+2)^2(x+3)"
     ],
     "ans": "(x+1)(x+2)(x+3)",
-    "reason": null
+    "reason": "Testing \\(x=-1,-2,-3\\) all give \\(0\\), so \\(V(x)=(x+1)(x+2)(x+3)\\)."
   },
   {
     "q": "<div class=\"stimulus\">A box has volume V(x) = x^3 + 6x^2 + 11x + 6 cubic units, and its height is (x + 1) units.</div>The remainder when V(x) is divided by (x+1) is:",
@@ -1174,7 +1174,7 @@ QuizBank.register({
       "1"
     ],
     "ans": "0",
-    "reason": null
+    "reason": "By the Remainder Theorem, the remainder is \\(V(-1)=-1+6-11+6=0\\)."
   },
   {
     "q": "<div class=\"stimulus\">A box has volume V(x) = x^3 + 6x^2 + 11x + 6 cubic units, and its height is (x + 1) units.</div>The area of the base, V(x) divided by (x+1), is:",
@@ -1185,7 +1185,7 @@ QuizBank.register({
       "x^2+4x+6"
     ],
     "ans": "x^2+5x+6",
-    "reason": null
+    "reason": "Dividing \\(V(x)=(x+1)(x+2)(x+3)\\) by \\((x+1)\\) leaves \\((x+2)(x+3)=x^2+5x+6\\)."
   },
   {
     "q": "<div class=\"stimulus\">A box has volume V(x) = x^3 + 6x^2 + 11x + 6 cubic units, and its height is (x + 1) units.</div>The degree of V(x) is:",
@@ -1196,7 +1196,7 @@ QuizBank.register({
       "1"
     ],
     "ans": "3",
-    "reason": null
+    "reason": "The highest power of \\(x\\) in \\(V(x)=x^3+6x^2+11x+6\\) is \\(3\\)."
   }
 ];
   }

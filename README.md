@@ -37,13 +37,40 @@ filename tells you exactly what's inside it — no more guessing what
 ## Adding new content
 1. Copy `data/TEMPLATE-copy-this-file.js` into the right subject folder.
 2. Fill in class / subject / type / id / label / questions.
-3. Add one `<script>` tag for it in `index.html`.
+3. Add one `<script>` tag for it in `quiz-portal.html`.
 
-That's it — you never need to touch `js/app.js` or `js/quiz-bank.js`
-to add a chapter, a past paper, or even a brand-new subject/class
-combination. The subject and chapter/paper dropdowns are built
-automatically from whatever is registered for the logged-in student's
-class.
+That's it — you never need to touch `js/quiz-setting.js` or
+`js/quiz-bank.js` to add a chapter, a past paper, or even a brand-new
+subject/class combination. The subject and chapter/paper dropdowns
+are built automatically from whatever is registered for the logged-in
+student's class.
+
+## Math notation (KaTeX)
+Class 11 Math is written with inline LaTeX, e.g. `\\(i^{5}\\)`, and
+rendered in the browser by **KaTeX** (loaded from a CDN in
+`quiz-portal.html`). If you add more math content, wrap any math in
+`\(...\)` (inline) or `\[...\]` (its own line) and it'll render
+automatically — no extra setup needed per file.
+
+## Class 11 Math — chapter-wise (added)
+All 9 chapters, each a separate registry entry so the dropdown shows
+one chapter at a time (never combined):
+```
+data/math/11th-math-ch1-complex-numbers.js
+data/math/11th-math-ch2-matrices-and-determinants.js
+data/math/11th-math-ch3-vectors.js
+data/math/11th-math-ch4-sequences-and-series.js
+data/math/11th-math-ch5-polynomials.js
+data/math/11th-math-ch6-permutation-and-combination.js
+data/math/11th-math-ch7-mathematical-induction-and-binomial-theorem.js
+data/math/11th-math-ch8-fundamentals-of-trigonometry.js
+data/math/11th-math-ch9-trigonometric-functions.js
+```
+Each includes both the chapter's base MCQs and its "stimulus" (table/
+scenario-based) MCQs — the stimulus is shown above the question it
+belongs to. These files don't include a `reason` (explanation) per
+question — the app shows just the correct answer for a wrong response
+in that case, which is fine, `reason` is optional throughout.
 
 ## What changed from the old version
 - **Dynamic subjects/categories** — a subject only shows up once a

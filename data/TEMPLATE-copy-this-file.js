@@ -2,8 +2,8 @@
 // HOW TO ADD A NEW CHAPTER OR PAST PAPER
 // ---------------------------------------------------------
 // 1. Copy this file into the right subject folder, e.g.
-//      data/biology/9th-biology-ch1-introduction.js
-//      data/physics/9th-physics-pastpaper-2023.js
+//      data/biology/9th/9th-biology-ch1-introduction.js
+//      data/physics/9th/9th-physics-pastpaper-2023.js
 //
 // 2. Naming pattern:
 //      chapters:    {class}-{subject}-ch{no}-{slug}.js
@@ -12,8 +12,8 @@
 // 3. Fill in class / subject / type / id / label / order
 //    below, and replace the sample questions with real ones.
 //
-// 4. Add ONE <script> tag for the new file in index.html,
-//    anywhere before js/app.js. Nothing else needs editing —
+// 4. Add ONE <script> tag for the new file in quiz-portal.html,
+//    anywhere before js/quiz-setting.js. Nothing else needs editing —
 //    it will appear automatically in the subject/category
 //    dropdowns for the right class.
 // =========================================================

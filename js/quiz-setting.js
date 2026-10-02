@@ -7,6 +7,7 @@ let index = 0;
 let score = 0;
 let totalTime = 0;
 let timer;
+let quizStartMs = 0; // when the current attempt started (to record how long it took)
 let advanceTimeout = null; // pending auto-advance after a correct answer
 let attemptFinished = false; // guards against saving/advancing twice
 
@@ -207,6 +208,7 @@ function startQuiz() {
   clearInterval(timer);
 
   totalTime = shuffledQuiz.length * 40;
+  quizStartMs = Date.now();
 
   function tick() {
     let minutes = Math.floor(totalTime / 60);
@@ -428,7 +430,8 @@ function concludeAttempt(lastIndex) {
     skipped: skippedCount,
     consideredTotal,
     totalQuestions: shuffledQuiz.length,
-    percentage: Number(percentage)
+    percentage: Number(percentage),
+    timeTakenSec: Math.max(0, Math.round((Date.now() - quizStartMs) / 1000))
   });
 }
 
@@ -496,21 +499,56 @@ function teacherLogoutClick() {
   document.getElementById("loginBox").classList.remove("hidden");
 }
 
+// Results answered faster than this (seconds per attempted question)
+// are flagged "Too fast". Real reading + thinking rarely takes less.
+const FAST_SECONDS_PER_QUESTION = 5;
+const CLASS_LIST = ["9th", "10th", "11th", "12th"];
+let teacherResults = []; // everything loaded from Firestore
+
+function isTooFast(r) {
+  if (typeof r.timeTakenSec !== "number" || !r.consideredTotal) return false;
+  return r.timeTakenSec / r.consideredTotal < FAST_SECONDS_PER_QUESTION;
+}
+
+function formatDuration(sec) {
+  if (typeof sec !== "number") return "-";
+  return Math.floor(sec / 60) + ":" + String(sec % 60).padStart(2, "0");
+}
+
+// All times are shown in Pakistan Standard Time.
+function formatPKT(ts) {
+  if (!ts || !ts.toDate) return "-";
+  return ts.toDate().toLocaleString("en-GB", {
+    timeZone: "Asia/Karachi", dateStyle: "medium", timeStyle: "short"
+  }) + " PKT";
+}
+
 async function loadTeacherResults() {
   const tbody = document.querySelector("#resultsTable tbody");
-  tbody.innerHTML = `<tr><td colspan="10">Loading...</td></tr>`;
+  tbody.innerHTML = `<tr><td colspan="11">Loading...</td></tr>`;
+  teacherResults = await ResultStore.fetchAllResults();
+  renderTeacherTable();
+}
 
-  const results = await ResultStore.fetchAllResults();
+function renderTeacherTable() {
+  const tbody = document.querySelector("#resultsTable tbody");
+  const filter = document.getElementById("classFilter").value;
+  const rows = teacherResults.filter(r => filter === "all" || r.class === filter);
 
-  if (results.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="10">No results yet.</td></tr>`;
+  document.getElementById("resultCount").innerText =
+    `Showing ${rows.length} result${rows.length === 1 ? "" : "s"}` +
+    (filter === "all" ? " (all classes)" : ` (class ${filter})`);
+
+  if (rows.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="11">No results yet.</td></tr>`;
     return;
   }
 
   tbody.innerHTML = "";
-  results.forEach(r => {
+  rows.forEach(r => {
     const tr = document.createElement("tr");
-    const submittedAt = r.submittedAt ? r.submittedAt.toDate().toLocaleString() : "-";
+    const fast = isTooFast(r);
+    if (fast) tr.className = "fastRow";
     tr.innerHTML = `
       <td>${escapeHtml(r.studentName)}</td>
       <td>${escapeHtml(r.roll)}</td>
@@ -521,8 +559,101 @@ async function loadTeacherResults() {
       <td>${escapeHtml(r.wrong)}</td>
       <td>${escapeHtml(r.skipped)}</td>
       <td>${escapeHtml(r.percentage)}%</td>
-      <td>${escapeHtml(submittedAt)}</td>
+      <td>${escapeHtml(formatDuration(r.timeTakenSec))}${fast ? ' <span class="fastTag">Too fast</span>' : ""}</td>
+      <td>${escapeHtml(formatPKT(r.submittedAt))}</td>
     `;
     tbody.appendChild(tr);
   });
+}
+
+// =========================================================
+// EXPORT TO EXCEL (class-wise)
+// ---------------------------------------------------------
+// "All classes" -> one workbook with a separate sheet per class.
+// One class selected -> a workbook with just that class.
+// Rows are sorted by subject, chapter/paper, then % (high to low).
+// =========================================================
+function exportRow(r) {
+  return {
+    "Roll": r.roll,
+    "Student": r.studentName,
+    "Subject": r.subject,
+    "Chapter / Paper": r.categoryLabel,
+    "Correct": r.correct,
+    "Attempted": r.consideredTotal,
+    "Total Questions": r.totalQuestions,
+    "Wrong": r.wrong,
+    "Skipped": r.skipped,
+    "Percentage (%)": r.percentage,
+    "Time (m:ss)": formatDuration(r.timeTakenSec),
+    "Submitted (PKT)": formatPKT(r.submittedAt),
+    "Note": isTooFast(r) ? "Too fast" : ""
+  };
+}
+
+function exportSort(a, b) {
+  return String(a.subject).localeCompare(String(b.subject)) ||
+         String(a.categoryLabel).localeCompare(String(b.categoryLabel), undefined, { numeric: true }) ||
+         (b.percentage - a.percentage) ||
+         String(a.roll).localeCompare(String(b.roll), undefined, { numeric: true });
+}
+
+// Stops a name like "=cmd" from being run as a formula if opened as CSV.
+function csvCell(v) {
+  let t = String(v == null ? "" : v);
+  if (/^[=+\-@]/.test(t)) t = "'" + t;
+  return '"' + t.replace(/"/g, '""') + '"';
+}
+
+function downloadBlob(filename, text, type) {
+  const url = URL.createObjectURL(new Blob([text], { type }));
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+function exportResultsToExcel() {
+  const sel = document.getElementById("classFilter").value;
+  const classes = sel === "all" ? CLASS_LIST : [sel];
+
+  const groups = classes
+    .map(c => ({
+      cls: c,
+      rows: teacherResults.filter(r => r.class === c).sort(exportSort).map(exportRow)
+    }))
+    .filter(g => g.rows.length > 0);
+
+  if (groups.length === 0) {
+    alert("There are no results to export for this selection.");
+    return;
+  }
+
+  const stamp = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Karachi" });
+  const base = sel === "all" ? `Results_All_Classes_${stamp}` : `Results_${sel}_${stamp}`;
+
+  // Fallback if the Excel library could not load (e.g. no internet): one CSV.
+  if (typeof XLSX === "undefined") {
+    const all = groups.flatMap(g => g.rows.map(r => ({ "Class": g.cls, ...r })));
+    const headers = Object.keys(all[0]);
+    const csv = [headers.map(csvCell).join(",")]
+      .concat(all.map(r => headers.map(h => csvCell(r[h])).join(",")))
+      .join("\r\n");
+    downloadBlob(base + ".csv", "\ufeff" + csv, "text/csv;charset=utf-8");
+    return;
+  }
+
+  const wb = XLSX.utils.book_new();
+  groups.forEach(g => {
+    const ws = XLSX.utils.json_to_sheet(g.rows);
+    const keys = Object.keys(g.rows[0]);
+    ws["!cols"] = keys.map(k => ({
+      wch: Math.min(40, Math.max(k.length + 2, ...g.rows.map(r => String(r[k]).length + 2)))
+    }));
+    XLSX.utils.book_append_sheet(wb, ws, "Class " + g.cls);
+  });
+  XLSX.writeFile(wb, base + ".xlsx");
 }

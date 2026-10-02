@@ -7,6 +7,8 @@
   <title>Concepts College of Sciences - Quiz Portal</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <!-- Excel export for the teacher dashboard (falls back to CSV if this cannot load) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
 
 <body>
@@ -53,10 +55,22 @@
   <!-- ================= TEACHER DASHBOARD ================= -->
   <div class="box hidden wide" id="teacherDashboard">
     <h2 class="portal">Stored Results</h2>
-    <p class="note">Results are kept for 10 days from submission, then deleted automatically.</p>
+    <p class="note">Results older than 10 days are removed when this page loads. Use Export to Excel to keep a copy.
+      Rows marked "Too fast" were finished in under 5 seconds per question, so check them.</p>
 
-    <button onclick="loadTeacherResults()">Refresh</button>
-    <button onclick="teacherLogoutClick()">Log out</button>
+    <div class="dashControls">
+      <select id="classFilter" onchange="renderTeacherTable()">
+        <option value="all">All classes</option>
+        <option value="9th">9th</option>
+        <option value="10th">10th</option>
+        <option value="11th">11th</option>
+        <option value="12th">12th</option>
+      </select>
+      <button onclick="exportResultsToExcel()">Export to Excel</button>
+      <button onclick="loadTeacherResults()">Refresh</button>
+      <button onclick="teacherLogoutClick()">Log out</button>
+    </div>
+    <p class="note" id="resultCount"></p>
 
     <div class="tableWrap">
       <table id="resultsTable">
@@ -71,11 +85,12 @@
             <th>Wrong</th>
             <th>Skipped</th>
             <th>%</th>
-            <th>Submitted</th>
+            <th>Time</th>
+            <th>Submitted (PKT)</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td colspan="10">Log in to load results.</td></tr>
+          <tr><td colspan="11">Log in to load results.</td></tr>
         </tbody>
       </table>
     </div>

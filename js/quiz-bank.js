@@ -1,7 +1,7 @@
 // =========================================================
 // QUIZ BANK REGISTRY
 // ---------------------------------------------------------
-// Every data file (in /data/<subject>/...) calls
+// Every data file (in /data/<subject>/<class>/...) calls
 // QuizBank.register({...}) once, on load. Nothing else in
 // the app needs to be edited when a new chapter or past
 // paper is added — just create the file and add a <script>

@@ -35,16 +35,49 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /results/{resultId} {
-      allow create: if true;                // students can submit results
-      allow read: if request.auth != null;  // only the logged-in teacher can read
+      // Students (not logged in) may only ADD a well-formed result.
+      // The checks below stop junk, oversized or made-up field types
+      // from being written. They cannot stop someone deliberately
+      // typing a fake score - no static site can - so treat these
+      // results as a practice record, not an official mark.
+      allow create: if request.resource.data.keys().hasOnly([
+                         'studentName','roll','class','subject','categoryType',
+                         'categoryLabel','correct','wrong','skipped',
+                         'consideredTotal','totalQuestions','percentage',
+                         'submittedAt','expireAt'])
+                    && request.resource.data.studentName is string
+                    && request.resource.data.studentName.size() <= 60
+                    && request.resource.data.roll is string
+                    && request.resource.data.roll.size() <= 20
+                    && request.resource.data['class'] in ['9th','10th','11th','12th']
+                    && request.resource.data.subject is string
+                    && request.resource.data.subject.size() <= 40
+                    && request.resource.data.categoryType is string
+                    && request.resource.data.categoryLabel is string
+                    && request.resource.data.categoryLabel.size() <= 120
+                    && request.resource.data.correct is int
+                    && request.resource.data.wrong is int
+                    && request.resource.data.skipped is int
+                    && request.resource.data.consideredTotal is int
+                    && request.resource.data.totalQuestions is int
+                    && request.resource.data.correct >= 0
+                    && request.resource.data.correct <= request.resource.data.consideredTotal
+                    && request.resource.data.consideredTotal <= request.resource.data.totalQuestions
+                    && request.resource.data.totalQuestions <= 500
+                    && request.resource.data.percentage is number
+                    && request.resource.data.percentage >= 0
+                    && request.resource.data.percentage <= 100
+                    && request.resource.data.submittedAt is timestamp
+                    && request.resource.data.expireAt is timestamp;
+      allow read: if request.auth != null;   // only the logged-in teacher can read
       allow update: if false;
-      allow delete: if request.auth != null; // teacher's dashboard cleans up expired results
+      allow delete: if request.auth != null; // dashboard cleans up expired results
     }
   }
 }
 ```
 
-Click **Publish**.
+Click **Publish**. (If you already published the older, simpler rules, replace them with these and publish again.)
 
 ## 5. The 10-day auto-delete
 Firestore's built-in auto-delete (TTL) requires a paid Blaze billing

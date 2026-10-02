@@ -72,6 +72,28 @@ belongs to. These files don't include a `reason` (explanation) per
 question — the app shows just the correct answer for a wrong response
 in that case, which is fine, `reason` is optional throughout.
 
+## Class 10 Math — chapter-wise (added)
+All 12 chapters, one registry entry each (100 base MCQs + 12 stimulus-based = 112 per chapter):
+```
+data/math/10th-math-ch1-complex-numbers.js
+data/math/10th-math-ch2-quadratic-equations.js
+data/math/10th-math-ch3-matrices-and-determinants.js
+data/math/10th-math-ch4-linear-and-quadratic-inequalities.js
+data/math/10th-math-ch5-algebraic-fractions.js
+data/math/10th-math-ch6-functions-and-graphs.js
+data/math/10th-math-ch7-vectors-in-plane.js
+data/math/10th-math-ch8-application-of-trigonometry.js
+data/math/10th-math-ch9-chord-and-arcs-of-a-circle.js
+data/math/10th-math-ch10-tangents-and-angles-of-a-circle.js
+data/math/10th-math-ch11-practical-geometry-of-circles.js
+data/math/10th-math-ch12-basic-statistics.js
+```
+These replace the old sample `10th-math-ch1-real-numbers.js`. Every question
+has an explanation, and every answer was re-solved (see `CHANGES.md` for the
+corrections). Because question and explanation text is inserted as HTML, a `<`
+inside math is written as `\lt` (KaTeX renders it as `<`). Use the same rule
+in any new file, otherwise text like `a<b` can break the page.
+
 ## What changed from the old version
 - **Dynamic subjects/categories** — a subject only shows up once a
   file for it exists for that class, so 11th/12th (or any

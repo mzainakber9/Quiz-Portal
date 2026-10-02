@@ -11,15 +11,13 @@ js/students.js       roster used for student login
 js/firebase-config.js  <- fill in your Firebase project keys (see SETUP.md)
 js/storage.js         saves results to Firebase, teacher login/read
 js/quiz-setting.js    all quiz logic (login, quiz flow, results, dashboard) — was app.js
-data/
-  math/               chapter-wise files
-  physics/            past-paper files
-  chemistry/          past-paper files
-  biology/            (add files as content is ready)
-  computer/           (add files as content is ready)
-  islamiyat/          (add files as content is ready)
-  pakstudy/           (add files as content is ready)
-  english/            existing sets, unchanged for now
+data/<subject>/<class>/<files>
+  math/
+    9th/ 10th/ 11th/ 12th/      chapter-wise files
+  physics/9th/                  past-paper files
+  chemistry/10th/               past-paper files
+  english/10th/                 sets
+  biology/ computer/ islamiyat/ pakstudy/   (add class folders and files as content is ready)
   TEMPLATE-copy-this-file.js   copy this to add a new chapter/paper
 assets/logo.jpg
 SETUP.md              one-time Firebase setup for result storage
@@ -35,7 +33,7 @@ filename tells you exactly what's inside it — no more guessing what
 "Set1" or "Set2" meant.
 
 ## Adding new content
-1. Copy `data/TEMPLATE-copy-this-file.js` into the right subject folder.
+1. Copy `data/TEMPLATE-copy-this-file.js` into the right subject and class folder, e.g. `data/biology/9th/`.
 2. Fill in class / subject / type / id / label / questions.
 3. Add one `<script>` tag for it in `quiz-portal.html`.
 
@@ -56,15 +54,15 @@ automatically — no extra setup needed per file.
 All 9 chapters, each a separate registry entry so the dropdown shows
 one chapter at a time (never combined):
 ```
-data/math/11th-math-ch1-complex-numbers.js
-data/math/11th-math-ch2-matrices-and-determinants.js
-data/math/11th-math-ch3-vectors.js
-data/math/11th-math-ch4-sequences-and-series.js
-data/math/11th-math-ch5-polynomials.js
-data/math/11th-math-ch6-permutation-and-combination.js
-data/math/11th-math-ch7-mathematical-induction-and-binomial-theorem.js
-data/math/11th-math-ch8-fundamentals-of-trigonometry.js
-data/math/11th-math-ch9-trigonometric-functions.js
+data/math/11th/11th-math-ch1-complex-numbers.js
+data/math/11th/11th-math-ch2-matrices-and-determinants.js
+data/math/11th/11th-math-ch3-vectors.js
+data/math/11th/11th-math-ch4-sequences-and-series.js
+data/math/11th/11th-math-ch5-polynomials.js
+data/math/11th/11th-math-ch6-permutation-and-combination.js
+data/math/11th/11th-math-ch7-mathematical-induction-and-binomial-theorem.js
+data/math/11th/11th-math-ch8-fundamentals-of-trigonometry.js
+data/math/11th/11th-math-ch9-trigonometric-functions.js
 ```
 Each includes both the chapter's base MCQs and its "stimulus" (table/
 scenario-based) MCQs — the stimulus is shown above the question it
@@ -75,22 +73,21 @@ in that case, which is fine, `reason` is optional throughout.
 ## Class 10 Math — chapter-wise (added)
 All 12 chapters, one registry entry each (100 base MCQs + 12 stimulus-based = 112 per chapter):
 ```
-data/math/10th-math-ch1-complex-numbers.js
-data/math/10th-math-ch2-quadratic-equations.js
-data/math/10th-math-ch3-matrices-and-determinants.js
-data/math/10th-math-ch4-linear-and-quadratic-inequalities.js
-data/math/10th-math-ch5-algebraic-fractions.js
-data/math/10th-math-ch6-functions-and-graphs.js
-data/math/10th-math-ch7-vectors-in-plane.js
-data/math/10th-math-ch8-application-of-trigonometry.js
-data/math/10th-math-ch9-chord-and-arcs-of-a-circle.js
-data/math/10th-math-ch10-tangents-and-angles-of-a-circle.js
-data/math/10th-math-ch11-practical-geometry-of-circles.js
-data/math/10th-math-ch12-basic-statistics.js
+data/math/10th/10th-math-ch1-complex-numbers.js
+data/math/10th/10th-math-ch2-quadratic-equations.js
+data/math/10th/10th-math-ch3-matrices-and-determinants.js
+data/math/10th/10th-math-ch4-linear-and-quadratic-inequalities.js
+data/math/10th/10th-math-ch5-algebraic-fractions.js
+data/math/10th/10th-math-ch6-functions-and-graphs.js
+data/math/10th/10th-math-ch7-vectors-in-plane.js
+data/math/10th/10th-math-ch8-application-of-trigonometry.js
+data/math/10th/10th-math-ch9-chord-and-arcs-of-a-circle.js
+data/math/10th/10th-math-ch10-tangents-and-angles-of-a-circle.js
+data/math/10th/10th-math-ch11-practical-geometry-of-circles.js
+data/math/10th/10th-math-ch12-basic-statistics.js
 ```
 These replace the old sample `10th-math-ch1-real-numbers.js`. Every question
-has an explanation, and every answer was re-solved (see `CHANGES.md` for the
-corrections). Because question and explanation text is inserted as HTML, a `<`
+has an explanation, and every answer was re-solved. Because question and explanation text is inserted as HTML, a `<`
 inside math is written as `\lt` (KaTeX renders it as `<`). Use the same rule
 in any new file, otherwise text like `a<b` can break the page.
 

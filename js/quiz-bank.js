@@ -5,7 +5,7 @@
 // QuizBank.register({...}) once, on load. Nothing else in
 // the app needs to be edited when a new chapter or past
 // paper is added — just create the file and add a <script>
-// tag for it in index.html.
+// tag for it in quiz-portal.html.
 //
 // Entry shape:
 // {

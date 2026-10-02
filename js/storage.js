@@ -66,10 +66,10 @@ const ResultStore = (function () {
     if (ready) auth.onAuthStateChanged(callback);
   }
 
-  // Firestore's TTL policy (set up once in the console) does
-  // the real deleting in the background. This filter just
-  // hides anything already past its expiry from the table in
-  // case the background sweep hasn't run yet.
+  // Results expire 10 days after submission. There is no server-side
+  // TTL (that needs a paid plan), so each time the teacher dashboard
+  // loads, anything past its expiry is deleted here and left out of
+  // the table.
   async function fetchAllResults() {
     if (!ready) return [];
     const snap = await db.collection("results").orderBy("submittedAt", "desc").get();

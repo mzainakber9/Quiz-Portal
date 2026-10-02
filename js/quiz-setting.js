@@ -7,6 +7,8 @@ let index = 0;
 let score = 0;
 let totalTime = 0;
 let timer;
+let advanceTimeout = null; // pending auto-advance after a correct answer
+let attemptFinished = false; // guards against saving/advancing twice
 
 let studentName = "";
 let studentRoll = "";
@@ -20,6 +22,17 @@ window.onload = () => {
   reasonBox = document.getElementById("reasonBox");
   ResultStore.init();
 };
+
+// Escapes text before it is placed into innerHTML (student names,
+// answer strings, etc.) so nothing typed by a user can inject markup.
+function escapeHtml(value) {
+  return String(value == null ? "" : value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
 // Renders any \(...\) or \[...\] LaTeX inside an element via KaTeX.
 // Safe no-op if a question bank doesn't use math or KaTeX hasn't
@@ -158,7 +171,16 @@ function startSelectedSubject() {
   }
   currentEntry = entry;
 
-  shuffledQuiz = shuffleArray(entry.questions());
+  // Drop exact duplicates (same question, same options, same answer) so a
+  // student never sees the identical question twice in one attempt.
+  const seenKeys = new Set();
+  const uniqueQuestions = entry.questions().filter(q => {
+    const key = q.q + "||" + [...q.options].sort().join("|") + "||" + q.ans;
+    if (seenKeys.has(key)) return false;
+    seenKeys.add(key);
+    return true;
+  });
+  shuffledQuiz = shuffleArray(uniqueQuestions);
 
   if (!shuffledQuiz || shuffledQuiz.length === 0) {
     alert("No questions found!");
@@ -167,6 +189,8 @@ function startSelectedSubject() {
 
   index = 0;
   score = 0;
+  attemptFinished = false;
+  clearTimeout(advanceTimeout);
   responses = new Array(shuffledQuiz.length);
 
   document.getElementById("subjectBox").classList.add("hidden");
@@ -184,7 +208,7 @@ function startQuiz() {
 
   totalTime = shuffledQuiz.length * 40;
 
-  timer = setInterval(() => {
+  function tick() {
     let minutes = Math.floor(totalTime / 60);
     let seconds = totalTime % 60;
     if (seconds < 10) seconds = "0" + seconds;
@@ -192,13 +216,16 @@ function startQuiz() {
     document.getElementById("timer").innerText =
       `Time Remaining: ${minutes}:${seconds}`;
 
-    totalTime--;
-
     if (totalTime <= 0) {
       finishCurrentQuestionAs("skipped");
       concludeAttempt(index);
+      return;
     }
-  }, 1000);
+    totalTime--;
+  }
+
+  tick(); // show the time immediately instead of after one second
+  timer = setInterval(tick, 1000);
 
   loadQuestion();
 }
@@ -258,6 +285,9 @@ function loadQuestion() {
 // =========================================================
 function finishCurrentQuestionAs(forcedStatus) {
   // forcedStatus is only passed as "skipped" (from the timer running out)
+  // Already graded (e.g. Next was pressed, then Submit or the timer fired)
+  if (responses[index]) return responses[index];
+
   const selected = document.querySelector("input[name='option']:checked");
   const correctAnswer = shuffledQuiz[index].ans;
 
@@ -286,6 +316,7 @@ function finishCurrentQuestionAs(forcedStatus) {
 // NEXT QUESTION  (answers OR skips, then advances)
 // =========================================================
 function nextQuestion() {
+  if (attemptFinished || responses[index]) return; // already answered/finished
   const selected = document.querySelector("input[name='option']:checked");
 
   // No option chosen -> treat as skipped, move on quietly
@@ -312,13 +343,14 @@ function nextQuestion() {
     responses[index] = "correct";
     score++;
     reasonBox.style.display = "none";
-    setTimeout(moveNext, 1200);
+    document.getElementById("nextBtn").disabled = true;
+    advanceTimeout = setTimeout(moveNext, 1200);
   } else {
     responses[index] = "wrong";
     reasonBox.style.display = "block";
     const reasonText = shuffledQuiz[index].reason;
     reasonBox.innerHTML =
-      `<strong>Correct Answer:</strong> ${correctAnswer}` +
+      `<strong>Correct Answer:</strong> ${escapeHtml(correctAnswer)}` +
       (reasonText
         ? `<br><br><strong>Explanation:</strong><br>${reasonText}`
         : "");
@@ -334,6 +366,9 @@ function nextQuestion() {
 // MOVE NEXT
 // =========================================================
 function moveNext() {
+  if (attemptFinished) return;
+  clearTimeout(advanceTimeout);
+  document.getElementById("nextBtn").disabled = true; // re-enabled by loadQuestion
   index++;
   if (index < shuffledQuiz.length) {
     loadQuestion();
@@ -347,6 +382,8 @@ function moveNext() {
 // SUBMIT & FINISH (the every-10-questions checkpoint button)
 // =========================================================
 function submitAttempt() {
+  if (attemptFinished) return;
+  clearTimeout(advanceTimeout);
   finishCurrentQuestionAs(); // grades current question if answered, else skips it
   concludeAttempt(index);
 }
@@ -356,7 +393,10 @@ function submitAttempt() {
 // CONCLUDE ATTEMPT — scoped to questions 1..lastIndex only
 // =========================================================
 function concludeAttempt(lastIndex) {
+  if (attemptFinished) return; // never save the same attempt twice
+  attemptFinished = true;
   clearInterval(timer);
+  clearTimeout(advanceTimeout);
 
   const considered = responses.slice(0, lastIndex + 1).map(r => r || "skipped");
   const correctCount = considered.filter(r => r === "correct").length;
@@ -458,12 +498,12 @@ function teacherLogoutClick() {
 
 async function loadTeacherResults() {
   const tbody = document.querySelector("#resultsTable tbody");
-  tbody.innerHTML = `<tr><td colspan="9">Loading...</td></tr>`;
+  tbody.innerHTML = `<tr><td colspan="10">Loading...</td></tr>`;
 
   const results = await ResultStore.fetchAllResults();
 
   if (results.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="9">No results yet.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="10">No results yet.</td></tr>`;
     return;
   }
 
@@ -472,16 +512,16 @@ async function loadTeacherResults() {
     const tr = document.createElement("tr");
     const submittedAt = r.submittedAt ? r.submittedAt.toDate().toLocaleString() : "-";
     tr.innerHTML = `
-      <td>${r.studentName}</td>
-      <td>${r.roll}</td>
-      <td>${r.class}</td>
-      <td>${r.subject}</td>
-      <td>${r.categoryLabel}</td>
-      <td>${r.correct}/${r.consideredTotal} (of ${r.totalQuestions})</td>
-      <td>${r.wrong}</td>
-      <td>${r.skipped}</td>
-      <td>${r.percentage}%</td>
-      <td>${submittedAt}</td>
+      <td>${escapeHtml(r.studentName)}</td>
+      <td>${escapeHtml(r.roll)}</td>
+      <td>${escapeHtml(r.class)}</td>
+      <td>${escapeHtml(r.subject)}</td>
+      <td>${escapeHtml(r.categoryLabel)}</td>
+      <td>${escapeHtml(r.correct)}/${escapeHtml(r.consideredTotal)} (of ${escapeHtml(r.totalQuestions)})</td>
+      <td>${escapeHtml(r.wrong)}</td>
+      <td>${escapeHtml(r.skipped)}</td>
+      <td>${escapeHtml(r.percentage)}%</td>
+      <td>${escapeHtml(submittedAt)}</td>
     `;
     tbody.appendChild(tr);
   });

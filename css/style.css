@@ -234,3 +234,29 @@ button:disabled{
 #resultsTable tr:nth-child(even){
   background:#f6f9ff;
 }
+
+/* Teacher dashboard: filter + export controls, "too fast" highlight */
+.dashControls{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  margin-top:8px;
+}
+.dashControls select{
+  width:auto;
+  min-width:140px;
+  margin:0;
+}
+#resultsTable tr.fastRow td{
+  background:#fdecea;
+}
+.fastTag{
+  display:inline-block;
+  background:#c0392b;
+  color:#fff;
+  font-size:11px;
+  padding:1px 6px;
+  border-radius:8px;
+  margin-left:4px;
+}

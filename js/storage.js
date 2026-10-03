@@ -95,10 +95,24 @@ const ResultStore = (function () {
     return fresh;
   }
 
+  // Teacher deletes one result before its 10-day expiry.
+  // (Firestore rules only allow this for the logged-in teacher.)
+  async function deleteResult(id) {
+    if (!ready || !id) return false;
+    try {
+      await db.collection("results").doc(id).delete();
+      return true;
+    } catch (err) {
+      console.error("Could not delete result:", err);
+      return false;
+    }
+  }
+
   return {
     init,
     isReady: () => ready,
     saveResult,
+    deleteResult,
     teacherLogin,
     teacherLogout,
     onAuthChange,

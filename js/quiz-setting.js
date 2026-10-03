@@ -65,6 +65,7 @@ function login() {
 
   if (!classSelected || !roll || !fname) {
     loginMsg.innerText = "Please fill all fields!";
+    Sound.play("error");
     return;
   }
 
@@ -77,8 +78,11 @@ function login() {
 
   if (!student) {
     loginMsg.innerText = "Invalid Roll Number, Name, or Class!";
+    Sound.play("error");
     return;
   }
+
+  Sound.play("login");
 
   studentName = student.name;
   studentRoll = student.roll;
@@ -206,6 +210,7 @@ function startSelectedSubject() {
 // =========================================================
 function startQuiz() {
   clearInterval(timer);
+  Sound.stopTimer();
 
   totalTime = shuffledQuiz.length * 40;
   quizStartMs = Date.now();
@@ -220,7 +225,7 @@ function startQuiz() {
 
     if (totalTime <= 0) {
       finishCurrentQuestionAs("skipped");
-      concludeAttempt(index);
+      concludeAttempt(index, true);   // true = time ran out
       return;
     }
     totalTime--;
@@ -228,6 +233,9 @@ function startQuiz() {
 
   tick(); // show the time immediately instead of after one second
   timer = setInterval(tick, 1000);
+
+  Sound.play("start");
+  Sound.startTimer(() => totalTime);   // continuous KBC-style pulse
 
   loadQuestion();
 }
@@ -258,6 +266,11 @@ function loadQuestion() {
     radio.type = "radio";
     radio.name = "option";
     radio.value = option;
+    radio.addEventListener("change", () => {
+      optionsBox.querySelectorAll(".option").forEach(l => l.classList.remove("selected"));
+      label.classList.add("selected");   // yellow highlight
+      Sound.play("select");
+    });
 
     label.appendChild(radio);
     label.appendChild(document.createTextNode(" " + option));
@@ -324,6 +337,7 @@ function nextQuestion() {
   // No option chosen -> treat as skipped, move on quietly
   if (!selected) {
     responses[index] = "skipped";
+    Sound.play("skip");
     moveNext();
     return;
   }
@@ -344,11 +358,13 @@ function nextQuestion() {
   if (selected.value === correctAnswer) {
     responses[index] = "correct";
     score++;
+    Sound.play("correct");
     reasonBox.style.display = "none";
     document.getElementById("nextBtn").disabled = true;
     advanceTimeout = setTimeout(moveNext, 1200);
   } else {
     responses[index] = "wrong";
+    Sound.play("wrong");
     reasonBox.style.display = "block";
     const reasonText = shuffledQuiz[index].reason;
     reasonBox.innerHTML =
@@ -394,10 +410,11 @@ function submitAttempt() {
 // =========================================================
 // CONCLUDE ATTEMPT — scoped to questions 1..lastIndex only
 // =========================================================
-function concludeAttempt(lastIndex) {
+function concludeAttempt(lastIndex, timedOut) {
   if (attemptFinished) return; // never save the same attempt twice
   attemptFinished = true;
   clearInterval(timer);
+  Sound.stopTimer();
   clearTimeout(advanceTimeout);
 
   const considered = responses.slice(0, lastIndex + 1).map(r => r || "skipped");
@@ -417,6 +434,9 @@ function concludeAttempt(lastIndex) {
   document.getElementById("resultBreakdown").innerHTML =
     `Correct: ${correctCount} &nbsp;|&nbsp; Wrong: ${wrongCount} &nbsp;|&nbsp; Skipped: ${skippedCount}<br>
      Attempted through question ${consideredTotal} of ${shuffledQuiz.length} in this ${currentEntry.type === "pastpaper" ? "paper" : "chapter"}.`;
+
+  if (timedOut) Sound.play("timeup");
+  Sound.play(Number(percentage) >= 50 ? "pass" : "fail", timedOut ? 1.0 : 0);
 
   ResultStore.saveResult({
     studentName,
@@ -525,8 +545,26 @@ function formatPKT(ts) {
 
 async function loadTeacherResults() {
   const tbody = document.querySelector("#resultsTable tbody");
-  tbody.innerHTML = `<tr><td colspan="11">Loading...</td></tr>`;
+  tbody.innerHTML = `<tr><td colspan="12">Loading...</td></tr>`;
   teacherResults = await ResultStore.fetchAllResults();
+  renderTeacherTable();
+}
+
+// Teacher deletes one result (asks first - this cannot be undone).
+async function deleteResultClick(r, btn) {
+  const what = `${r.studentName} (Roll ${r.roll}, ${r.class}) - ${r.subject}, ${r.categoryLabel}`;
+  if (!confirm(`Delete this result?\n\n${what}\n\nThis cannot be undone.`)) return;
+
+  btn.disabled = true;
+  btn.textContent = "Deleting...";
+  const ok = await ResultStore.deleteResult(r.id);
+  if (!ok) {
+    btn.disabled = false;
+    btn.textContent = "Delete";
+    alert("Could not delete this result. Check your internet connection and that you are still logged in as teacher.");
+    return;
+  }
+  teacherResults = teacherResults.filter(x => x.id !== r.id);
   renderTeacherTable();
 }
 
@@ -540,7 +578,7 @@ function renderTeacherTable() {
     (filter === "all" ? " (all classes)" : ` (class ${filter})`);
 
   if (rows.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="11">No results yet.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="12">No results yet.</td></tr>`;
     return;
   }
 
@@ -561,7 +599,14 @@ function renderTeacherTable() {
       <td>${escapeHtml(r.percentage)}%</td>
       <td>${escapeHtml(formatDuration(r.timeTakenSec))}${fast ? ' <span class="fastTag">Too fast</span>' : ""}</td>
       <td>${escapeHtml(formatPKT(r.submittedAt))}</td>
+      <td></td>
     `;
+    const del = document.createElement("button");
+    del.className = "delBtn";
+    del.type = "button";
+    del.textContent = "Delete";
+    del.onclick = () => deleteResultClick(r, del);
+    tr.lastElementChild.appendChild(del);
     tbody.appendChild(tr);
   });
 }

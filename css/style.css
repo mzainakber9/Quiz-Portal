@@ -95,6 +95,16 @@ display:none;
   background-color: #d6ebff;
 }
 
+/* Selected answer: bright yellow so it is easy to see */
+.option.selected,
+.option.selected:hover {
+  background-color: #ffd400;
+  border-color: #d19a00;
+  color: #1a1a1a;
+  font-weight: bold;
+  box-shadow: 0 0 0 3px rgba(255, 212, 0, 0.55);
+}
+
 .option input {
   margin-right: 10px;
 }
@@ -185,7 +195,18 @@ button:disabled{
 }
 
 .submitBtn{
-  background:#00a86b;
+  background:#f57c00;          /* orange */
+  color:#ffffff;
+  font-weight:bold;
+  box-shadow:0 3px 10px rgba(245,124,0,0.5);
+  animation:submitPulse 1.6s ease-in-out infinite;
+}
+.submitBtn:hover{
+  background:#e65100;
+}
+@keyframes submitPulse{
+  0%,100%{ transform:scale(1); }
+  50%{ transform:scale(1.05); }
 }
 
 .teacherLink{
@@ -259,4 +280,41 @@ button:disabled{
   padding:1px 6px;
   border-radius:8px;
   margin-left:4px;
+}
+
+/* Sound on/off button (top-right, always visible) */
+.soundToggle{
+  position:fixed;
+  top:12px;
+  right:12px;
+  z-index:1000;
+  width:42px;
+  height:42px;
+  padding:0;
+  border-radius:50%;
+  font-size:20px;
+  line-height:1;
+  background:#ffffff;
+  color:#004aad;
+  box-shadow:0 2px 8px rgba(0,0,0,0.25);
+}
+.soundToggle:hover{
+  background:#eef5ff;
+}
+
+/* "Showing N results" line: keep clear of the buttons above it */
+#resultCount{
+  margin-top:18px;
+  margin-bottom:4px;
+}
+
+/* Delete button in the teacher table */
+.delBtn{
+  background:#c0392b;
+  padding:5px 12px;
+  font-size:12px;
+  border-radius:6px;
+}
+.delBtn:hover{
+  background:#a93226;
 }

@@ -13,6 +13,9 @@
 
 <body>
 
+  <!-- Sound on/off (remembered per device) -->
+  <button id="soundToggle" class="soundToggle" onclick="Sound.toggle()" type="button">&#128266;</button>
+
   <!-- ================= STUDENT LOGIN ================= -->
   <div class="box" id="loginBox">
     <img src="assets/logo.jpg" alt="Concepts College of Sciences" class="logo">
@@ -56,7 +59,8 @@
   <div class="box hidden wide" id="teacherDashboard">
     <h2 class="portal">Stored Results</h2>
     <p class="note">Results older than 10 days are removed when this page loads. Use Export to Excel to keep a copy.
-      Rows marked "Too fast" were finished in under 5 seconds per question, so check them.</p>
+      Rows marked "Too fast" were finished in under 5 seconds per question, so check them.
+      Use the red Delete button on a row to remove a result before it expires.</p>
 
     <div class="dashControls">
       <select id="classFilter" onchange="renderTeacherTable()">
@@ -87,10 +91,11 @@
             <th>%</th>
             <th>Time</th>
             <th>Submitted (PKT)</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td colspan="11">Log in to load results.</td></tr>
+          <tr><td colspan="12">Log in to load results.</td></tr>
         </tbody>
       </table>
     </div>
@@ -165,6 +170,7 @@
   <!-- ================= QUIZ BANK REGISTRY (load before data files) ================= -->
   <script src="js/quiz-bank.js"></script>
   <script src="js/students.js"></script>
+  <script src="js/sounds.js"></script>
 
   <!-- ================= DATA FILES ================= -->
   <!-- Math: chapter-wise -->

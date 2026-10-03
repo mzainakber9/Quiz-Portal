@@ -10,6 +10,7 @@ js/quiz-bank.js      registry — data files self-register into this
 js/students.js       roster used for student login
 js/firebase-config.js  <- fill in your Firebase project keys (see SETUP.md)
 js/storage.js         saves results to Firebase, teacher login/read
+js/sounds.js          sound effects (synthesized in the browser, no audio files)
 js/quiz-setting.js    all quiz logic (login, quiz flow, results, dashboard) — was app.js
 data/<subject>/<class>/<files>
   math/
@@ -31,6 +32,12 @@ past papers:  {class}-{subject}-pastpaper-{year}.js  e.g. 9th-physics-pastpaper-
 Each file's function/registration id follows the same pattern, so a
 filename tells you exactly what's inside it — no more guessing what
 "Set1" or "Set2" meant.
+
+## Teacher dashboard
+* Filter by class (All / 9th / 10th / 11th / 12th).
+* **Export to Excel**: all classes gives one workbook with a sheet per class; a single class gives just that class. If the Excel library cannot load, a CSV is downloaded instead.
+* Each result records how long the quiz took. Results finished in under 5 seconds per question are marked "Too fast". This only catches careless cheating, not a determined one.
+* All times are shown in Pakistan time (PKT).
 
 ## Adding new content
 1. Copy `data/TEMPLATE-copy-this-file.js` into the right subject and class folder, e.g. `data/biology/9th/`.
@@ -113,3 +120,36 @@ in any new file, otherwise text like `a<b` can break the page.
   saved (via Firebase — see `SETUP.md`) and viewable on the
   "Teacher / Operator Login" page with one shared password. Results
   are automatically deleted 10 days after submission.
+
+## Sound effects
+`js/sounds.js` creates every sound with the browser's Web Audio API, so there
+are no audio files to host. A speaker button (top-right) mutes/unmutes and
+the choice is remembered on that device.
+
+| Moment | Sound |
+|---|---|
+| Quiz starts | impact + rising shimmer |
+| Choosing an option | snappy pop |
+| Correct answer | game-show ding-ding-ding chime |
+| Wrong answer | cartoon bonk + slide-whistle fall + "womp womp" |
+| Skipping a question | whoosh |
+| While the quiz runs | continuous KBC-style tension pulse (heartbeat + bass + pings), loud; dips briefly under answer sounds |
+| Timer under 60s / 20s / 10s | pulse gets faster and more intense |
+| Time runs out | alarm beeps, then the result sound |
+| Result 50% or more | brass fanfare + applause |
+| Result under 50% | sad trombone |
+| Login success / failure | power-up ding / buzz |
+
+Loudness: `MASTER_VOLUME` (everything) and `TIMER_VOLUME` (the pulse) at the
+top of `js/sounds.js`. To change a sound edit its entry in the `library`
+object. The 50% pass line is in `concludeAttempt()` in `js/quiz-setting.js`.
+
+## Look
+Selected answer = yellow (`.option.selected` in `css/style.css`).
+"Submit & See Result" = orange (`.submitBtn`).
+
+## Deleting results (teacher)
+Each row on the teacher dashboard has a red **Delete** button. It asks for
+confirmation, then removes that one result from Firestore. This works with the
+security rules in SETUP.md (`allow delete` for the logged-in teacher), so no
+rules change is needed. Results still auto-expire after 10 days.

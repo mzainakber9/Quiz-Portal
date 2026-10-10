@@ -15,7 +15,9 @@ js/quiz-setting.js    all quiz logic (login, quiz flow, results, dashboard) — 
 data/<subject>/<class>/<files>
   math/
     9th/ 10th/ 11th/ 12th/      chapter-wise files
-  physics/9th/                  past-paper files
+  physics/
+    9th/                        past-paper files
+    11th/                       chapter-wise files (ch1, ch2, ch3, ch5)
   chemistry/10th/               past-paper files
   english/10th/                 sets
   biology/ computer/ islamiyat/ pakstudy/   (add class folders and files as content is ready)
@@ -97,6 +99,24 @@ These replace the old sample `10th-math-ch1-real-numbers.js`. Every question
 has an explanation, and every answer was re-solved. Because question and explanation text is inserted as HTML, a `<`
 inside math is written as `\lt` (KaTeX renders it as `<`). Use the same rule
 in any new file, otherwise text like `a<b` can break the page.
+
+## Class 11 Physics — chapter-wise (added)
+Chapters 1, 2, 3 and 5 (Chapter 4 not added yet). One registry entry each, subject "Physics":
+```
+data/physics/11th/11th-physics-ch1-measurements.js          30 MCQs
+data/physics/11th/11th-physics-ch2-vectors.js               28 MCQs
+data/physics/11th/11th-physics-ch3-translatory-motion.js    63 MCQs
+data/physics/11th/11th-physics-ch5-work-and-energy.js       67 MCQs
+```
+188 MCQs in total, every one with an explanation, and every answer re-solved
+before the explanation was written. Text is plain Unicode (no LaTeX). Because
+question and explanation text is inserted as HTML, `<` is written `&lt;` in the
+question text (options are not affected).
+Corrections made while converting:
+- Ch2 Q11 (direction of 4i − 3j): option text changed from 323.17° to 323.13°
+  (tan⁻¹(3/4) = 36.87°, so 360° − 36.87° = 323.13°); it is still the correct option.
+- Ch3 Q2, Q6, Q45 use g ≈ 10 or 9.81 m/s² in the source answer; the explanation
+  says so and the answer is the closest option.
 
 ## What changed from the old version
 - **Dynamic subjects/categories** — a subject only shows up once a

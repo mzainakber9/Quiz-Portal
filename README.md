@@ -101,22 +101,72 @@ inside math is written as `\lt` (KaTeX renders it as `<`). Use the same rule
 in any new file, otherwise text like `a<b` can break the page.
 
 ## Class 11 Physics — chapter-wise (added)
-Chapters 1, 2, 3 and 5 (Chapter 4 not added yet). One registry entry each, subject "Physics":
+Chapters 1 to 14, matching the 14 units of the FBISE HSSC-I Physics (Grade XI) framework.
+One registry entry each, subject "Physics". Every chapter now holds at least 100 MCQs:
 ```
-data/physics/11th/11th-physics-ch1-measurements.js          30 MCQs
-data/physics/11th/11th-physics-ch2-vectors.js               28 MCQs
-data/physics/11th/11th-physics-ch3-translatory-motion.js    63 MCQs
-data/physics/11th/11th-physics-ch5-work-and-energy.js       67 MCQs
+file (data/physics/11th/...)                     chapter MCQs + SLO-based + paper = total
+11th-physics-ch1-measurements.js                  30 + 67 +  8 = 105
+11th-physics-ch2-vectors.js                       28 + 74 +  2 = 104
+11th-physics-ch3-translatory-motion.js            63 + 36 +  6 = 105
+11th-physics-ch4-angular-measures-and-radians.js  36 + 62 +  7 = 105
+11th-physics-ch5-work-and-energy.js               67 + 35 +  3 = 105
+11th-physics-ch6-archimedes-principle-and-flotation.js 36 + 66 + 4 = 106
+11th-physics-ch7-physics-of-solids.js             40 + 60 +  5 = 105
+11th-physics-ch8-heat-and-thermodynamics.js       39 + 60 +  6 = 105
+11th-physics-ch9-waves.js                         30 + 68 +  7 = 105
+11th-physics-ch10-electric-field.js               25 + 71 +  5 = 101
+11th-physics-ch11-current-electricity.js          25 + 76 +  7 = 108
+11th-physics-ch12-magnetic-fields.js              35 + 66 +  4 = 105
+11th-physics-ch13-inertial-and-non-inertial-frames.js 30 + 68 + 6 = 104
+11th-physics-ch14-nuclear-processes-and-radiations.js 60 + 39 + 10 = 109
 ```
-188 MCQs in total, every one with an explanation, and every answer re-solved
-before the explanation was written. Text is plain Unicode (no LaTeX). Because
-question and explanation text is inserted as HTML, `<` is written `&lt;` in the
-question text (options are not affected).
+1472 MCQs in total. File names and ids are unchanged; only the chapter labels were updated to the
+official unit names. Each file has three sections, marked by comments: your converted chapter MCQs,
+the new SLO-based MCQs, and the FBISE model-paper MCQs.
+- **SLO-based MCQs (new, 853 written, 846 kept):** written to the summative SLOs of the framework, with
+  straight, scenario-based (a stimulus plus 3-4 linked questions; the stimulus is repeated inside each
+  question because the portal shuffles questions) and diagram questions (inline SVG graphs, circuits,
+  force diagrams, wave pictures). Each answer was solved by the author and then re-solved blind by an
+  independent solver with shuffled options; every disagreement and flag was reviewed by hand. The few
+  flagged diagrams and wordings were fixed, and 5 questions (ferrofluid and relativistic-mass items,
+  outside the Grade XI syllabus) were dropped.
+- **FBISE model-paper MCQs (80):** all 80 MCQs of Section A, placed by chapter, with clean redrawn
+  diagrams for the projectile, Ferris wheel, duct, police-car chase, lamp circuits, quark/gluon scenario,
+  F-x graph and P-V graph. Small wording changes: Q24 (larger slit) now compares with a narrow slit and
+  option D was changed from "negligible" to "unchanged"; Q38 says "positively charged particle";
+  Q67 says "pressure energy" instead of "P.E." (the duct is horizontal, so gravitational P.E. does not change).
+- **Notes on the paper:** the Ferris-wheel scenario (Q61-64) gives r = 1 m and a 20 s period, but Q64
+  (alpha = 1.0 rad/s², giving 10 rad/s after 10 s) does not match the operating speed 2π/20 rad/s; the answer
+  is correct for the question as asked. The PDF has no SLO text for E-10 to E-43 (Electricity and
+  Electromagnetism), so Ch11 and Ch12 use the standard content for those units.
+Text is plain Unicode (no LaTeX). Because question and explanation text is inserted as HTML, `<` is
+written `&lt;` in the question text (options are not affected).
 Corrections made while converting:
 - Ch2 Q11 (direction of 4i − 3j): option text changed from 323.17° to 323.13°
   (tan⁻¹(3/4) = 36.87°, so 360° − 36.87° = 323.13°); it is still the correct option.
 - Ch3 Q2, Q6, Q45 use g ≈ 10 or 9.81 m/s² in the source answer; the explanation
   says so and the answer is the closest option.
+- Ch4, Ch6, Ch7, Ch8 were converted from the supplied Word files. All 151 answers were
+  re-checked and none needed changing. Ch4 conversion explanations now show the working.
+- Ch6 Q31: option and answer unchanged; the explanation now says the buoyant force stops
+  increasing once the object is fully submerged.
+- Ch8 Q19: stem reworded from "Thermal equilibrium is impossible when:" to "Two objects are NOT
+  in thermal equilibrium when:" (same answer); the old wording was inaccurate.
+- Ch4 covers only the angular-measure/radian topic and Ch8 only thermal equilibrium, as in the
+  source files. Ch6 covers Archimedes' principle and flotation.
+- Ch9–Ch14 were converted from the supplied Word files (205 MCQs). Errors found and fixed (all in Ch14):
+  - Q5 (¹⁴N + ⁴He → ¹⁷O + X): the source said neutron, which is wrong. Charge 7 + 2 = 9 and O has 8,
+    so X has charge +1 and nucleon number 1: it is a proton. Answer changed to Proton.
+  - Q4: the stem said conservation of charge keeps the number of protons unchanged, which is
+    false (beta decay changes it). Stem now asks about total electric charge; the answer is unchanged.
+  - Q19: options A, B and C all balanced. B and C were edited (¹³C₆ and ¹³N₇ products) so only A balances.
+  - Second set Q26: option "Neutron radiation" was also neutral, so it was replaced by "Positron radiation".
+  - Second set Q28: "changes into an electron after losing energy" is meaningless; stem now reads
+    "Which radioactive emission consists of electrons?" (same answer).
+  - Second set Q17 and Q22: answers unchanged, explanations made more precise (tritium; mass ratio ≈ 7300).
+- Ch14 combines two SLO sets (30 + 30) in one file. Ch11 text had parentheses around single symbols,
+  e.g. (n), (I = Anvq); these were removed. Ch9 covers wave intensity and amplitude, Ch8 only thermal
+  equilibrium, and Ch13 only frames of reference, as in the source files.
 
 ## What changed from the old version
 - **Dynamic subjects/categories** — a subject only shows up once a

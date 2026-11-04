@@ -1,8 +1,6 @@
 const students = [
-  { name: "Ali", roll: "101", class: "9th" },
-  { name: "Sara", roll: "102", class: "10th" },
-  { name: "Zain", roll: "201", class: "11th" },
-  { name: "Hanzala", roll: "301", class: "12th" },
+  { name: "Zain", roll: "1111", class: "11th" },
+  { name: "Imtiaz Khalid", roll: "1965", class: "11th" },
 
   // ---- Class 11 (roll numbers 2601-2634, in the order of the Chapter 01 marks sheet) ----
   { name: "Muqadas Fatima", roll: "2601", class: "11th" },
@@ -39,6 +37,10 @@ const students = [
   { name: "Noor-ul-Ain", roll: "2632", class: "11th" },
   { name: "Laiba Farrukh", roll: "2633", class: "11th" },
   { name: "Esha Tariq", roll: "2634", class: "11th" },
+  { name: "Mubashra", roll: "2635", class: "11th" },
+  { name: "Arooj", roll: "2636", class: "11th" },
+  { name: "Habiba Kousair", roll: "2637", class: "11th" },
+  { name: "Laiba Bibi", roll: "2638", class: "11th" },
 
   // ---- Class 11, 1st Year A & B (roll numbers 2701-2791) ----
   { name: "Abdul Rafay", roll: "2701", class: "11th" },

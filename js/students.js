@@ -1,5 +1,8 @@
 const students = [
+  { name: "Zain", roll: "1111", class: "9th" },
+  { name: "Zain", roll: "1111", class: "10th" },
   { name: "Zain", roll: "1111", class: "11th" },
+  { name: "Zain", roll: "1111", class: "12th" },
   { name: "Imtiaz Khalid", roll: "1965", class: "11th" },
 
   // ---- Class 11 (roll numbers 2601-2634, in the order of the Chapter 01 marks sheet) ----

@@ -536,7 +536,7 @@ QuizBank.register({
 
     {
       q: "\\(\\log_{5}1\\) equals:",
-      options: ["0","0","1","-1"],
+      options: ["0","1","-1","5"],
       ans: "0",
       reason: "\\(\\log_{b}N=y\\) means \\(b^{y}=N\\). Since \\(5^{0}=1\\), \\(\\log_{5}1=0\\)."
     },

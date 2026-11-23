@@ -495,7 +495,7 @@ QuizBank.register({
     "reason": "Since \\(^nP_r=r!\\cdot{}^nC_r\\), here \\(720=r!\\times120\\Rightarrow r!=6\\Rightarrow r=3\\)."
   },
   {
-    "q": "In the previous question, the value of \\(n\\) is:",
+    "q": "If \\(^nP_r=720\\) and \\(^nC_r=120\\), the value of \\(n\\) is:",
     "options": [
       "\\(10\\)",
       "\\(8\\)",
@@ -1056,7 +1056,7 @@ QuizBank.register({
     "reason": "Dividing consecutive combinations, \\(\\dfrac{^nC_r}{^nC_{r-1}}=\\dfrac{84}{36}=\\dfrac73=\\dfrac{n-r+1}{r}\\); testing \\(r=3\\) fits the given values consistently."
   },
   {
-    "q": "In the previous question, the value of \\(n\\) is:",
+    "q": "If \\(^nC_{r-1}=36,\\ {}^nC_r=84\\), and \\(^nC_{r+1}=126\\), the value of \\(n\\) is:",
     "options": [
       "\\(7\\)",
       "\\(8\\)",

@@ -539,7 +539,7 @@ QuizBank.register({
     "reason": "Volume \\(=\\text{length}\\times\\text{width}\\times\\text{height}=(x+7)(2x)(x)=72\\); testing \\(x=2\\) gives \\((9)(4)(2)=72\\), confirming \\(x=2\\)."
   },
   {
-    "q": "What are the dimensions (length, width, height) of the rectangular solid in the previous question?",
+    "q": "A rectangular solid has volume 72 cubic units, width \\(2x\\), length \\(x+7\\) and height \\(x\\). Its dimensions (length, width, height) are:",
     "options": [
       "\\(9,4,2\\)",
       "\\(8,4,2\\)",
@@ -946,7 +946,7 @@ QuizBank.register({
     "reason": "From \\(2x+3=A(x+2)+B(x+1)\\), setting \\(x=-1\\): \\(1=A(1)\\Rightarrow A=1\\)."
   },
   {
-    "q": "The value of \\(B\\) in the previous question is:",
+    "q": "If \\((2x+3)/[(x+1)(x+2)]=A/(x+1)+B/(x+2)\\), the value of \\(B\\) is:",
     "options": [
       "\\(1\\)",
       "\\(0\\)",

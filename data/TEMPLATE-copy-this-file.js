@@ -12,10 +12,12 @@
 // 3. Fill in class / subject / type / id / label / order
 //    below, and replace the sample questions with real ones.
 //
-// 4. Add ONE <script> tag for the new file in quiz-portal.html,
-//    anywhere before js/quiz-setting.js. Nothing else needs editing —
-//    it will appear automatically in the subject/category
-//    dropdowns for the right class.
+// 4. Update the manifest so the portal knows the file exists:
+//      run   node tools/build-manifest.js   in the project folder
+//    (or add one line by hand to js/manifest.js, copying a neighbour).
+//    Nothing else needs editing — the quiz appears automatically in the
+//    subject/category dropdowns for the right class, and this file is only
+//    downloaded when a student starts it.
 // =========================================================
 
 QuizBank.register({

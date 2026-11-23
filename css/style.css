@@ -318,3 +318,77 @@ button:disabled{
 .delBtn:hover{
   background:#a93226;
 }
+
+/* ---------- Resume banner (shown after login if a quiz was left unfinished) ---------- */
+.resumeBox{
+  margin:12px auto;
+  padding:12px 14px;
+  max-width:420px;
+  background:#fff8e1;
+  border:1px solid #f0c36d;
+  border-radius:10px;
+  color:#5a4300;
+  text-align:center;
+}
+.resumeBox p{
+  margin:6px 0 0;
+  font-size:14px;
+}
+.grayBtn{
+  background:#6b7280;
+}
+.grayBtn:hover{
+  background:#4b5563;
+}
+
+/* ---------- Leave-quiz link + dialog ---------- */
+.leaveLine{
+  margin-top:14px;
+  font-size:13px;
+}
+.leaveLine a{
+  color:#6b7280;
+  text-decoration:underline;
+}
+.modalOverlay{
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  background:rgba(0,0,0,0.5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+}
+.modalOverlay.hidden{
+  display:none;
+}
+.modal{
+  background:#fff;
+  border-radius:12px;
+  padding:20px;
+  width:100%;
+  max-width:360px;
+  text-align:center;
+  box-shadow:0 8px 30px rgba(0,0,0,0.35);
+}
+.modal h3{
+  margin-top:0;
+}
+.modalButtons{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:14px;
+}
+.orangeBtn{
+  background:#f57c00;
+}
+.orangeBtn:hover{
+  background:#e65100;
+}
+.modalButtons .delBtn{
+  padding:10px 22px;
+  font-size:15px;
+  border-radius:8px;
+}

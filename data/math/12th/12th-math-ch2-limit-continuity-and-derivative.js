@@ -173,7 +173,7 @@ QuizBank.register({
         reason: "The left-hand limit is \\(2^2=4\\) and the right-hand limit is \\(-2+6=4\\), so both sides agree and the limit is 4."
       },
       {
-        q: "For the function in the previous question, \\(f\\) is discontinuous at \\(x=2\\) because:",
+        q: "For \\(f(x)=\\begin{cases}x^2, & x\\lt 2\\\\ 5, & x=2\\\\ -x+6, & x>2\\end{cases}\\), \\(f\\) is discontinuous at \\(x=2\\) because:",
         options: ["\\(\\lim_{x\\to2}f(x)\\) does not exist", "\\(f(2)\\) is undefined", "\\(\\lim_{x\\to2}f(x)\\ne f(2)\\)", "\\(f\\) is not defined near 2"],
         ans: "\\(\\lim_{x\\to2}f(x)\\ne f(2)\\)",
         reason: "Although the limit exists (equal to 4), it doesn't match the defined value \\(f(2)=5\\), violating the continuity condition."

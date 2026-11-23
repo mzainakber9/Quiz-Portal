@@ -517,17 +517,6 @@ QuizBank.register({
     "reason": "\\(T_{r+1}=\\binom6r3^rx^{6-2r}\\); at \\(r=3\\): \\(\\binom63\\times27=20\\times27=540\\)."
   },
   {
-    "q": "The term independent of \\(x\\) in the expansion of \\(\\left(x^2+\\dfrac1x\\right)^{12}\\) occurs when \\(r=8\\); its value is:",
-    "options": [
-      "990",
-      "-495",
-      "220",
-      "495"
-    ],
-    "ans": "495",
-    "reason": "Same setup as the \\((x^2+1/x)^{12}\\) case above: at \\(r=8\\), \\(\\binom{12}8=495\\)."
-  },
-  {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\left(2x+\\dfrac1x\\right)^{12}\\) occurs when \\(r=6\\); its value is:",
     "options": [
       "60060",
@@ -559,17 +548,6 @@ QuizBank.register({
     ],
     "ans": "924",
     "reason": "\\(T_{r+1}=\\binom{12}rx^{12-2r}\\); at \\(r=6\\): \\(\\binom{12}6=924\\)."
-  },
-  {
-    "q": "The term independent of \\(x\\) in the expansion of \\(\\left(x^2+\\dfrac2x\\right)^{9}\\) occurs when \\(r=6\\); its value is:",
-    "options": [
-      "-5376",
-      "4608",
-      "5376",
-      "5460"
-    ],
-    "ans": "5376",
-    "reason": "Same setup as the \\((x^2+2/x)^9\\) case above: at \\(r=6\\), \\(\\binom96\\times2^6=5376\\)."
   },
   {
     "q": "The term independent of \\(x\\) in the expansion of \\(\\left(x^2+\\dfrac3x\\right)^{12}\\) occurs when \\(r=8\\); its value is:",

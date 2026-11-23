@@ -311,13 +311,6 @@ QuizBank.register({
     },
 
     {
-      q: "Two similar solids have corresponding lengths in the ratio \\(3:4\\). What is the ratio of their volumes?",
-      options: ["27:64","4:5","3:4","9:16"],
-      ans: "27:64",
-      reason: "The ratio of volumes of similar solids is the cube of the ratio of corresponding lengths: \\((3:4)^{3}=27:64\\)."
-    },
-
-    {
       q: "Two similar solids have corresponding lengths in the ratio \\(1:5\\). What is the ratio of their volumes?",
       options: ["1:25","1:125","2:6","1:5"],
       ans: "1:125",
@@ -455,13 +448,6 @@ QuizBank.register({
       options: ["15\\(^{\\circ}\\)","40\\(^{\\circ}\\)","20\\(^{\\circ}\\)","30\\(^{\\circ}\\)"],
       ans: "20\\(^{\\circ}\\)",
       reason: "For a regular polygon, each exterior angle \\(=\\dfrac{360^{\\circ}}{n}=\\dfrac{360^{\\circ}}{18}=20^{\\circ}\\)."
-    },
-
-    {
-      q: "Find the sum of the interior angles of a polygon with 9 sides.",
-      options: ["1620\\(^{\\circ}\\)","1260\\(^{\\circ}\\)","1080\\(^{\\circ}\\)","1440\\(^{\\circ}\\)"],
-      ans: "1260\\(^{\\circ}\\)",
-      reason: "Sum of interior angles \\(=(n-2)\\times180^{\\circ}=(9-2)\\times180^{\\circ}=1260^{\\circ}\\)."
     },
 
     {

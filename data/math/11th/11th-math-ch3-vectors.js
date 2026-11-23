@@ -616,17 +616,6 @@ QuizBank.register({
     "reason": "Two non-zero vectors are parallel exactly when the angle between them is \\(0^\\circ\\) or \\(180^\\circ\\), which makes their cross product \\(a\\times b=0\\)."
   },
   {
-    "q": "The projection of vector \\(a\\) on vector \\(b\\) is given by:",
-    "options": [
-      "\\((a\\cdot b)/|a|\\)",
-      "\\((a\\cdot b)/|b|\\)",
-      "\\((a\\times b)/|b|\\)",
-      "\\(a\\cdot b\\)"
-    ],
-    "ans": "\\((a\\cdot b)/|b|\\)",
-    "reason": "The projection of \\(a\\) on \\(b\\) has magnitude \\(\\dfrac{a\\cdot b}{|b|}\\)."
-  },
-  {
     "q": "If vector \\(a=2i+\\lambda j+k\\) is perpendicular to \\(b=i-2j+3k\\), then \\(\\lambda=\\)",
     "options": [
       "\\(1.5\\)",
@@ -636,17 +625,6 @@ QuizBank.register({
     ],
     "ans": "\\(2.5\\)",
     "reason": "Perpendicular means \\(a\\cdot b=0\\): \\(2(1)+\\lambda(-2)+1(3)=5-2\\lambda=0\\Rightarrow\\lambda=2.5\\)."
-  },
-  {
-    "q": "The angle between vectors \\(i+j\\) and \\(j+k\\) is:",
-    "options": [
-      "\\(30^\\circ\\)",
-      "\\(45^\\circ\\)",
-      "\\(60^\\circ\\)",
-      "\\(90^\\circ\\)"
-    ],
-    "ans": "\\(60^\\circ\\)",
-    "reason": "\\((i+j)\\cdot(j+k)=1\\), both have magnitude \\(\\sqrt2\\), so \\(\\cos\\theta=\\tfrac12\\Rightarrow\\theta=60^\\circ\\)."
   },
   {
     "q": "The vector product \\(i\\times(j\\times k)\\) is equal to:",
@@ -669,17 +647,6 @@ QuizBank.register({
     ],
     "ans": "\\(|a\\times b|\\)",
     "reason": "The area of a parallelogram with adjacent sides \\(a,b\\) equals \\(|a\\times b|\\)."
-  },
-  {
-    "q": "If \\(|a|=3,|b|=4\\), and \\(a\\cdot b=6\\), the angle between \\(a\\) and \\(b\\) is:",
-    "options": [
-      "\\(30^\\circ\\)",
-      "\\(45^\\circ\\)",
-      "\\(60^\\circ\\)",
-      "\\(90^\\circ\\)"
-    ],
-    "ans": "\\(60^\\circ\\)",
-    "reason": "\\(\\cos\\theta=\\dfrac{a\\cdot b}{|a||b|}=\\dfrac{6}{12}=\\dfrac12\\Rightarrow\\theta=60^\\circ\\)."
   },
   {
     "q": "The scalar triple product \\([i\\,j\\,k]\\) is equal to:",

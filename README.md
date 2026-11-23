@@ -6,7 +6,9 @@ index.html            redirect stub only — GitHub Pages needs this exact
                        name at the root; it forwards to quiz-portal.html
 quiz-portal.html       the real page (was index.html)
 css/style.css
-js/quiz-bank.js      registry — data files self-register into this
+js/quiz-bank.js      registry — loads question files on demand
+js/manifest.js       list of every chapter/paper (no questions) — generated, see "Adding new content"
+tools/build-manifest.js   regenerates js/manifest.js from /data (run with Node)
 js/students.js       roster used for student login
 js/firebase-config.js  <- fill in your Firebase project keys (see SETUP.md)
 js/storage.js         saves results to Firebase, teacher login/read
@@ -17,10 +19,12 @@ data/<subject>/<class>/<files>
     9th/ 10th/ 11th/ 12th/      chapter-wise files
   physics/
     9th/                        past-paper files
-    11th/                       chapter-wise files (ch1, ch2, ch3, ch5)
+    11th/                       chapter-wise files
   chemistry/10th/               past-paper files
   english/10th/                 sets
-  biology/ computer/ islamiyat/ pakstudy/   (add class folders and files as content is ready)
+  computer/
+    11th/                       chapter-wise files (Units 1 to 8, all added)
+  biology/ islamiyat/ pakstudy/   (add class folders and files as content is ready)
   TEMPLATE-copy-this-file.js   copy this to add a new chapter/paper
 assets/logo.jpg
 SETUP.md              one-time Firebase setup for result storage
@@ -44,13 +48,39 @@ filename tells you exactly what's inside it — no more guessing what
 ## Adding new content
 1. Copy `data/TEMPLATE-copy-this-file.js` into the right subject and class folder, e.g. `data/biology/9th/`.
 2. Fill in class / subject / type / id / label / questions.
-3. Add one `<script>` tag for it in `quiz-portal.html`.
+3. Update the manifest, either way:
+   * run `node tools/build-manifest.js` in the project folder (it reads every
+     file in `data/` and rewrites `js/manifest.js`), **or**
+   * by hand: add one line to `js/manifest.js`, copying a neighbouring line and
+     changing class / subject / type / id / label / order / file.
 
-That's it — you never need to touch `js/quiz-setting.js` or
+You never need to touch `quiz-portal.html`, `js/quiz-setting.js` or
 `js/quiz-bank.js` to add a chapter, a past paper, or even a brand-new
-subject/class combination. The subject and chapter/paper dropdowns
-are built automatically from whatever is registered for the logged-in
-student's class.
+subject/class combination. The dropdowns are built from the manifest for the
+logged-in student's class.
+
+## How loading works (lazy loading)
+The page loads only the small manifest (~11 KB). A chapter's question file is
+downloaded when a student presses **Start Quiz** (or **Resume**) for it, so a
+student downloads roughly 55 KB instead of all 3.3 MB of questions.
+If the download fails (e.g. no internet) the student sees a message and can retry.
+
+## Resume / leave a quiz
+* After every question the attempt is saved in the student's browser
+  (localStorage), one slot per student on that device.
+* If the tab closes, the page reloads or the connection drops, the student logs
+  in again and sees **"You have an unfinished quiz" → Resume**. The same
+  questions come back in the same order, from the next unanswered question.
+* The timer follows the clock, so it **keeps running while the student is away**.
+  If time runs out while away, **Resume** submits the result for the questions
+  answered so far. A saved attempt older than 24 hours is dropped.
+* **Leave this quiz** (under the quiz buttons) offers: Keep going / Save & leave
+  (resume later) / Abandon (nothing is saved or sent to the teacher).
+* Starting a different quiz while one is saved asks first, then replaces it.
+* If you edit a chapter's questions (add/remove) while a student has it saved,
+  that saved attempt cannot be resumed and is discarded.
+* Saved progress lives only in that one browser. It does not move between
+  devices, and it does not appear on the teacher dashboard.
 
 ## Math notation (KaTeX)
 Class 11 Math is written with inline LaTeX, e.g. `\\(i^{5}\\)`, and
@@ -223,3 +253,73 @@ Each row on the teacher dashboard has a red **Delete** button. It asks for
 confirmation, then removes that one result from Firestore. This works with the
 security rules in SETUP.md (`allow delete` for the logged-in teacher), so no
 rules change is needed. Results still auto-expire after 10 days.
+
+## Class 11 Computer Science — Units 1 to 4 and 7 (added)
+Based on the NBF Grade 11 textbook and the FBISE Assessment Framework / model paper
+(SLOs CS-11-A-01 to A-04, B-01 to B-02, C-01 to C-07, D-01 to D-03 and G-01). 100 MCQs per unit (Unit 7 is a short unit: 75), every question with an explanation:
+```
+data/computer/11th/11th-computer-ch1-computer-systems.js                          Unit 1: Computer Systems
+data/computer/11th/11th-computer-ch2-computational-thinking-and-algorithms.js     Unit 2: Computational Thinking & Algorithms
+data/computer/11th/11th-computer-ch3-programming-fundamentals.js                  Unit 3: Programming Fundamentals
+data/computer/11th/11th-computer-ch4-data-and-analysis.js                         Unit 4: Data and Analysis
+data/computer/11th/11th-computer-ch7-digital-literacy.js                          Unit 7: Digital Literacy (75 MCQs)
+```
+* **Unit 1:** data representation and signals (7), logic gates / Boolean algebra / K-maps (30),
+  SDLC, testing and deployment (20), network topologies (14), cloud computing (12), cybersecurity and encryption (17).
+* **Unit 2:** computational thinking (13), artifacts (5), algorithms / flowcharts / pseudocode (24), planning (8),
+  tracing and trace tables (10), evaluation (8), sorting (16), searching (16).
+* **Unit 3:** programs, compiler/interpreter (8), Python and IDEs (7), Turtle graphics (11), libraries (7), variables (8),
+  input/output (7), operators (11), conditionals (8), loops (9), lists (9), functions (8), debugging (7).
+  Code-output questions have their answers computed by running the code.
+* **Unit 4:** statistical modeling and use cases (9), case-study roadmap (8), modeling techniques (14), building a model in
+  Python (6), experimental design flow (11), design principles (10), correlation and causation (8),
+  population/sample/parameter/statistic (10), data collection (10), A/B testing (4), summary statistics and visualization (10).
+* **Unit 7:** digital literacy and research questions (6), method vs strategy (5), qualitative interviews: nature (8),
+  the ten interview steps (14), interview case study (3), simulations (7), prototypes (8), surveys and Google Forms (9),
+  data presentation: infographics, presentations, reports (10), advanced web search (5: quotes, minus, site:, filetype:).
+* Style follows the board's MCQs: one idea per question, short options, scenario questions, same-family distractors,
+  and the model-paper mix of about 30% Knowledge, 50% Understanding and 20% Application.
+* About 40 questions per unit include a diagram (inline SVG: gates, circuits, K-maps, topologies, flowcharts,
+  arrays for sorting/searching, encryption flow) or a table / pseudocode block with a trace table.
+* The generator that produced them is in `tools/mcq-builder/` (lib.py plus u1_* … u8_* question files and
+  build_uN.py; run e.g. `cd tools/mcq-builder && python3 build_u3.py --write`, then `node tools/build-manifest.js`) — not loaded by the website.
+
+## Class 11 Computer Science — Units 5 & 6 (added)
+Based on the NBF Grade 11 textbook (Unit 5 pp.155-168, Unit 6 pp.169-188) and the FBISE Assessment Framework
+(SLOs CS-11-E-01, E-02 and CS-11-F-01, F-02). 100 MCQs per unit, every question with an explanation:
+```
+data/computer/11th/11th-computer-ch5-applications-of-computer-science.js           Unit 5: Applications of Computer Science
+data/computer/11th/11th-computer-ch6-impacts-of-computing.js                       Unit 6: Impacts of Computing
+```
+* **Unit 5:** IoT intro (8), wireless sensor networks and sensor types (13), cloud deployment models (15), big data
+  analytics (6), IoT protocols (4), embedded systems (7), blockchain intro and enabling technologies (9), blockchain
+  networks (11), transactions (5), IoT + blockchain integration (4), AI stakeholders, impacts and conflicts (18).
+* **Unit 6:** information (4), primary/secondary/tertiary and print/digital/human sources (14), safe use (8), bias in data (10),
+  reliable (9) and unreliable (7) information, data searches (3), human vs computer verification tasks (9), computing and
+  connectivity (6), environment (8), culture (3), people (4), assistive technologies (6), digital divide (4), Wi-Fi/Bluetooth/4G/5G (5).
+* Mix: Unit 5 = 32 K / 52 U / 16 A; Unit 6 = 31 K / 51 U / 18 A. Diagrams or tables: 27 (Unit 5), 25 (Unit 6).
+  New inline-SVG helpers in `tools/mcq-builder/lib.py`: IoT flow, cloud models, block chain (with a tampered block),
+  blockchain networks, centralized vs decentralized, embedded system, source types, sampling bias, digital divide.
+* Scope: book first, only summative SLOs. Cloud service models (SaaS/PaaS/IaaS) and scaling are in Unit 1, not repeated here.
+  Consortium cloud and hybrid blockchain (used in the model paper) appear only as distractors. The book names the
+  fourth blockchain network "permissioned"; the questions follow the book.
+* Regenerate: `cd tools/mcq-builder && python3 build_u5.py --write && python3 build_u6.py --write`, then `node tools/build-manifest.js`.
+  Sources: `u5_a.py`, `u5_b.py`, `fix_u5.py` and `u6_a.py`, `u6_b.py`, `fix_u6.py`.
+
+## Class 11 Computer Science — Unit 8 (added)
+Based on the NBF Grade 11 textbook (Unit 8 "Entrepreneurship in Digital Age", pp.204-217) and the SLO EN-11-H-01
+(create, test and iterate a prototype for a business idea). 100 MCQs, every question with an explanation:
+```
+data/computer/11th/11th-computer-ch8-entrepreneurship-in-digital-age.js            Unit 8: Entrepreneurship in Digital Age
+```
+* Sections: product vs service and importance (10), prototype types (14), importance of prototyping (11), tools and
+  materials (8), low-fidelity prototypes (7), iterative design (8), user testing (7), analysing test results (7), MVP (10),
+  digital-entrepreneurship basics from the SLO/model paper (3), company examples and lessons (7), Pakistani start-ups (4),
+  Neuro-Mat case study (4).
+* Mix: 33 K / 51 U / 16 A. Diagrams or tables: 26 (8 SVG, 18 tables). New SVG helpers in `tools/mcq-builder/lib.py`:
+  fidelity spectrum, build-test-analyse-iterate loop, alpha/beta/release, MVP core-vs-postponed, bar chart, Neuro-Mat iterations.
+* Book inconsistency avoided: paper prototypes are "medium-fidelity" in 8.2.1 but listed under low-fidelity in 8.3.2, so no
+  question depends on that. Neuro-Mat numbers used: smoke test 8 / 14 / 30 (Fig 8.10) and the four iterations (Fig 8.13).
+* The ERQ topics "forces driving entrepreneurship" and "role of small business" are not in the chapter pages, so they are not tested.
+* Regenerate: `cd tools/mcq-builder && python3 build_u8.py --write`, then `node tools/build-manifest.js`.
+  Sources: `u8_a.py`, `u8_b.py`, `fix_u8.py`.

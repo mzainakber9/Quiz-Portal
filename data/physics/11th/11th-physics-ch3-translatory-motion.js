@@ -263,7 +263,7 @@ QuizBank.register({
       reason: "R = R_max/2 gives sin 2θ = 1/2, so 2θ = 30° and θ = 15° (the other solution is 75°). 15° is the option given."
     },
     {
-      q: "The horizontal range of projectile is minimum when it is projected at angle of:",
+      q: "Among the given angles, the horizontal range of a projectile is minimum when it is projected at an angle of:",
       options: ["50°","60°","70°","80°"],
       ans: "80°",
       reason: "R ∝ sin 2θ. Compare the options: sin 100° = 0.985, sin 120° = 0.866, sin 140° = 0.643, sin 160° = 0.342. The smallest range is at 80°."
@@ -287,7 +287,7 @@ QuizBank.register({
       reason: "The angles 30° and 60° are complementary (sum 90°), so sin 60° = sin 120° and the ranges are equal. Ratio = 1 : 1."
     },
     {
-      q: "The horizontal range of projectile is minimum when it is projected at angle of:",
+      q: "Among the given angles, the horizontal range of a projectile is minimum when it is projected at an angle of:",
       options: ["20°","30°","15°","45°"],
       ans: "15°",
       reason: "R ∝ sin 2θ: sin 30° = 0.5 (15°), sin 60° = 0.866 (30°), sin 90° = 1 (45°). The smallest value among the options is at 15°."

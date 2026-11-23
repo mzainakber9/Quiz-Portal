@@ -47,7 +47,7 @@ QuizBank.register({
         reason: "Total distance is the sum of the path lengths travelled, regardless of direction: \\(3+4=7\\) km."
       },
       {
-        q: "For the same body as in the previous question, the magnitude of the displacement is:",
+        q: "A body travels 3 km due north and then 4 km due east. The magnitude of its displacement is:",
         options: ["7 km", "5 km", "3 km", "4 km"],
         ans: "5 km",
         reason: "Displacement is the straight-line distance from start to end, found via the Pythagorean theorem: \\(\\sqrt{3^2+4^2}=5\\) km."
@@ -167,7 +167,7 @@ QuizBank.register({
         reason: "Displacement stays at 4 m from \\(t=4\\) to \\(t=8\\), so the change is zero, giving average velocity 0."
       },
       {
-        q: "Using the data of the previous question, the average velocity for the first 4 seconds is:",
+        q: "A moving object has displacement 0 m, 2 m, 4 m, 4 m, 4 m at times 0, 2, 4, 6, 8 seconds respectively. The average velocity for the first 4 seconds is:",
         options: ["0.5 m/s", "1 m/s", "2 m/s", "4 m/s"],
         ans: "1 m/s",
         reason: "Displacement changes from 0 to 4 m over 4 s, giving average velocity \\(4/4=1\\) m/s."
@@ -227,7 +227,7 @@ QuizBank.register({
         reason: "\\(a=\\dfrac{9-0}4=2.25\\) m/s²."
       },
       {
-        q: "The velocity of 9 m/s in the previous question is then maintained for a further 8 s. The total displacement of the athlete over the 12 s is:",
+        q: "An athlete accelerates uniformly from rest to 9 m/s in 4 s and then maintains 9 m/s for a further 8 s. The total displacement of the athlete over the 12 s is:",
         options: ["72 m", "90 m", "108 m", "36 m"],
         ans: "90 m",
         reason: "The accelerating phase covers \\(\\frac12(9)(4)=18\\) m, and the constant-speed phase covers \\(9\\times8=72\\) m, totalling 90 m."
@@ -263,7 +263,7 @@ QuizBank.register({
         reason: "\\(a=\\dfrac{8-2}{2-0}=3\\) m/s²."
       },
       {
-        q: "Using the same table as the previous question (\\(t=0\\) to \\(6\\) s, \\(v=2,5,8,8,8,4,0\\) m/s), the retardation (deceleration) of the particle between \\(t=4\\) s and \\(t=6\\) s is:",
+        q: "A particle moves with the velocity given in the table below.<br><table><tr><th>\\(t\\) (s)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr><tr><th>\\(v\\) (m/s)</th><td>2</td><td>5</td><td>8</td><td>8</td><td>8</td><td>4</td><td>0</td></tr></table>The retardation (deceleration) of the particle between \\(t=4\\) s and \\(t=6\\) s is:",
         options: ["2 m/s²", "3 m/s²", "4 m/s²", "8 m/s²"],
         ans: "4 m/s²",
         reason: "\\(a=\\dfrac{0-8}{6-4}=-4\\) m/s², so the magnitude of the retardation is 4 m/s²."
@@ -335,7 +335,7 @@ QuizBank.register({
         reason: "Integrating term by term gives \\(12t^2+\\sin t+C\\); applying \\(v(0)=0\\) gives \\(C=0\\)."
       },
       {
-        q: "Continuing the previous question, if \\(S\\left(\\dfrac{\\pi}2\\right)=\\dfrac{\\pi^3}2\\), then \\(S(t)\\) is:",
+        q: "If \\(a(t)=24t+\\cos t\\), \\(v(0)=0\\) and \\(S\\left(\\dfrac{\\pi}2\\right)=\\dfrac{\\pi^3}2\\), then \\(S(t)\\) is:",
         options: ["\\(4t^3-\\cos t\\)", "\\(4t^3+\\cos t\\)", "\\(4t^3-\\cos t+1\\)", "\\(12t^3-\\cos t\\)"],
         ans: "\\(4t^3-\\cos t\\)",
         reason: "Integrating \\(v(t)\\) gives \\(S(t)=4t^3-\\cos t+C\\); applying the given condition shows \\(C=0\\)."
@@ -347,7 +347,7 @@ QuizBank.register({
         reason: "At \\(t=1\\): \\(\\frac1{2\\sqrt1}+\\frac1{1+1}=\\frac12+\\frac12=1\\) m/s."
       },
       {
-        q: "For the same function as above, the velocity at \\(t=4\\) is:",
+        q: "For \\(S(t)=\\sqrt t+\\ln(t+1)\\), the velocity at \\(t=4\\) is:",
         options: ["\\(\\dfrac9{20}\\) m/s", "\\(\\dfrac14\\) m/s", "\\(\\dfrac15\\) m/s", "\\(\\dfrac12\\) m/s"],
         ans: "\\(\\dfrac9{20}\\) m/s",
         reason: "At \\(t=4\\): \\(\\frac1{2\\sqrt4}+\\frac1{4+1}=\\frac14+\\frac15=\\frac9{20}\\) m/s."
@@ -389,7 +389,7 @@ QuizBank.register({
         reason: "Taking upward as positive, the constant downward acceleration gives \\(v=u-gt=10-gt\\), i.e. \\(v=-gt+10\\)."
       },
       {
-        q: "Using the previous question, the displacement (height) function of the stone is:",
+        q: "A stone is projected vertically upward with velocity 10 m/s. Taking upward as positive, \\(g=9.8\\) m/s² and \\(S(0)=0\\), the displacement (height) function of the stone is:",
         options: ["\\(S=-\\dfrac12gt^2+10t\\)", "\\(S=\\dfrac12gt^2+10t\\)", "\\(S=-gt^2+10t\\)", "\\(S=10t^2-\\dfrac12g\\)"],
         ans: "\\(S=-\\dfrac12gt^2+10t\\)",
         reason: "Integrating \\(v=-gt+10\\) with \\(S(0)=0\\) gives \\(S=-\\frac12gt^2+10t\\)."
@@ -413,7 +413,7 @@ QuizBank.register({
         reason: "Solving \\(20=\\frac12(9.8)t^2\\) gives \\(t^2\\approx4.08\\), so \\(t\\approx2.02\\) s."
       },
       {
-        q: "Using the previous question, the velocity with which the ball hits the ground is approximately:",
+        q: "A ball is thrown downward from a tower of height 20 m (with \\(g=9.8\\) m/s²). Using \\(S=\\dfrac12gt^2\\) for the fall, the velocity with which the ball hits the ground is approximately:",
         options: ["19.8 m/s", "9.8 m/s", "20 m/s", "4.9 m/s"],
         ans: "19.8 m/s",
         reason: "\\(v=gt=9.8\\times2.02\\approx19.8\\) m/s."
@@ -425,7 +425,7 @@ QuizBank.register({
         reason: "Integrating \\(4t-8\\) gives \\(2t^2-8t+C\\); applying \\(v(0)=6\\) gives \\(C=6\\)."
       },
       {
-        q: "Using the previous question, the times at which \\(P\\) is instantaneously at rest are:",
+        q: "A particle \\(P\\) moves along the \\(x\\)-axis with acceleration \\(a=(4t-8)\\) m/s² and initial velocity \\(v(0)=6\\) m/s. The times at which \\(P\\) is instantaneously at rest are:",
         options: ["\\(t=1,3\\)", "\\(t=2,3\\)", "\\(t=1,4\\)", "\\(t=0,4\\)"],
         ans: "\\(t=1,3\\)",
         reason: "Solving \\(2t^2-8t+6=0\\) simplifies to \\((t-1)(t-3)=0\\), giving \\(t=1\\) and \\(t=3\\)."
@@ -437,7 +437,7 @@ QuizBank.register({
         reason: "Integrating \\(4-\\frac{t}2\\) gives \\(4t-\\frac{t^2}4+C\\); starting from rest gives \\(C=0\\)."
       },
       {
-        q: "Using the previous question, the car attains its maximum speed (when \\(a=0\\)) at:",
+        q: "A car starts from rest with acceleration \\(a=4-\\dfrac12t\\) for \\(0\\le t\\le8\\). It attains its maximum speed (when \\(a=0\\)) at:",
         options: ["\\(t=8\\) s", "\\(t=4\\) s", "\\(t=2\\) s", "\\(t=16\\) s"],
         ans: "\\(t=8\\) s",
         reason: "Setting \\(a=4-\\frac{t}2=0\\) gives \\(t=8\\) s."
@@ -533,7 +533,7 @@ QuizBank.register({
         reason: "Differentiating gives \\(4t\\hat i+12t^3\\hat j-3t^2\\hat k\\); substituting \\(t=1\\) gives \\(4\\hat i+12\\hat j-3\\hat k\\)."
       },
       {
-        q: "Using the previous question, the acceleration of the function at \\(t=1\\) is:",
+        q: "For \\(\\mathbf f(t)=2t^2\\hat i+3t^4\\hat j-t^3\\hat k\\), the acceleration at \\(t=1\\) is:",
         options: ["\\(4\\hat i+36\\hat j-6\\hat k\\)", "\\(4\\hat i+12\\hat j-6\\hat k\\)", "\\(4\\hat i+36\\hat j+6\\hat k\\)", "\\(8\\hat i+36\\hat j-6\\hat k\\)"],
         ans: "\\(4\\hat i+36\\hat j-6\\hat k\\)",
         reason: "Differentiating the velocity again gives \\(4\\hat i+36t^2\\hat j-6t\\hat k\\); at \\(t=1\\) this is \\(4\\hat i+36\\hat j-6\\hat k\\)."

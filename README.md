@@ -323,3 +323,40 @@ data/computer/11th/11th-computer-ch8-entrepreneurship-in-digital-age.js         
 * The ERQ topics "forces driving entrepreneurship" and "role of small business" are not in the chapter pages, so they are not tested.
 * Regenerate: `cd tools/mcq-builder && python3 build_u8.py --write`, then `node tools/build-manifest.js`.
   Sources: `u8_a.py`, `u8_b.py`, `fix_u8.py`.
+
+## Class 11 Urdu (added) — in progress (Batches 1-3 delivered; ch13 on hold)
+FBISE HSSC-I Urdu (Compulsory), curriculum 2022-23. 13 topics x 100 MCQs are planned; **done so far: ch5, ch6, ch7, ch8, ch9, ch10, ch11, ch12 (800 MCQs)**.
+Every question has an Urdu `reason` (rule or identification clue). Sources: FBISE model paper and the HSSC-I 1st Annual 2026
+past papers (style and SLO coverage), the FBISE Class 11 Urdu SLOs. Questions are newly written, not copied from the papers.
+```
+data/urdu/11th/11th-urdu-ch5-huroof.js              حروف (E-08)               100 MCQs  (K31 / U47 / A22)
+data/urdu/11th/11th-urdu-ch6-murakkab.js            مرکب (E-10)               100 MCQs  (K34 / U46 / A20)
+data/urdu/11th/11th-urdu-ch7-sawabiq-lawahiq.js     سوابق و لواحق (E-12)      100 MCQs  (K29 / U51 / A20)
+data/urdu/11th/11th-urdu-ch8-sentence-correction.js جملوں کی درستی (E-13)     100 MCQs  (K30 / U50 / A20)
+data/urdu/11th/11th-urdu-ch9-tazkeer-taneeth.js     تذکیر و تانیث (E-02)      100 MCQs  (K30 / U50 / A20)
+data/urdu/11th/11th-urdu-ch10-muhavara-zarb-ul-misal.js محاورہ و ضرب المثل (E-14) 100 MCQs  (K30 / U50 / A20)
+data/urdu/11th/11th-urdu-ch11-azdad.js              اضداد (E-03)              100 MCQs  (K30 / U50 / A20)
+data/urdu/11th/11th-urdu-ch12-muradif.js            مترادف (E-04)             100 MCQs  (K30 / U50 / A20)
+```
+Still to come: ch13 mutalazim (on hold: it may have fewer than 100 good questions, waiting for confirmation), then the poetry
+topics ch1-4 (need Rekhta-verified couplets).
+
+* **Subject**: "Urdu" is added after "English" in `SUBJECT_ORDER` in both `js/quiz-bank.js` and `tools/build-manifest.js`.
+* **RTL and font (Urdu only)**: `js/quiz-setting.js` adds the class `urdu` to `#quizBox` and `#categorySelect` when the subject is Urdu;
+  `css/style.css` (end of file) holds the rules: `dir=rtl`, right-aligned question/options/reason, question 20px, options 18px,
+  reason 16px, line-height 2.2, box widened to 640px, font `"Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Noto Naskh Arabic", serif`.
+  The font is loaded from Google Fonts in `quiz-portal.html` (needs internet on the student's device; otherwise the system
+  Urdu font is used). Other subjects get none of these classes, so they look exactly as before.
+* **Q number**: `Q1.` is wrapped in a left-to-right span so it does not flip inside the RTL line. In the answer box the labels
+  are Urdu (`درست جواب` / `وضاحت`) for Urdu only. Resume banner and teacher-table label use the Urdu font.
+* **Writing questions**: `q` and `reason` are HTML. Underlined words use `<u>..</u>`, line breaks `<br>`. Quotes in Urdu text are ‘ ’
+  and punctuation is ۔ ؟ ، (the validator rejects Arabic letter variants and ASCII punctuation).
+* **Validate**: `node tools/validate-urdu.js` (or `node tools/validate-urdu.js ch5 ch6`). Checks: 100 questions, 4 options, `ans`
+  inside options, no duplicate options/questions, non-empty reasons, bad characters, "all/none of the above". It also prints
+  warnings for near-identical stems (expected for identification questions that share a template) and identical option sets.
+* **Regenerate**: `cd tools/urdu-builder && for n in 5 6 7 8 9 10 11 12; do python3 build_ch$n.py; done`, then
+  `node tools/build-manifest.js`. Sources: `chN_a.py` / `chN_b.py` per topic; `lib.py` writes the JS files.
+* **Repeated stems**: in ch9/ch11/ch12 some questions ("which pair is antonym/synonym?", "which word is odd?") reuse a stem with different
+  options and a different answer. The validator reports these as a note; it only fails when stem AND options are identical.
+* **Not visually verified**: the Nastaliq font itself (no internet where this was built). Layout, direction, numbering, resume and
+  results were tested in headless Chromium with a fallback font.

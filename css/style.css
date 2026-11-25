@@ -392,3 +392,59 @@ button:disabled{
   font-size:15px;
   border-radius:8px;
 }
+
+
+/* =========================================================
+   URDU QUIZZES ONLY (subject = "Urdu")
+   JS adds the class "urdu" to #quizBox, #categorySelect and a few
+   labels; every other subject is untouched by these rules.
+   ========================================================= */
+:root{
+  --urdu-font: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Noto Naskh Arabic", serif;
+}
+#quizBox.urdu{
+  max-width:640px;
+}
+#quizBox.urdu #question{
+  direction:rtl;
+  text-align:right;
+  font-family:var(--urdu-font);
+  font-size:20px;
+  font-weight:normal;
+  line-height:2.2;
+}
+#quizBox.urdu .option{
+  direction:rtl;
+  text-align:right;
+  font-family:var(--urdu-font);
+  font-size:18px;
+  line-height:2.2;
+  max-width:none;
+  width:92%;
+  box-sizing:border-box;
+}
+#quizBox.urdu .reason-box{
+  direction:rtl;
+  text-align:right;
+  font-family:var(--urdu-font);
+  font-size:16px;
+  line-height:2.2;
+}
+#quizBox.urdu .qnum{
+  direction:ltr;
+  unicode-bidi:isolate;
+  display:inline-block;
+  font-family:Arial, sans-serif;
+  font-size:16px;
+  margin-left:8px;
+}
+#categorySelect.urdu,
+#categorySelect.urdu option{
+  font-family:var(--urdu-font);
+  direction:rtl;
+  line-height:2;
+}
+.urdu-text{
+  font-family:var(--urdu-font);
+  line-height:2;
+}

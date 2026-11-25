@@ -138,6 +138,7 @@ function loadCategories() {
   const categorySelect = document.getElementById("categorySelect");
 
   categorySelect.innerHTML = '<option value="">-- Select --</option>';
+  categorySelect.classList.toggle("urdu", subject === "Urdu");   // Urdu font for the chapter labels
 
   if (!subject) {
     categoryContainer.classList.add("hidden");
@@ -297,7 +298,11 @@ function loadQuestion() {
   document.getElementById("progress").innerText =
     `Question ${index + 1} of ${total}`;
 
-  document.getElementById("question").innerHTML = `Q${index + 1}. ${q.q}`;
+  const isUrdu = currentSubject === "Urdu";
+  document.getElementById("quizBox").classList.toggle("urdu", isUrdu);   // RTL + Urdu font (CSS: #quizBox.urdu)
+  document.getElementById("question").innerHTML = isUrdu
+    ? `<span class="qnum">Q${index + 1}.</span> ${q.q}`   // number kept left-to-right inside the RTL line
+    : `Q${index + 1}. ${q.q}`;
 
   const optionsBox = document.getElementById("optionsContainer");
   optionsBox.innerHTML = "";
@@ -413,11 +418,14 @@ function nextQuestion() {
     Sound.play("wrong");
     reasonBox.style.display = "block";
     const reasonText = shuffledQuiz[index].reason;
-    reasonBox.innerHTML =
-      `<strong>Correct Answer:</strong> ${escapeHtml(correctAnswer)}` +
-      (reasonText
-        ? `<br><br><strong>Explanation:</strong><br>${reasonText}`
-        : "");
+    const urduMode = currentSubject === "Urdu";
+    reasonBox.innerHTML = urduMode
+      ? `<strong>درست جواب:</strong> ${escapeHtml(correctAnswer)}` +
+        (reasonText ? `<br><br><strong>وضاحت:</strong><br>${reasonText}` : "")
+      : `<strong>Correct Answer:</strong> ${escapeHtml(correctAnswer)}` +
+        (reasonText
+          ? `<br><br><strong>Explanation:</strong><br>${reasonText}`
+          : "");
     renderMathIn(reasonBox);
 
     document.getElementById("nextBtn").innerText = "Continue";
@@ -604,7 +612,9 @@ function showResumeOffer() {
     ? `${formatDuration(secLeft)} left`
     : "time is up - resuming will submit your result";
 
-  document.getElementById("resumeInfo").textContent =
+  const resumeInfo = document.getElementById("resumeInfo");
+  resumeInfo.classList.toggle("urdu-text", p.subject === "Urdu");
+  resumeInfo.textContent =
     `${p.subject} - ${entry.label}: ${answered} of ${p.n} questions done, ${timeText}.`;
   box.classList.remove("hidden");
 }
@@ -845,7 +855,7 @@ function renderTeacherTable() {
       <td>${escapeHtml(r.roll)}</td>
       <td>${escapeHtml(r.class)}</td>
       <td>${escapeHtml(r.subject)}</td>
-      <td>${escapeHtml(r.categoryLabel)}</td>
+      <td${r.subject === "Urdu" ? ' dir="auto" class="urdu-text"' : ""}>${escapeHtml(r.categoryLabel)}</td>
       <td>${escapeHtml(r.correct)}/${escapeHtml(r.consideredTotal)} (of ${escapeHtml(r.totalQuestions)})</td>
       <td>${escapeHtml(r.wrong)}</td>
       <td>${escapeHtml(r.skipped)}</td>

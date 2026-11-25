@@ -15,7 +15,7 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const DATA = path.join(ROOT, "data");
 const SUBJECT_ORDER = ["Math", "Physics", "Chemistry", "Biology",
-                       "Computer", "Islamiyat", "PakStudy", "English"];
+                       "Computer", "Islamiyat", "PakStudy", "English", "Urdu"];
 const CLASS_ORDER = ["9th", "10th", "11th", "12th"];
 
 function walk(dir) {

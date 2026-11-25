@@ -16,7 +16,7 @@
 // {
 //   class:   "9th" | "10th" | "11th" | "12th",
 //   subject: "Math" | "Physics" | "Chemistry" | "Biology" |
-//            "Computer" | "Islamiyat" | "PakStudy" | "English",
+//            "Computer" | "Islamiyat" | "PakStudy" | "English" | "Urdu",
 //   type:    "chapter" | "pastpaper" | "set",
 //   id:      unique string within (class, subject), e.g. "ch1" or "2024",
 //   label:   text shown in the dropdown, e.g. "Chapter 1: Real Numbers"
@@ -32,7 +32,7 @@ const QuizBank = (function () {
 
   // Order subjects appear in the dropdown (unknown ones go last, A-Z).
   const SUBJECT_ORDER = ["Math", "Physics", "Chemistry", "Biology",
-                         "Computer", "Islamiyat", "PakStudy", "English"];
+                         "Computer", "Islamiyat", "PakStudy", "English", "Urdu"];
 
   function findEntry(className, subject, id) {
     return bank.find(

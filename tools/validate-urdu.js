@@ -6,6 +6,7 @@ const path = require("path");
 const DIR = path.join(__dirname, "..", "data", "urdu", "11th");
 const want = process.argv.slice(2);
 const EXPECT = 100;
+const EXPECT_BY_ID = { ch2: 65, ch3: 87, ch4: 55, ch13: 58 };   // ch3 (poetic forms) has only 89 non-repeating questions on purpose
 
 // characters that must not appear (Arabic variants / presentation forms / ASCII punctuation in Urdu text)
 const BAD = [
@@ -42,7 +43,8 @@ fs.readdirSync(DIR).filter(f => f.endsWith(".js")).sort((a, b) =>
   const e = found[0], qs = e.questions();
   if (e.class !== "11th" || e.subject !== "Urdu" || e.type !== "chapter" || e.id !== id) problems.push("bad registry fields");
   if (!/^[\u0600-\u06FF].*\(E-\d\d\)$|^[\u0600-\u06FF ]+$/.test(e.label)) problems.push("label format: " + e.label);
-  if (qs.length !== EXPECT) problems.push(`count ${qs.length} (expected ${EXPECT})`);
+  const want_n = EXPECT_BY_ID[id] || EXPECT;
+  if (qs.length !== want_n) problems.push(`count ${qs.length} (expected ${want_n})`);
   const seenQ = new Map(), wordSets = [], repeatedStems = [];
   let optDup = 0, ansBad = 0, reasonBad = 0, optCount = 0, charBad = 0, forb = 0, abc = 0;
   qs.forEach((q, i) => {
